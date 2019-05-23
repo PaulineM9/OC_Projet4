@@ -1,0 +1,384 @@
+/* PROJET 4 OC: BLOG DE JEAN FORTEROCHE */
+/* Reset CSS */ /* permet de supprimer toutes les données pré-définies en CSS et HTML */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+/*----- ELEMENTS FOR ALL PAGES -----*/
+
+/*----- HEADER ------*/
+.index_header {
+	position: fixed;
+	z-index: 0;
+	display: flex;
+	background-color: #545454;
+	width: 100%;
+	height: 50px;
+	padding-left: 1080px;
+	padding-top: 17px;
+	color: white;
+}
+.index_header h1 {
+	font-family: 'poiret one', cursive;
+	font-weight: bold;
+	color: white;
+}
+.index_header h2 {
+	padding-left: 20px;
+	font-family: 'poiret one', cursive;
+	font-weight: bold;
+	color: white;
+}
+.index_header h3 {
+	padding-left: 18px;
+}
+.index_header a {
+	padding-left: 20px;
+	font-family: 'poiret one', cursive;
+	font-weight: bold;
+}
+.index_header a:hover,
+.index_header h1:hover,
+.index_header h2:hover {
+	color: lightblue;
+}
+
+/*----- FOOTER -----*/
+.footer {
+	display: flex;
+	flex-direction: column;
+	background-color: lightslategrey;
+	font-family: 'poiret one', cursive;
+	color: white;
+}
+.footer_infos {
+	display: flex;
+	flex-direction: row;
+}
+.contact {
+	display: flex;
+	flex-direction: column;
+	font-weight: bold;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-bottom: 5px;
+}
+.footer_icone {
+	padding-top: 12px;
+}
+.footer_icone img {
+	padding-left: 80px;	
+	height: 50px;
+	width: 130px;
+}
+.contact h1 {
+	font-size: 1.5em;
+}
+.contact p,
+.contact a {
+	font-size: 1.2em;
+	padding-top: 3px;
+}
+.social_media {
+	padding-top: 40px;
+	padding-left: 750px;
+}
+.icone_f,
+.icone_t,
+.icone_i {
+	height: 40px;
+	width: 40px;
+}
+.copyright {
+	padding: 10px 40px;
+	text-align: center;	
+}
+
+/*----- INDEX.PHP PAGE -----*/
+.index_title  {
+	display: flex;
+	flex-direction: column;
+	background-image: url("images/train-668964_1920.jpg");
+	background-size: cover;
+	text-align: center;
+	height: 780px;
+}
+.index_title h1 {
+	font-family: 'poiret one', cursive;
+	font-weight: bold;
+	font-size: 4em;
+	padding-top: 100px;
+}
+.index_title h2 {
+	font-family: 'poiret one', cursive;
+	font-size: 3em;
+	font-weight: bold;
+	padding-top: 50px;
+	padding-left: 300px;
+}
+.index_title h3 {
+	font-family: 'poiret one', cursive;
+	font-size: 2em;
+	padding-top: 10px;
+	padding-left: 300px;
+}
+.index_chapters {
+	display: flex;
+	flex-direction: column;
+	font-family: 'poiret one', cursive;
+	font-weight: bold;
+}
+.scroll_black {
+	margin: 0 auto;
+	height: 7%;
+	width: 4%;
+	margin-top: 400px;
+}
+
+/*----- CHAPITRES.PHP PAGE -----*/
+.chapters_header {
+	background-image: url("images/alaska-2964658_1920.jpg");
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	font-family: 'poiret one', cursive;
+	padding-top: 50px;
+	height: 780px;
+}
+.chapters_header h1,
+.chapters_header h2 {
+	color: white;
+}
+.chapters_header h1 {
+	font-size: 3em;
+	font-weight: bold;
+	margin: 0 auto;
+	padding-top: 50px;
+}
+.chapters_header h2 {
+	font-size: 2em;
+	margin: 0 auto;
+	padding-top: 20px;
+}
+.scroll_white_chapters {
+	margin: 0 auto;
+	height: 7%;
+	width: 4%;
+	margin-top: 485px;
+}
+.edit_chapters {
+	display: flex;
+	flex-direction: column;
+	padding-top: 30px;
+	font-family: 'poiret one', cursive;
+}
+.edit_chapters hr {	
+	margin-left: 0px;
+	width: 50%;
+	height: 2px;
+	background-color: #ffc226;
+	border: none; /*on supprime le style par défaut*/	 
+}
+.comment {
+	font-family: 'poiret one', cursive;
+}
+.comments_publication {
+	font-weight: bold;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.comments h4 {
+	font-size: 1.4em;
+	padding-top: 20px;
+	padding-left: 72px;
+}
+.comment_published {
+	padding-bottom: 15px;
+}
+.comments_form {
+	padding-top: 30px;
+}
+.id_chapters,
+.pseudo,
+.comment {
+	font-family: 'poiret one', cursive;
+	margin-left: 72px;
+	margin-bottom: 20px;
+	width: 50%;
+	color: #ffc226;
+}
+.submit {
+	margin-left: 72px;
+	margin-bottom: 20px;
+}
+
+/*----- ELEMENTS FOR PAGES CHAPITRES.PHP + ADMIN.PHP -----*/
+.chapters_published {
+	padding: 20px 10px;
+	margin: 10px auto; 
+	border: 2px solid lightgrey;
+	border-radius: 3px 3px 3px 3px;
+	width: 90%;	
+}
+.chapters_published h3 {
+	font-weight: bold;
+	font-size: 1.3em;
+	color: black;
+}
+.chapters_published p {
+	margin-bottom: 15px;
+}
+
+/*----- ADMIN.PHP PAGE -----*/
+.admin_chapters h1,
+.admin_comments h1 {
+	font-family: 'poiret one', cursive; 
+	font-size: 2.2em;
+	font-weight: bold;
+	color: #545454;
+	margin: 0 auto;
+	padding-left: 72px;
+	padding-bottom: 20px;
+	padding-top: 70px;
+}
+.admin_chapters form {
+	padding-top: 50px;
+}
+.number_chapter,
+.title,
+.chapter {
+	margin-left: 72px;
+	margin-bottom: 20px;
+	width: 50%;
+	color: #ffc226;
+	font-family: 'poiret one', cursive;
+}
+.submit {
+	margin-left: 72px;
+	margin-bottom: 20px;
+}
+.deconnexion h4 {
+	font-family: 'poiret one', cursive;
+	padding-left: 72px;
+	margin-bottom: 20px;
+}
+.show_all_comments {
+	display: flex; 
+	flex-direction: column;
+	font-family: 'poiret one', cursive;
+	padding-left: 72px;
+	padding-bottom: 30px;
+}
+.show_comment {
+	padding-bottom: 10px;
+}
+.inser_comment {
+	margin-left: 30px;;
+	width: 5%;
+	height: 2px;
+	background-color: #ffc226;
+	border: none; /*on supprime le style par défaut*/
+}
+
+/*----- CONNEXION PAGE -----*/
+.connexion_header {
+	background-image: url('images/landscape-1622739_1920.jpg');
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	font-family: 'poiret one', cursive;
+	padding-top: 50px;
+	height: 535px;
+	color: white;
+}
+.connexion_header h1 {
+	font-size: 3em;
+	font-weight: bold;
+	margin: 0 auto;
+	padding-top: 50px;
+}
+.connexion_header h2 {
+	font-size: 2em;
+	margin: 0 auto;
+	padding-top: 20px;
+}
+.connexion_header h3 {
+	font-size: 1.8em;
+	margin: 0 auto;
+	padding-top: 90px;
+}
+.connexion_container {
+	display: flex;
+}
+.connexion_form {
+	padding: 20px 0px;
+	margin: 0 auto;
+}
+.identifiant,
+.password {
+	margin-left: 26px;
+	margin-bottom: 5px;
+	width: 80%;
+	color: #ffc226;
+	font-family: 'poiret one', cursive;
+}
+.connexion {
+	margin-left: 52px;
+	margin-bottom: 5px;
+}
+.scroll_white_connexion {
+	margin: 0 auto;
+	height: 9%;
+	width: 4%;
+	margin-top: 150px;
+}
+
+
+
+
+
