@@ -10,14 +10,14 @@ catch(Exception $e)
     die('erreur : '.$e->getMessage());
 } 
 // recover all informations about chapters 
-$id = (int) $_GET["id"]; // permet de changer la chaine en integer et de la stocker dans une variable
+$id = (int) $_GET['id']; // permet de changer la chaine en integer et de la stocker dans une variable
 $req = $db->prepare('SELECT * FROM chapters WHERE id = ?');
 $req->execute(array($id));
 $article = $req->fetch();
 // var_dump($article);
-// recover all informations about new comments for every chapters
-// var_dump($_POST);
 
+// recover all comments about comments
+// var_dump($_POST);
 if (!empty($_POST)) // condition pour s'assurer que $_POST n'est pas vide
     {   
         $req = $db->prepare('INSERT INTO comments ( id_chapter, pseudo, comment, date_comment) VALUES (?, ?, ?, NOW())');

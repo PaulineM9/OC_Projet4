@@ -13,10 +13,10 @@ catch(Exception $e)
 // recover all informations about new chapters 
 if (!empty($_POST) ) // condition pour s'assurer que $_POST n'est pas vide
     {   
-        $req = $db->prepare('INSERT INTO chapters (number_chapter, title, chapter) VALUES (?, ?, ?)');
-        $req->execute(array($_POST['number_chapter'], $_POST['title'], $_POST['chapter']));
-        header('Location: admin.php'); 
-        exit(); 
+        $req = $db->prepare('INSERT INTO chapters (title, content) VALUES ( ?, ?)');
+        $req->execute(array($_POST['title'], $_POST['content']));
+        // header('Location: admin.php'); 
+        // exit(); 
     }
 $req = $db->prepare('SELECT * FROM chapters ORDER BY id DESC');
 $req->execute();
@@ -74,19 +74,17 @@ $req_2->execute();
         <section class="admin_chapters">
             <h1>Ecrire un nouveau chapitre</h1>
             <form class="chapter_form" action="admin.php" method="post">
-                <input class="number_chapter" type="text" name="number_chapter" placeholder="Numéro du chapitre" id="number_chapter"><br/>
                 <input class="title" type="text" name="title" placeholder="Titre du chapitre" id="title"><br/>
-                <textarea class="chapter" name="chapter" placeholder="Votre texte" id="chapter" cols="30" rows="10"></textarea><br/>
+                <textarea class="chapter" name="content" placeholder="Votre texte" id="content" cols="30" rows="10"></textarea><br/>
                 <input class="submit" type="submit" name="published" placeholder="Publier" id="published"><br/> 
             </form>    
         </section>
         <section class="edit_chapters">             
             <?php while ($chapters = $req->fetch()){ ?>
                 <div class="chapters_published">
-                    <h2>Chapitre <?= htmlspecialchars($chapters['number_chapter']) ?></h2><br/>
                     <h3><?= htmlspecialchars($chapters['title']) ?></h3><br/>
-                    <p><?= htmlspecialchars($chapters['chapter']) ?></p>
-                    <a href="update.php?id=<?= $chapters['id'] ?>&amp;title=<?= $chapters['title'] ?>&amp;chapter=<?= $chapters['chapter'] ?>">Modifier le texte</a>
+                    <p><?= htmlspecialchars($chapters['content']) ?></p>
+                    <a href="update.php?id=<?= $chapters['id'] ?>&amp;title=<?= $chapters['title'] ?>&amp;content=<?= $chapters['content'] ?>">Modifier le texte</a>
                 </div>
             <?php } ?>
         </section>
@@ -94,7 +92,6 @@ $req_2->execute();
             <h1>Gérer les commentaires</h1>
              <div class="show_all_comments">
                 <?php while ($comments = $req_2->fetch()){ ?>
-                    <p>Chapitre <?= htmlspecialchars($comments['id_chapters']) ?>:<p><br/>
                     <p>[ <?= htmlspecialchars($comments['date_comment']) ?> ] Par <?= htmlspecialchars($comments['pseudo']) ?>: </p><br/>
                     <p class="show_comment"><?= htmlspecialchars($comments['comment']) ?><br/>
                     <p>Supprimer ce commentaire</p>
