@@ -63,9 +63,8 @@ $req->execute();
 		<section class="index_chapters">
 			<?php while ($chapters = $req->fetch()){ ?>
                 <div class="chapters_published">
-                    <h2>Chapitre <?= htmlspecialchars($chapters['number_chapter']) ?></h2><br/>
 					<h3><?= htmlspecialchars($chapters['title']) ?></h3><br/>
-					<a href="chapitres.php?id=<?= $chapters['id'] ?>&amp;number_chapter=<?= $chapters['number_chapter'] ?>&amp;title=<?= $chapters['title'] ?>&amp;chapter=<?= $chapters['chapter'] ?>">Lire</a>
+					<a href="chapitres.php?id=<?= $chapters['id'] ?>">Lire</a>
                 </div>
             <?php } ?>
 		</section>

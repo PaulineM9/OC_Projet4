@@ -9,21 +9,30 @@ catch(Exception $e)
 {
     die('erreur : '.$e->getMessage());
 } 
-// recover all informations about chapters
-// $req = $db->prepare('SELECT * FROM chapters ORDER BY id DESC');
-// $req->execute();
-
+// recover all informations about chapters 
+$id = (int) $_GET["id"]; // permet de changer la chaine en integer et de la stocker dans une variable
+$req = $db->prepare('SELECT * FROM chapters WHERE id = ?');
+$req->execute(array($id));
+$article = $req->fetch();
+// var_dump($article);
 // recover all informations about new comments for every chapters
 // var_dump($_POST);
+
 if (!empty($_POST)) // condition pour s'assurer que $_POST n'est pas vide
     {   
         $req = $db->prepare('INSERT INTO comments ( id_chapter, pseudo, comment, date_comment) VALUES (?, ?, ?, NOW())');
-        $req->execute(array($_POST['id_chapter'], $_POST['pseudo'], $_POST['comment']));
-        header('Location: chapitres.php'); 
+        $req->execute(array(
+            $_GET['id'], 
+            $_POST['pseudo'], 
+            $_POST['comment']
+        )); 
+        header('Location: chapitres.php');  
         exit(); 
     }
-$req = $db->prepare('SELECT pseudo, comment, date_comment, DATE_FORMAT (date_comment, "%d/%m/%Y à %Hh%imin%ss") AS date_creation_comment FROM comments ORDER BY date_comment DESC LIMIT 0, 5');
-$req->execute();
+$req = $db->prepare('SELECT pseudo, comment, date_comment, DATE_FORMAT (date_comment, "%d/%m/%Y à %Hh%imin%ss") AS date_creation_comment FROM comments WHERE id_chapter= ? ORDER BY date_comment DESC LIMIT 0, 5');
+$req->execute(array(
+    $_GET['id']
+));
 ?>
 
 <!DOCTYPE html>
@@ -73,10 +82,9 @@ $req->execute();
             <img class="scroll_white_chapters" src="images/icons8-scroll-down-wht.png" alt="icone_scroll" />
         </section>
         <section class="edit_chapters">      
-                <div class="chapters_published">
-                    <h2>Chapitre <?= $_GET['number_chapter'] ?></h2><br/>
-                    <h3><?= $_GET['title'] ?></h3><br/>
-                    <p><?= $_GET['chapter'] ?></p><br/>
+                <div class="chapters_published">                   
+                    <h3><?= $article['title'] ?></h3><br/>
+                    <p><?= $article['content'] ?></p><br/>
                     <hr>
                     <p class="comments_publication">Commentaires:</p>
                     <?php while ($comments = $req->fetch()){ ?>
@@ -86,7 +94,7 @@ $req->execute();
                 </div>
             <div class="comments">
                 <h4>Laissez-moi vos commentaires</h4>
-                <form class="comments_form" action="chapitres.php" method="post">
+                <form class="comments_form" action="chapitres.php?id=<?= $_GET['id'] ?>" method="post">
                     <input class="pseudo" type="text" name="pseudo" placeholder="Pseudo" id="pseudo"><br/>
                     <textarea class="comment" name="comment" placeholder="Votre commentaire" id="comment" cols="30" rows="10"></textarea><br/>
                     <input class="submit" type="submit" name="submit" placeholder="Envoyer" id="submit"><br/>
