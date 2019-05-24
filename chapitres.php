@@ -18,7 +18,7 @@ $article = $req->fetch();
 
 // recover all comments about comments
 // var_dump($_POST);
-if (!empty($_POST)) // condition pour s'assurer que $_POST n'est pas vide
+if (isset($_POST['pseudo']) AND isset($_POST['comment']) AND !empty($_POST)) // condition pour s'assurer que $_POST n'est pas vide
     {   
         $req = $db->prepare('INSERT INTO comments ( id_chapter, pseudo, comment, date_comment) VALUES (?, ?, ?, NOW())');
         $req->execute(array(

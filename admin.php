@@ -11,7 +11,7 @@ catch(Exception $e)
 } 
 //var_dump($_POST); // permet de vérifier que le post contient des infos
 // recover all informations about new chapters 
-if (!empty($_POST) ) // condition pour s'assurer que $_POST n'est pas vide
+if (isset($_POST['title']) AND isset($_POST['content']) AND !empty($_POST) ) // condition pour s'assurer que $_POST n'est pas vide
     {   
         $req = $db->prepare('INSERT INTO chapters (title, content) VALUES ( ?, ?)');
         $req->execute(array($_POST['title'], $_POST['content']));
