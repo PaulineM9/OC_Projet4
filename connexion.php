@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <?php include("head.php") ?>
+    <?php include("head.php"); ?>
     </head>
     <body>
         <header class="index_header">
-            <?php include("header.php") ?>
+            <?php include("header.php"); ?>
 		</header>
         <section class="connexion_header">
             <h1>Billet simple pour l'Alaska</h1>
@@ -24,6 +24,6 @@
     </body>
 
     <footer class="footer">
-		<?php include("footer.php") ?>
+		<?php include("footer.php"); ?>
 	</footer>
 </html>

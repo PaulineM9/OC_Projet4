@@ -38,11 +38,11 @@ $req->execute(array(
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-    <?php include("head.php") ?>
+    <?php include("head.php"); ?>
     </head>
     <body>
         <header class="index_header">
-            <?php include("header.php") ?>
+            <?php include("header.php"); ?>
         </header>
         <section class="chapters_header">
             <h1>Billet simple pour l'Alaska</h1>
@@ -73,6 +73,6 @@ $req->execute(array(
         </section>
     </body> 
     <footer class="footer">
-		<?php include("footer.php") ?>
+		<?php include("footer.php"); ?>
 	</footer>
 </html>
