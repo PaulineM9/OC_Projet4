@@ -16,9 +16,9 @@ $req->execute(array($id));
 $article = $req->fetch();
 // var_dump($article);
 
-// recover all comments about comments
+// create a comment
 // var_dump($_POST);
-if (isset($_POST['pseudo']) AND isset($_POST['comment']) AND !empty($_POST)) // condition pour s'assurer que $_POST n'est pas vide
+if (isset($_POST['pseudo']) && isset($_POST['comment']) && !empty($_POST['pseudo']) && !empty($_POST['comment'])) // condition pour s'assurer que $_POST n'est pas vide
     {   
         $req = $db->prepare('INSERT INTO comments ( id_chapter, pseudo, comment, date_comment) VALUES (?, ?, ?, NOW())');
         $req->execute(array(
@@ -29,6 +29,8 @@ if (isset($_POST['pseudo']) AND isset($_POST['comment']) AND !empty($_POST)) // 
         header('Location: chapitres.php');  
         exit(); 
     }
+
+// recover all comments about a chapter clicked 
 $req = $db->prepare('SELECT pseudo, comment, date_comment, DATE_FORMAT (date_comment, "%d/%m/%Y à %Hh%imin%ss") AS date_creation_comment FROM comments WHERE id_chapter= ? ORDER BY date_comment DESC LIMIT 0, 5');
 $req->execute(array(
     $_GET['id']
