@@ -26,7 +26,7 @@ if (isset($_POST['pseudo']) && isset($_POST['comment']) && !empty($_POST['pseudo
             $_POST['pseudo'], 
             $_POST['comment']
         )); 
-        header('Location: chapitres.php');  
+        header('Location: chapitres.php?id='.$_GET['id']);  
         exit(); 
     }
 
