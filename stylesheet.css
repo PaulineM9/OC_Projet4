@@ -256,6 +256,11 @@ html, body {
 	margin-left: 72px;
 	margin-bottom: 20px;
 }
+.comments p {
+	font-family: 'poiret one', cursive;
+	margin-left: 72px;
+	margin-bottom: 20px;
+}
 
 /*----- ELEMENTS FOR PAGES CHAPITRES.PHP + ADMIN.PHP -----*/
 .chapters_published {
@@ -275,8 +280,13 @@ html, body {
 }
 
 /*----- ADMIN.PHP PAGE -----*/
+.header_admin {
+	padding-top: 80px;
+	border-bottom: 2px solid #ffc226;
+}
 .admin_chapters h1,
-.admin_comments h1 {
+.admin_comments h1,
+.header_admin {
 	font-family: 'poiret one', cursive; 
 	font-size: 2.2em;
 	font-weight: bold;

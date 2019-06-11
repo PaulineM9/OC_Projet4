@@ -69,8 +69,7 @@ $req->execute(array(
                     <textarea class="comment" name="comment" placeholder="Votre commentaire" id="comment" cols="30" rows="10"></textarea><br/>
                     <input class="submit" type="submit" name="submit" placeholder="Envoyer" id="submit"><br/>
                 </form>
-            </div>
-            <div class="comments_comments">
+                <p>Cliquez sur le drapeau rouge pour signaler un commentaire</p>
             </div>
         </section>
     </body> 

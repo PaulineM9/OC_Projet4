@@ -15,9 +15,9 @@
         </section>
 
         <section class="connexion_container">
-            <form class="connexion_form" action="connexion.php" method="post">
+            <form class="connexion_form" action="secret_connexion.php" method="post">
                 <input class="identifiant" type="text" name="identifiant" placeholder="Identifiant" id="identifiant"><br/>
-                <input class="password" type="password" name="motdepasse" placeholder="motdepasse" id="password"><br/>
+                <input class="password" type="password" name="password" placeholder="motdepasse" id="password"><br/>
                 <input class="connexion" type="submit" name="connexion" placeholder="Connexion" id="connexion"><br/>
             </form>
         </section>

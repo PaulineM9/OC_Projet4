@@ -15,8 +15,8 @@ if (isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['title']
     {   
         $req = $db->prepare('INSERT INTO chapters (title, content) VALUES ( ?, ?)');
         $req->execute(array($_POST['title'], $_POST['content']));
-        // header('Location: admin.php'); 
-        // exit(); 
+        header('Location: admin.php'); 
+        exit(); 
     }
 $req = $db->prepare('SELECT * FROM chapters ORDER BY id DESC');
 $req->execute();
@@ -34,7 +34,8 @@ $req_2->execute();
 
     <body>
         <header class="index_header">
-            <?php include("header.php"); ?>
+            <a href="index.php"><h1>Accueil</h1></a>
+            <a href="connexion.php"><h3>Déconnexion<h3></a> 
         </header>
         <section class="header_admin">
             <h1>Bonjour Jean, bienvenue dans votre espace personnel</h1>
