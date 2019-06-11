@@ -9,6 +9,8 @@
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet"> 
 
+<!-- Fontawesome Icones -->
+<script src="https://kit.fontawesome.com/504cd5157f.js"></script>
 <!-- Twitter Card data -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@PaulineM9">

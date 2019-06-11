@@ -256,10 +256,13 @@ html, body {
 	margin-left: 72px;
 	margin-bottom: 20px;
 }
-.comments p {
+.edit_chapters p {
 	font-family: 'poiret one', cursive;
 	margin-left: 72px;
 	margin-bottom: 20px;
+}
+.fa-font-awesome-flag {
+	color: red;
 }
 
 /*----- ELEMENTS FOR PAGES CHAPITRES.PHP + ADMIN.PHP -----*/
@@ -333,6 +336,12 @@ html, body {
 	height: 2px;
 	background-color: #ffc226;
 	border: none; /*on supprime le style par défaut*/
+}
+.fa-check-double {
+	color: green;
+}
+.fa-times {
+	color: red;
 }
 
 /*----- CONNEXION PAGE -----*/

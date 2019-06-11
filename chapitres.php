@@ -56,9 +56,10 @@ $req->execute(array(
                     <h3><?= $article['title'] ?></h3><br/>
                     <p><?= $article['content'] ?></p><br/>
                     <hr>
-                    <p class="comments_publication">Commentaires:</p>
+                    <p class="comments_publication">Commentaires: (cliquez sur le drapeau pour signaler un commentaire)</p>
+                    
                     <?php while ($comments = $req->fetch()){ ?> <!-- tant que la variable qui contient les données les récupère on affiche... -->
-                        <p>[ <?= htmlspecialchars($comments['date_comment']) ?> ] Par <?= htmlspecialchars($comments['pseudo']) ?>: </p><br/>
+                        <p>[ <?= htmlspecialchars($comments['date_comment']) ?> <i class="fab fa-font-awesome-flag"></i> ] Par <?= htmlspecialchars($comments['pseudo']) ?>: </p><br/>
                         <p class="comment_published"><?= htmlspecialchars($comments['comment']) ?>
                     <?php } ?>  
                 </div>
@@ -69,7 +70,7 @@ $req->execute(array(
                     <textarea class="comment" name="comment" placeholder="Votre commentaire" id="comment" cols="30" rows="10"></textarea><br/>
                     <input class="submit" type="submit" name="submit" placeholder="Envoyer" id="submit"><br/>
                 </form>
-                <p>Cliquez sur le drapeau rouge pour signaler un commentaire</p>
+                
             </div>
         </section>
     </body> 
