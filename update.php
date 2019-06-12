@@ -19,13 +19,13 @@ $req->execute([
 $chapter = $req->fetch();
 var_dump($chapter)
 
-/*$req = $db->prepare('UPDATE chapters SET  title= "nvtitle", content= "nvcontent" WHERE id= "id" ');
-$req->execute([
+/*$req_modif = $db->prepare('UPDATE chapters SET  title= "nvtitle", content= "nvcontent" WHERE id= "id" ');
+$req_modif->execute([
     'nvtitle' => $_GET['title'],
     'nvcontent' => $_GET['content'],
     'id' => $_GET['id']
 ]);
-$req->execute();*/
+$req_modif->execute();*/
 ?>
 
 <!DOCTYPE html>
