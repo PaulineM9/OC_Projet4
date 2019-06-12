@@ -9,7 +9,7 @@ catch(Exception $e)
 {
     die('erreur : '.$e->getMessage());
 } 
-// recover all informations about chapters 
+// get all informations about chapters 
 $id = (int) $_GET['id']; // permet de changer la chaine en entier (integer) et de la stocker dans une variable
 $req = $db->prepare('SELECT * FROM chapters WHERE id = ?');
 $req->execute(array($id));
@@ -30,7 +30,7 @@ if (isset($_POST['pseudo']) && isset($_POST['comment']) && !empty($_POST['pseudo
         exit(); 
     }
 
-// recover all comments about a chapter clicked 
+// get all comments about a chapter clicked 
 $req = $db->prepare('SELECT pseudo, comment, date_comment, DATE_FORMAT (date_comment, "%d/%m/%Y à %Hh%imin%ss") AS date_creation_comment FROM comments WHERE id_chapter= ? ORDER BY date_comment DESC LIMIT 0, 5');
 $req->execute(array(
     $id

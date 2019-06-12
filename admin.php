@@ -10,7 +10,7 @@ catch(Exception $e)
     die('erreur : '.$e->getMessage());
 } 
 //var_dump($_POST); // permet de vérifier que le post contient des infos
-// recover all informations about new chapters 
+// get all informations about new chapters 
 if (isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['title']) && !empty($_POST['content'])) // condition pour s'assurer que $_POST n'est pas vide
     {   
         $req = $db->prepare('INSERT INTO chapters (title, content) VALUES ( ?, ?)');
@@ -21,7 +21,7 @@ if (isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['title']
 $req = $db->prepare('SELECT * FROM chapters ORDER BY id DESC');
 $req->execute();
 
-//recover all comments
+// get all comments
 $req_2 = $db->prepare('SELECT id_chapter, pseudo, comment, date_comment, DATE_FORMAT (date_comment, "%d/%m/%Y à %Hh%imin%ss") AS date_creation_comment FROM comments ORDER BY date_comment DESC');
 $req_2->execute();
 ?>
