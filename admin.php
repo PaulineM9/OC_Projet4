@@ -69,7 +69,6 @@ $req_2->execute();
                 <?php while ($comments = $req_2->fetch()){ ?>
                     <p>[ <?= htmlspecialchars($comments['date_comment']) ?> ] Par <?= htmlspecialchars($comments['pseudo']) ?>: <i class="fas fa-check-double"></i> <i class="fas fa-times"></i></p><br/>
                     <p class="show_comment"><?= htmlspecialchars($comments['comment']) ?><br/>
-                    <p>Supprimer ce commentaire</p>
                     <hr class="inser_comment">
                 <?php } ?>
             </div>

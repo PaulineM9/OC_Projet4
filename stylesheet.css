@@ -348,7 +348,7 @@ outline:0;
 	color: red;
 }
 
-/*----- CONNEXION PAGE & CONNEXION ERROR -----*/
+/*----- CONNEXION PAGE -----*/
 .connexion_header {
 	background-image: url('images/landscape-1622739_1920.jpg');
 	background-size: cover;
@@ -381,19 +381,13 @@ outline:0;
 }
 .connexion_container p {
 	font-family: 'poiret one', cursive;
-	font-size: 1.3em;
 	color: coral;
-	margin: 0 auto;
-	padding: 28px 0;
-}
-.connexion_container a {
-	font-family: 'poiret one', cursive;
 	font-size: 1.3em;
 	margin: 0 auto;
-	padding: 10px 0;
+	padding: 5px 0px; 
 }
 .connexion_form {
-	padding: 20px 0px;
+	padding: 8px 0px;
 	margin: 0 auto;
 }
 .identifiant,
@@ -406,7 +400,6 @@ outline:0;
 }
 .connexion {
 	margin-left: 52px;
-	margin-bottom: 5px;
 }
 .scroll_white_connexion {
 	margin: 0 auto;

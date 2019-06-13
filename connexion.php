@@ -57,7 +57,7 @@ if (!empty($_POST))
         </section>
 
         <section class="connexion_container">
-            <?php if (isset($messageErreur)){ echo $messageErreur; } ?>
+            <p class="error_message"><?php if (isset($messageErreur)){ echo $messageErreur; } ?></p>
             <form class="connexion_form" action="connexion.php" method="post"> 
                 <input class="identifiant" type="text" name="identifiant" placeholder="Identifiant" id="identifiant"><br/>
                 <input class="password" type="password" name="password" placeholder="motdepasse" id="password"><br/>
