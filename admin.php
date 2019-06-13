@@ -1,5 +1,11 @@
 <!-- <-PROJET 4 OC: BLOG DE JEAN FORTEROCHE-> -->
 <?php
+session_start();
+if (!isset($_SESSION['user']))
+{
+    header('Location: connexion.php');
+    exit();
+}
 try
 {
     $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8', 'root', 'root',
