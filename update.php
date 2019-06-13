@@ -17,9 +17,16 @@ $req->execute([
     "content" => $_GET['content']
 ]);
 $chapter = $req->fetch();
-var_dump($chapter)
+var_dump($chapter);
 
-// $req_modif = $db->prepare('UPDATE chapters SET ')
+// add changes on a chapter
+// à mettre dans un if avec les conditions de protection des données
+$req_modif = $db->prepare('UPDATE chapters SET title= :newtitle, content= :newcontent ');
+$req_modif->execute(array(
+    'newtitle'  => $_POST['title'],
+    'newcontent' => $_POST['content']
+));
+while ($données = $req_modif->fetch());
 
 ?>
 

@@ -1,5 +1,5 @@
 /* PROJET 4 OC: BLOG DE JEAN FORTEROCHE */
-/* Reset CSS */ /* permet de supprimer toutes les données pré-définies en CSS et HTML */
+/* Reset CSS */ 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -48,6 +48,10 @@ html, body {
 	margin: 0;
 	padding: 0;
 }
+a:focus
+{
+outline:0;
+} 
 
 /*----- ELEMENTS FOR ALL PAGES -----*/
 
