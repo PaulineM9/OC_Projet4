@@ -344,7 +344,7 @@ html, body {
 	color: red;
 }
 
-/*----- CONNEXION PAGE -----*/
+/*----- CONNEXION PAGE & CONNEXION ERROR -----*/
 .connexion_header {
 	background-image: url('images/landscape-1622739_1920.jpg');
 	background-size: cover;
@@ -373,6 +373,20 @@ html, body {
 }
 .connexion_container {
 	display: flex;
+	flex-direction: column;	
+}
+.connexion_container p {
+	font-family: 'poiret one', cursive;
+	font-size: 1.3em;
+	color: coral;
+	margin: 0 auto;
+	padding: 28px 0;
+}
+.connexion_container a {
+	font-family: 'poiret one', cursive;
+	font-size: 1.3em;
+	margin: 0 auto;
+	padding: 10px 0;
 }
 .connexion_form {
 	padding: 20px 0px;
