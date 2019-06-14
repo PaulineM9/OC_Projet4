@@ -431,20 +431,44 @@ outline:0;
 	padding-top: 34px;
 	margin: 0 510px;
 }
+.inscription_form {
+	flex-direction: column;
+}
+.inscription_form h1 {
+	font-size: 1.3em;
+	margin: 0 auto; 
+	padding-top: 30Px;
+}
+.inscription_form p {
+	color: coral;
+	font-size: 1em;
+	margin-top: 10px;
+	text-align: center; 
+}
 .sign_in {
 	display: flex;
 	flex-direction: column;
-	position: relative;
-	top: 200px;
 	font-size: 2em;
 	margin: 0 auto; 
 	background-color: lightsteelblue;
 	border-radius: 3px;
 	padding: 40px 40px;
+	margin-top: 170px;
 }
 .sign_in input {
 	margin-bottom: 5px;
 	color: #ffc226;
+}
+.submit_admin {
+	margin-top: 15px;
+}
+#message_erreur {
+	color: rgb(207, 55, 55);
+	font-size: 1.8em;
+}
+#message_ok {
+	color: rgb(48, 202, 130);
+	font-size: 1.8em;
 }
 
 

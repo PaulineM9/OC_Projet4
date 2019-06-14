@@ -19,13 +19,14 @@ if (!empty($_POST))
         'identifiant' => $_POST['identifiant']
     ));
     $data = $req->fetch();
-    
+    $passwordCorrect = password_verify($_POST['password'], $data['password']);
+
     if ($data === false) 
     {
         $validation = false;
     } 
 
-    if ($_POST['password'] != $data['password']) 
+    if ($passwordCorrect) 
     {
         $validation = false;  
     } 
