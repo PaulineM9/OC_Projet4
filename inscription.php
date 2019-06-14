@@ -33,6 +33,8 @@ if (isset($_POST['submit']))
         }
     } 
 }
+// TODO: NE PERMETTRE QU'UNE SEULE CONNEXION ADMINISTRATEUR OU CONFIRMER L'INSCRIPTION PAR MAIL PR EVITER D'AUTRES CONNEXIONS
+
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +53,7 @@ if (isset($_POST['submit']))
                 <input class="identifiant_admin" type="text" name="identifiant" size=30 placeholder="Identifiant" id="identifiant"><br/>
                 <input class="email_admin" type="email" name="email" placeholder="Votre email" id="email"><br/>
                 <input class="password_admin" type="password" name="password" placeholder="password" id="password"><br/>
-                <input class="check_password" type="password" name="check_password" placeholder="Vérifiez votre mot de passe" id="check_password"><br/>
+                <input class="check_password" type="password" name="check_password" placeholder="Confirmation du mot de passe" id="check_password"><br/>
                 <input class="submit_admin" type="submit" name="submit" value="Inscription" id="submit"><br/>
             </form>
             <p>Le mot de passe doit contenir plus de 6 caractères, dont moins une majuscule et un caractère spécial.</p>

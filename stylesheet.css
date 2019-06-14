@@ -384,10 +384,10 @@ outline:0;
 	color: coral;
 	font-size: 1.3em;
 	margin: 0 auto;
-	padding: 5px 0px; 
+	padding-top: 5px;
 }
 .connexion_form {
-	padding: 8px 0px;
+	padding: 10px 0px;
 	margin: 0 auto;
 }
 .identifiant,
