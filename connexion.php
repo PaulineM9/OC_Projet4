@@ -10,6 +10,8 @@ catch(Exception $e)
 {
     die('erreur : '.$e->getMessage());
 } 
+
+// get connexion to the administration space
 if (!empty($_POST))
 {
     $validation = true;

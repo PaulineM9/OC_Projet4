@@ -10,6 +10,7 @@ catch(Exception $e)
     die('erreur : '.$e->getMessage());
 } 
 
+// get inscription for administration
 if (isset($_POST['submit']))
 {
     $identifiantAdmin = htmlspecialchars($_POST['identifiant']);
