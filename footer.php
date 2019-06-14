@@ -14,5 +14,5 @@
     </div>
 </div>
 <div class="copyright">
-    <p>Copyright. Tous droits réservés Jean Forteroche / Projet d'étude OpenclassRooms / Création Super!</p>
+    <p>Copyright. Tous droits réservés Jean Forteroche 2019 / Projet d'étude OpenclassRooms / Création Super!</p>
 </div>
