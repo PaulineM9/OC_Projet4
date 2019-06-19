@@ -32,7 +32,7 @@ $req->execute();
 $req_2 = $db->prepare('SELECT id_chapter, pseudo, comment, date_comment, DATE_FORMAT (date_comment, "%d/%m/%Y à %Hh%imin%ss") AS date_creation_comment FROM comments ORDER BY date_comment DESC');
 $req_2->execute();
 
-// deconnexion from the administration space
+// TODO: deconnexion from the administration space
 
 ?>
 
@@ -78,7 +78,6 @@ $req_2->execute();
             </div>
         </section>
         <div class="deconnexion">
-        <a href="accueil.php"><h4>Déconnexion<h4></a>
         </div>
     </body>
     <footer class="footer">
