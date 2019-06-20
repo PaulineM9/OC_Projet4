@@ -59,7 +59,7 @@ $req->execute(array(
                     <p class="comments_publication">Commentaires: (cliquez sur le drapeau pour signaler un commentaire)</p>
                     
                     <?php while ($comments = $req->fetch()){ ?> <!-- tant que la variable qui contient les données les récupère on affiche... -->
-                        <p>[ <?= htmlspecialchars($comments['date_comment']) ?> <i class="fab fa-font-awesome-flag"></i> ] Par <?= htmlspecialchars($comments['pseudo']) ?>: </p><br/>
+                        <p>[ <?= htmlspecialchars($comments['date_comment']) ?> <button type="button" value="$_POST['signaler']"><i class="fab fa-font-awesome-flag"></i></button> ] Par <?= htmlspecialchars($comments['pseudo']) ?>: </p><br/>
                         <p class="comment_published"><?= htmlspecialchars($comments['comment']) ?>
                     <?php } ?>  
                 </div>

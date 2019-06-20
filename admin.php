@@ -71,14 +71,12 @@ $req_2->execute();
             <h1>Gérer les commentaires</h1>
              <div class="show_all_comments">
                 <?php while ($comments = $req_2->fetch()){ ?>
-                    <p>[ <?= htmlspecialchars($comments['date_comment']) ?> ] Par <?= htmlspecialchars($comments['pseudo']) ?>: <i class="fas fa-check-double"></i> <i class="fas fa-times"></i></p><br/>
+                    <p>[ <?= htmlspecialchars($comments['date_comment']) ?> ] Par <?= htmlspecialchars($comments['pseudo']) ?>: <button type="button" value="$_POST['valider']"><i class="fas fa-check-double"></i></button> <button type="button" value="$_POST['supprimer']"><i class="fas fa-times"></i></button></p><br/>
                     <p class="show_comment"><?= htmlspecialchars($comments['comment']) ?><br/>
                     <hr class="inser_comment">
                 <?php } ?>
             </div>
         </section>
-        <div class="deconnexion">
-        </div>
     </body>
     <footer class="footer">
 		<?php include("footer.php"); ?>
