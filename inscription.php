@@ -11,73 +11,79 @@ catch(Exception $e)
 } 
 
 // get inscription for administration
-if (isset($_POST['submit']))
-{
-    $validation = true;
-
-    $identifiantAdmin = htmlspecialchars($_POST['identifiant']);
-    $emailAdmin = htmlspecialchars($_POST['email']);
-    $passwordAdmin = htmlspecialchars($_POST['password']);
-    $checkPassword =htmlspecialchars($_POST['check_password']);
-    $submitAdmin = htmlspecialchars($_POST['submit']);
-
-    $pass_hache = password_hash($passwordAdmin, PASSWORD_DEFAULT);
-    $pass_hacheCheck = password_hash($checkPassword, PASSWORD_DEFAULT);
-
-    $req = $db->prepare('INSERT INTO connexion (identifiant, email, password, check_password) VALUES (?,?,?,?)');
-    $data = $req->execute(array($_POST['identifiant'], $_POST['email'], $pass_hache, $pass_hacheCheck));
-
-    if ($data === false)
-    {
-        $validation = false;
-    }
-
-    if (strlen($passwordAdmin) < 6)
-    {
-        $validation = false;
-    }
-
-    if ($passwordAdmin != $checkPassword)
-    {
-        $validation = false;
-    }
-
-    // if ($data('id') > '1') // permet à un seul utilisateur de créer un compte admin
-    // {
-    //     $validation = false; 
-    // }
-
-    if (preg_match("#[A-Z]{1,}#", $passwordAdmin) && preg_match("#[\#\.\!\$\(\)\[\]\{\}\?\+\=\*\|]{1}#", $passwordAdmin) && $validation === true)
-    {
-        $acountOk = "Votre compte administrateur a été créé avec succès.";
-        header('Location: inscription.php');
-        exit();
-    } else {
-        $errorMessage = "Vérifiez que tous les champs sont bien renseignés.";
-    }
-}
 // if (isset($_POST['submit']))
 // {
+//     $validation = true;
+
 //     $identifiantAdmin = htmlspecialchars($_POST['identifiant']);
 //     $emailAdmin = htmlspecialchars($_POST['email']);
 //     $passwordAdmin = htmlspecialchars($_POST['password']);
 //     $checkPassword =htmlspecialchars($_POST['check_password']);
 //     $submitAdmin = htmlspecialchars($_POST['submit']);
 
-//     if ($identifiantAdmin && $emailAdmin && $passwordAdmin && $checkPassword)
+//     $pass_hache = password_hash($passwordAdmin, PASSWORD_DEFAULT);
+//     $pass_hacheCheck = password_hash($checkPassword, PASSWORD_DEFAULT);
+
+//     $req = $db->prepare('INSERT INTO connexion (identifiant, email, password, check_password) VALUES (?,?,?,?)');
+//     $data = $req->execute(array($_POST['identifiant'], $_POST['email'], $pass_hache, $pass_hacheCheck));
+
+//     if ($data === false)
 //     {
-//         if (strlen($passwordAdmin) >= 6 && $passwordAdmin === $checkPassword && preg_match("#[A-Z]{1,}#", $passwordAdmin) && preg_match("#[\#\.\!\$\(\)\[\]\{\}\?\+\=\*\|]{1}#", $passwordAdmin)) 
-//         {   
-//             $pass_hache = password_hash($passwordAdmin, PASSWORD_DEFAULT);
-//             $pass_hacheCheck = password_hash($checkPassword, PASSWORD_DEFAULT);
-//             $req = $db->prepare('INSERT INTO connexion (identifiant, email, password, check_password) VALUES (?,?,?,?)');
-//             $req->execute(array($_POST['identifiant'], $_POST['email'], $pass_hache, $pass_hacheCheck));
-//             $messageCompteOk = "Votre compte administrateur a été créé avec succès.";
-//         } else {
-//             $messageErreur = "Un des champs n'est pas renseigné correctement.";
-//         }
-//     } 
+//         $validation = false;
+//     }
+
+//     if (strlen($passwordAdmin) < 6)
+//     {
+//         $validation = false;
+//     }
+
+//     if ($passwordAdmin != $checkPassword)
+//     {
+//         $validation = false;
+//     }
+
+    // if ($emailAdmin = $data['email'] OR $identifiantAdmin = $data['identifiant']) // permet de ne pas créer deux comptes avec les mêmes identifiants ou mail
+    // {
+    //     $validation = false;
+    // }
+
+    // if ($data('id') > '1') // permet à un seul utilisateur de créer un compte admin
+    // {
+    //     $validation = false; 
+    // }
+
+//     if (preg_match("#[A-Z]{1,}#", $passwordAdmin) && preg_match("#[\#\.\!\$\(\)\[\]\{\}\?\+\=\*\|]{1}#", $passwordAdmin) && $validation === true)
+//     {
+//         $acountOk = "Votre compte administrateur a été créé avec succès.";
+//         header('Location: inscription.php');
+//         exit();
+//     } else {
+//         $errorMessage = "Vérifiez que tous les champs sont bien renseignés.";
+//     }
 // }
+
+if (isset($_POST['submit']))
+{
+    $identifiantAdmin = htmlspecialchars($_POST['identifiant']);
+    $emailAdmin = htmlspecialchars($_POST['email']);
+    $passwordAdmin = htmlspecialchars($_POST['password']);
+    $checkPassword =htmlspecialchars($_POST['check_password']);
+    $submitAdmin = htmlspecialchars($_POST['submit']);
+
+    if ($identifiantAdmin && $emailAdmin && $passwordAdmin && $checkPassword)
+    { 
+        if (strlen($passwordAdmin) >= 6 && $passwordAdmin === $checkPassword && preg_match("#[A-Z]{1,}#", $passwordAdmin) && preg_match("#[\#\.\!\$\(\)\[\]\{\}\?\+\=\*\|]{1}#", $passwordAdmin)) 
+        {   
+            $pass_hache = password_hash($passwordAdmin, PASSWORD_DEFAULT);
+            $pass_hacheCheck = password_hash($checkPassword, PASSWORD_DEFAULT);
+            $req = $db->prepare('INSERT INTO connexion (identifiant, email, password, check_password) VALUES (?,?,?,?)');
+            $req->execute(array($_POST['identifiant'], $_POST['email'], $pass_hache, $pass_hacheCheck));
+            $acountOk = "Votre compte administrateur a été créé avec succès.";
+        } else {
+            $errorMessage = "Veuillez vérifier que tous les champs sont bien renseignés.";
+        } 
+    } 
+}
 // TODO: NE PERMETTRE QU'UNE SEULE CONNEXION ADMINISTRATEUR OU CONFIRMER L'INSCRIPTION PAR MAIL PR EVITER D'AUTRES CONNEXIONS
 // TODO: NE PAS AUTORISER LA CRÉATION D'UN COMPTE AVEC UNE ADRESSE MAIL EXISTANTE
 
