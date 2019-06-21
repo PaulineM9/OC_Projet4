@@ -363,6 +363,34 @@ outline:0;
 	margin-left: 10px; 
 }
 
+/*----- UPDATE PAGE -----*/
+.header_update,
+.chapter_form {
+	font-family: 'poiret one', 'cursive';
+	color: #545454; 
+}
+.header_update {
+	padding-top: 20px;
+	border-bottom: 2px solid #ffc226;
+	display: flex;
+}
+.header_update h1 {
+	font-size: 2.2em;
+	font-weight: bold;
+	color: #545454;
+	margin: 0 auto;
+	padding-left: 72px;
+	padding-bottom: 20px;
+}
+.change_chapter {
+	margin-top: 200px; 
+	margin-left: 360px;
+}
+.submit {
+	font-family: 'poiret one', 'cursive';
+	color: #ffc226;
+}
+
 /*----- ADMIN_COMMENTS PAGE -----*/
 .show_all_comments {
 	display: flex; 

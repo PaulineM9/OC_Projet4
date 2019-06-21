@@ -15,7 +15,7 @@ $req->execute([
     "id" => $_GET['id']
 ]);
 $chapter = $req->fetch();
-var_dump($chapter);
+// var_dump($chapter);
 
 // add changes on a chapter
 if (isset($_POST['title']) OR isset($_POST['content'])) 
@@ -33,9 +33,19 @@ if (isset($_POST['title']) OR isset($_POST['content']))
 
 <!DOCTYPE html>
 <html lang="fr">
-<form class="chapter_form" action="update.php?id=<?= $_GET['id'] ?>" method="post">
-    <input class="title" type="text" name="title" placeholder="Titre du chapitre" id="title" value="<?= $chapter['title'] ?>"><br/>
-    <textarea name="content" id="content" cols="30" rows="10" ><?= $chapter['content'] ?></textarea><br/>
-    <input class="submit" type="submit" name="published" placeholder="Publier" id="published"><br/> 
-</form>  
+    <head>
+        <?php include("head.php"); ?>
+    </head>
+    <section class="header_update">
+        <h1>Modifier un chapitre</h1>
+        <a class="nav_home_update" href="admin.php"><img src="images/icons8-cabane-en-rondins-48.png" alt="icone_chat_bubble" /></a>
+        <a class="nav_chapters" href="admin_chapters.php"><img src="images/icons8-typewriter-with-paper-48.png" alt="icone_chat_bubble" /></a>
+    </section>
+    <section class="change_chapter">
+        <form class="chapter_form" action="admin_chapters.php?id=<?= $_GET['id'] ?>" method="post">
+            <input class="title" type="text" name="title" placeholder="Titre du chapitre" id="title" value="<?= $chapter['title'] ?>"><br/>
+            <textarea class="chapter" name="content" id="content" cols="30" rows="10" ><?= $chapter['content'] ?></textarea><br/>
+            <input class="submit" type="submit" name="published" placeholder="Publier" id="published"><br/> 
+        </form>  
+    </section>
 </html> 
