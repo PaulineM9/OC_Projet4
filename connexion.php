@@ -16,7 +16,7 @@ if (!empty($_POST))
 {
     $validation = true;
 
-    $req = $db->prepare('SELECT * FROM connexion WHERE identifiant= :identifiant');
+    $req = $db->prepare('SELECT * FROM user WHERE identifiant= :identifiant');
     $req->execute(array(
         'identifiant' => $_POST['identifiant']
     ));

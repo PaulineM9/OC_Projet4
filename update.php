@@ -20,19 +20,20 @@ var_dump($chapter);
 // add changes on a chapter
 if (isset($_POST['title']) OR isset($_POST['content'])) 
 {
-    $req_modif = $db->prepare('UPDATE chapters SET title= :newtitle, content= :newcontent WHERE id= :id ');
+    $req_modif = $db->prepare('UPDATE chapters SET title = :title, content = :content  WHERE id = :id ');
     $req_modif->execute(array(
-        'newtitle'  => $_POST['title'],
-        'newcontent' => $_POST['content']
+        'id' => $_GET['id'],
+        'title'  => $_POST['title'],
+        'content' => $_POST['content']
     ));
-    header('Location: admin.php?id='.$_GET['id']);  
-    exit(); 
+    // header('Location: admin_chapters.php?id='.$_GET['id']);  
+    // exit(); 
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
-<form class="chapter_form" action="admin.php?id=<?= $_GET['id'] ?>" method="post">
+<form class="chapter_form" action="update.php?id=<?= $_GET['id'] ?>" method="post">
     <input class="title" type="text" name="title" placeholder="Titre du chapitre" id="title" value="<?= $chapter['title'] ?>"><br/>
     <textarea name="content" id="content" cols="30" rows="10" ><?= $chapter['content'] ?></textarea><br/>
     <input class="submit" type="submit" name="published" placeholder="Publier" id="published"><br/> 

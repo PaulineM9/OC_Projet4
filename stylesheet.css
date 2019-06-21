@@ -285,11 +285,15 @@ outline:0;
 .chapters_published p {
 	margin-bottom: 15px;
 }
+.header_admin {
+	display: flex; 
+}
 
 /*----- ADMIN.PHP PAGE -----*/
 .header_admin {
 	padding-top: 80px;
 	border-bottom: 2px solid #ffc226;
+	display: flex;
 }
 .admin_chapters h1,
 .admin_comments h1,
@@ -303,6 +307,36 @@ outline:0;
 	padding-bottom: 20px;
 	padding-top: 70px;
 }
+.navigation {
+	display: flex;
+	flex-direction: row; 
+	margin-left: 570px;
+	margin-top: 200px;
+}
+.navigation_icones,
+.navigation-title {
+	display: flex;
+	flex-direction: column;
+}
+.navigation_icones img {
+	height: 40px;
+}
+.navigation_title {
+	display: flex;
+	flex-direction: column;
+	font-family: 'poiret One', 'cursive';
+	font-size: 1.5em;
+	color: #545454;
+	padding-left: 30px;
+}
+.chapters_link_title {
+	padding-top: 10px;
+}
+.comments_link_title {
+	padding-top: 17px;
+}
+
+/*----- ADMIN_CHAPTERS PAGE -----*/
 .admin_chapters form {
 	padding-top: 50px;
 }
@@ -319,17 +353,23 @@ outline:0;
 	margin-left: 72px;
 	margin-bottom: 20px;
 }
-.deconnexion h4 {
-	font-family: 'poiret one', cursive;
-	padding-left: 72px;
-	margin-bottom: 20px;
+.header_admin img {
+	height: 40px;
 }
+.nav_home_chapters {
+	margin-left: 1100px;
+}
+.nav_comments {
+	margin-left: 10px; 
+}
+
+/*----- ADMIN_COMMENTS PAGE -----*/
 .show_all_comments {
 	display: flex; 
 	flex-direction: column;
 	font-family: 'poiret one', cursive;
 	padding-left: 72px;
-	padding-bottom: 30px;
+	padding-top: 20px;
 }
 .show_comment {
 	padding-bottom: 10px;
@@ -346,6 +386,12 @@ outline:0;
 }
 .fa-times {
 	color: red;
+}
+.nav_home_comments {
+	margin-left: 900px;
+}
+.nav_chapters {
+	margin-left: 10px;
 }
 
 /*----- CONNEXION PAGE -----*/

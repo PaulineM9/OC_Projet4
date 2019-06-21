@@ -50,35 +50,17 @@ $req_2->execute();
         <section class="header_admin">
             <h1>Bonjour Jean, bienvenue dans votre espace personnel</h1>
         </section>
-        <section class="admin_chapters">
-            <h1>Ecrire un nouveau chapitre</h1>
-            <form class="chapter_form" action="admin.php" method="post">
-                <input class="title" type="text" name="title" placeholder="Titre du chapitre" id="title"><br/>
-                <textarea class="chapter" name="content" placeholder="Votre texte" id="content" cols="30" rows="10"></textarea><br/>
-                <input class="submit" type="submit" name="published" placeholder="Publier" id="published"><br/> 
-            </form>    
-        </section>
-        <section class="edit_chapters">             
-            <?php while ($chapters = $req->fetch()){ ?>
-                <div class="chapters_published">
-                    <h3><?= htmlspecialchars($chapters['title']) ?></h3><br/>
-                    <p><?= htmlspecialchars($chapters['content']) ?></p>
-                    <a href="update.php?id=<?= $chapters['id'] ?>&amp;title=<?= $chapters['title'] ?>&amp;content=<?= $chapters['content'] ?>">Modifier le texte</a>
-                </div>
-            <?php } ?>
-        </section>
-        <section class="admin_comments">
-            <h1>Gérer les commentaires</h1>
-             <div class="show_all_comments">
-                <?php while ($comments = $req_2->fetch()){ ?>
-                    <p>[ <?= htmlspecialchars($comments['date_comment']) ?> ] Par <?= htmlspecialchars($comments['pseudo']) ?>: <button type="button" value="$_POST['valider']"><i class="fas fa-check-double"></i></button> <button type="button" value="$_POST['supprimer']"><i class="fas fa-times"></i></button></p><br/>
-                    <p class="show_comment"><?= htmlspecialchars($comments['comment']) ?><br/>
-                    <hr class="inser_comment">
-                <?php } ?>
+        <section class="navigation">
+            <div class="navigation_icones">
+                <a class="chapters_link" href="admin_chapters.php"><img src="images/icons8-typewriter-with-paper-48.png" alt="icone_typewriter" /></a>
+                <a class="comments_link" href="admin_comments.php"><img src="images/icons8-chat-bubble-64.png" alt="icone_chat_bubble" /></a>    
             </div>
-        </section>
+            <div class="navigation_title">
+                <a class="chapters_link_title" href="admin_chapters.php">Ecrire un nouveau chapitre</a><br/>
+                <a class="comments_link_title" href="admin_comments.php">Gérer les commentaires</a>
+            </div>      
+        </section> 
     </body>
-    <footer class="footer">
-		<?php include("footer.php"); ?>
-	</footer>
 </html>
+
+
