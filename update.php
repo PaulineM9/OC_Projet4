@@ -20,14 +20,14 @@ $chapter = $req->fetch();
 // add changes on a chapter
 if (isset($_POST['title']) OR isset($_POST['content'])) 
 {
-    $req_modif = $db->prepare('UPDATE chapters SET title = :title, content = :content  WHERE id = :id ');
+    $req_modif = $db->prepare('UPDATE chapters SET title = :title, content = :content  WHERE id = :id');
     $req_modif->execute(array(
         'id' => $_GET['id'],
         'title'  => $_POST['title'],
         'content' => $_POST['content']
     ));
-    // header('Location: admin_chapters.php?id='.$_GET['id']);  
-    // exit(); 
+    header('Location: admin_chapters.php?id='.$_GET['id']);  
+    exit(); 
 }
 ?>
 
@@ -42,7 +42,7 @@ if (isset($_POST['title']) OR isset($_POST['content']))
         <a class="nav_chapters" href="admin_chapters.php"><img src="images/icons8-typewriter-with-paper-48.png" alt="icone_chat_bubble" /></a>
     </section>
     <section class="change_chapter">
-        <form class="chapter_form" action="admin_chapters.php?id=<?= $_GET['id'] ?>" method="post">
+        <form class="chapter_form" action="update.php?id=<?= $_GET['id'] ?>" method="post">
             <input class="title" type="text" name="title" placeholder="Titre du chapitre" id="title" value="<?= $chapter['title'] ?>"><br/>
             <textarea class="chapter" name="content" id="content" cols="30" rows="10" ><?= $chapter['content'] ?></textarea><br/>
             <input class="submit" type="submit" name="published" placeholder="Publier" id="published"><br/> 
