@@ -16,8 +16,6 @@ catch(Exception $e)
     die('erreur : '.$e->getMessage());
 } 
 
-// TODO: deconnexion from the administration space
-
 ?>
 
 <!DOCTYPE html>

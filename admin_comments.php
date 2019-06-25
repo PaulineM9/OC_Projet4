@@ -20,8 +20,6 @@ catch(Exception $e)
 $req_2 = $db->prepare('SELECT id_chapter, pseudo, comment, date_comment, DATE_FORMAT (date_comment, "%d/%m/%Y à %Hh%imin%ss") AS date_creation_comment FROM comments ORDER BY date_comment DESC');
 $req_2->execute();
 
-// TODO: deconnexion from the administration space
-
 ?>
 
 <!DOCTYPE html>

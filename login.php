@@ -69,7 +69,7 @@ if (!empty($_POST))
         </section>
     </body>
 
-    <footer class="footer">
+    <footer class="footer_login">
 		<?php include("footer.php"); ?>
 	</footer>
 </html>

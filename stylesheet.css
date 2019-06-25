@@ -424,7 +424,7 @@ outline:0;
 	margin-left: 10px;
 }
 
-/*----- CONNEXION PAGE -----*/
+/*----- LOGIN PAGE -----*/
 .connexion_header {
 	background-image: url('images/landscape-1622739_1920.jpg');
 	background-size: cover;
@@ -454,6 +454,7 @@ outline:0;
 .connexion_container {
 	display: flex;
 	flex-direction: column;	
+	margin-bottom: 21px;
 }
 .connexion_container p {
 	font-family: 'poiret one', cursive;
