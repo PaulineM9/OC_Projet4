@@ -9,6 +9,8 @@ header ('location: login.php');
 exit();
 
 // delete cookies for the session
-// setcookie('login','');
-// setcookie('passhache', '');
+setcookie('identifiant','');
+unset($_COOKIE['identifiant']);
+setcookie('password', '');
+unset($_COOKIE['password']);
 ?>

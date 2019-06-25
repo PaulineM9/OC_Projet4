@@ -1,6 +1,8 @@
 <!-- <-PROJET 4 OC: BLOG DE JEAN FORTEROCHE-> -->
 <?php
 session_start();
+setcookie('identifiant', $_POST['identifiant'], time() + 900, null, null, false, true);
+setcookie('password', $_POST['password'], time() + 900, null, null, false, true);
 try
 {
     $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8', 'root', 'root',
