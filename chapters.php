@@ -26,7 +26,7 @@ if (isset($_POST['pseudo']) && isset($_POST['comment']) && !empty($_POST['pseudo
             $_POST['pseudo'], 
             $_POST['comment']
         )); 
-        header('Location: chapitres.php?id='.$_GET['id']);  
+        header('Location: chapters.php?id='.$_GET['id']);  
         exit(); 
     }
 
@@ -65,7 +65,7 @@ $req->execute(array(
                 </div>
             <div class="comments">
                 <h4>Laissez-moi vos commentaires</h4>
-                <form class="comments_form" action="chapitres.php?id=<?= $id ?>" method="post">
+                <form class="comments_form" action="chapters.php?id=<?= $id ?>" method="post">
                     <input class="pseudo" type="text" name="pseudo" placeholder="Pseudo" id="pseudo"><br/>
                     <textarea class="comment" name="comment" placeholder="Votre commentaire" id="comment" cols="30" rows="10"></textarea><br/>
                     <input class="submit" type="submit" name="submit" placeholder="Envoyer" id="submit"><br/>

@@ -33,7 +33,7 @@ $req->execute();
 			<?php while ($chapters = $req->fetch()){ ?>
                 <div class="chapters_published">
 					<h3><?= htmlspecialchars($chapters['title']) ?></h3><br/>
-					<a href="chapitres.php?id=<?= $chapters['id'] ?>">Lire</a>
+					<a href="chapters.php?id=<?= $chapters['id'] ?>">Lire</a>
                 </div>
             <?php } ?>
 		</section>

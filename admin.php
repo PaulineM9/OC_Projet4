@@ -29,7 +29,7 @@ catch(Exception $e)
     <body>
         <header class="index_header">
             <a href="index.php"><h1>Accueil</h1></a>
-            <a href="connexion.php"><h3>Déconnexion<h3></a> 
+            <a href="login.php"><h3>Déconnexion<h3></a> 
         </header>
         <section class="header_admin">
             <h1>Bonjour Jean, bienvenue dans votre espace personnel</h1>

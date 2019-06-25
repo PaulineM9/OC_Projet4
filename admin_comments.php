@@ -3,7 +3,7 @@
 session_start();
 if (!isset($_SESSION['user']))
 {
-    header('Location: connexion.php');
+    header('Location: login.php');
     exit();
 }
 try
@@ -33,7 +33,7 @@ $req_2->execute();
     <body>
         <header class="index_header">
             <a href="index.php"><h1>Accueil</h1></a>
-            <a href="connexion.php"><h3>Déconnexion<h3></a> 
+            <a href="login.php"><h3>Déconnexion<h3></a> 
         </header>
         <section class="header_admin">
             <h1>Gérer les commentaires</h1>
