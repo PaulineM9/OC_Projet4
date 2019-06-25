@@ -1,7 +1,7 @@
 <!-- <-PROJET 4 OC: BLOG DE JEAN FORTEROCHE-> -->
 <?php
-setcookie('identifiant', $_POST['identifiant'], time() + 900, null, null, false, true);
-setcookie('password', $_POST['password'], time() + 900, null, null, false, true);
+// setcookie('identifiant', $_POST['identifiant'], time() + 900, null, null, false, true);
+// setcookie('password', $_POST['password'], time() + 900, null, null, false, true);
 
 session_start();
 try
@@ -72,7 +72,7 @@ if (!empty($_POST))
         </section>
     </body>
 
-    <footer class="footer_login">
+    <footer class="footer">
 		<?php include("footer.php"); ?>
 	</footer>
 </html>

@@ -1,7 +1,7 @@
 <!-- <-PROJET 4 OC: BLOG DE JEAN FORTEROCHE-> -->
 <?php
-setcookie('identifiant', $_POST['identifiant'], time() + 900, null, null, false, true);
-setcookie('password', $_POST['password'], time() + 900, null, null, false, true);
+// setcookie('identifiant', $_POST['identifiant'], time() + 900, null, null, false, true);
+// setcookie('password', $_POST['password'], time() + 900, null, null, false, true);
 
 session_start();
 if (!isset($_SESSION['user']))
@@ -52,15 +52,15 @@ $req->execute();
             <h1>Ecrire un nouveau chapitre</h1>
             <form class="chapter_form" action="admin_chapters.php" method="post">
                 <input class="title" type="text" name="title" placeholder="Titre du chapitre" id="title"><br/>
-                <textarea class="chapter" name="content" placeholder="Votre texte" id="content" cols="30" rows="10"></textarea><br/>
+                <textarea class="chapter" id="mytextarea" name="content" placeholder="Votre texte" id="content" cols="30" rows="10"></textarea><br/>
                 <input class="submit" type="submit" name="published" placeholder="Publier" id="published"><br/> 
             </form>    
         </section>
         <section class="edit_chapters">             
             <?php while ($chapters = $req->fetch()){ ?>
                 <div class="chapters_published">
-                    <h3><?= htmlspecialchars($chapters['title']) ?></h3><br/>
-                    <p><?= htmlspecialchars($chapters['content']) ?></p>
+                    <h3><?= $chapters['title'] ?></h3><br/>
+                    <p><?= $chapters['content'] ?></p>
                     <a href="update.php?id=<?= $chapters['id'] ?>">Modifier le texte</a>
                 </div>
             <?php } ?>

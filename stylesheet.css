@@ -226,7 +226,7 @@ outline:0;
 	width: 50%;
 	height: 2px;
 	background-color: #ffc226;
-	border: none; /*on supprime le style par défaut*/	 
+	border: none; 
 }
 .comment {
 	font-family: 'poiret one', cursive;

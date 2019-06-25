@@ -11,6 +11,17 @@
 
 <!-- Fontawesome Icones -->
 <script src="https://kit.fontawesome.com/504cd5157f.js"></script>
+
+<!-- TinyMCE -->
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+  tinymce.init({
+    selector: "#mytextarea",
+    language_url : "./langs/fr_FR.js",
+    language: "fr_FR",
+  });
+</script>
+
 <!-- Twitter Card data -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@PaulineM9">

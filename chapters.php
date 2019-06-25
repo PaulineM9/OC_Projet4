@@ -13,7 +13,7 @@ catch(Exception $e)
 $id = (int) $_GET['id']; // permet de changer la chaine en entier (integer) et de la stocker dans une variable
 $req = $db->prepare('SELECT * FROM chapters WHERE id = ?');
 $req->execute(array($id));
-$article = $req->fetch(); // récupère les données et les stocke dans la variable $article
+$chapter = $req->fetch(); // récupère les données et les stocke dans la variable $article
 // var_dump($article);
 
 // create a comment
@@ -53,8 +53,8 @@ $req->execute(array(
         </section>
         <section class="edit_chapters">      
                 <div class="chapters_published">                   
-                    <h3><?= $article['title'] ?></h3><br/>
-                    <p><?= $article['content'] ?></p><br/>
+                    <h3><?= $chapter['title'] ?></h3><br/>
+                    <p><?= $chapter['content'] ?></p><br/>
                     <hr>
                     <p class="comments_publication">Commentaires: (cliquez sur le drapeau pour signaler un commentaire)</p>
                     
