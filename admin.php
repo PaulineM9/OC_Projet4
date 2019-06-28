@@ -1,12 +1,10 @@
 <!-- <-PROJET 4 OC: BLOG DE JEAN FORTEROCHE-> -->
 <?php
-// setcookie('identifiant', $_POST['identifiant'], time() + 900, null, null, false, true);
-// setcookie('password', $_POST['password'], time() + 900, null, null, false, true);
-
+// var_dump($_COOKIE['identifiant']);
 session_start();
 if (!isset($_SESSION['user']))
 {
-    header('Location: admin.php');
+    header('Location: login.php');
     exit();
 }
 try
@@ -30,7 +28,7 @@ catch(Exception $e)
     <body>
         <header class="index_header">
             <a href="index.php"><h1>Accueil</h1></a>
-            <a href="login.php"><h3>Déconnexion<h3></a> 
+            <a href="logout.php"><h3>Déconnexion<h3></a> 
         </header>
         <section class="header_admin">
             <h1>Bonjour Jean, bienvenue dans votre espace personnel</h1>

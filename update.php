@@ -1,7 +1,7 @@
 <!-- <-PROJET 4 OC: BLOG DE JEAN FORTEROCHE-> -->
 <?php
-// setcookie('identifiant', $_POST['identifiant'], time() + 900, null, null, false, true);
-// setcookie('password', $_POST['password'], time() + 900, null, null, false, true);
+// setcookie('identifiant', $_POST['identifiant'], time() + 365 * 24 * 3600, null, null, false, true);
+// setcookie('password', $_POST['password'], time() + 365 * 24 * 3600, null, null, false, true);
 
 session_start();
 if (!isset($_SESSION['user']))
@@ -51,7 +51,7 @@ if (isset($_POST['title']) OR isset($_POST['content']))
         <a class="nav_chapters" href="admin_chapters.php"><img src="images/icons8-typewriter-with-paper-48.png" alt="icone_chat_bubble" /></a>
     </section>
     <section class="change_chapter">
-        <form class="chapter_form" action="update.php?id=<?= $_GET['id'] ?>" method="post">
+        <form class="chapter_form_update" action="update.php?id=<?= $_GET['id'] ?>" method="post">
             <input class="title" type="text" name="title" placeholder="Titre du chapitre" id="title" value="<?= $chapter['title'] ?>"><br/>
             <textarea class="chapter" id="mytextarea" name="content" id="content" cols="30" rows="10" ><?= $chapter['content'] ?></textarea><br/>
             <input class="submit" type="submit" name="published" placeholder="Publier" id="published"><br/> 

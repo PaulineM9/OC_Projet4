@@ -52,13 +52,19 @@ a:focus
 {
 outline:0;
 } 
+strong {
+	font-weight: 700;
+}
+em {
+	font-style: italic;
+}
 
 /*----- ELEMENTS FOR ALL PAGES -----*/
 
 /*----- HEADER ------*/
 .index_header {
 	position: fixed;
-	z-index: 0;
+	z-index: 90;
 	display: flex;
 	background-color: #545454;
 	width: 100%;
@@ -265,7 +271,7 @@ outline:0;
 	margin-left: 72px;
 	margin-bottom: 20px;
 }
-.fa-font-awesome-flag {
+.signal:hover {
 	color: red;
 }
 
@@ -340,10 +346,11 @@ outline:0;
 .admin_chapters form {
 	padding-top: 50px;
 }
-.number_chapter,
-.title,
-.chapter {
+.chapter_form {
+	width: 90%;
 	margin-left: 72px;
+}
+.title {
 	margin-bottom: 20px;
 	width: 50%;
 	color: #ffc226;
@@ -364,8 +371,7 @@ outline:0;
 }
 
 /*----- UPDATE PAGE -----*/
-.header_update,
-.chapter_form {
+.header_update {
 	font-family: 'poiret one', 'cursive';
 	color: #545454; 
 }
@@ -381,9 +387,10 @@ outline:0;
 	padding-left: 72px;
 	padding-bottom: 20px;
 }
-.change_chapter {
+.chapter_form_update {
 	margin-top: 200px; 
-	margin-left: 360px;
+	margin-left: 72px;
+	width: 90%;
 }
 .submit {
 	font-family: 'poiret one', 'cursive';

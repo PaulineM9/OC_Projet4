@@ -3,7 +3,7 @@
 session_start();
 
 // delete connexion for user admin
-$_SESSION['user'] = $data['id'];
+unset($_SESSION['user']);
 session_destroy();
 header ('location: login.php');
 exit();

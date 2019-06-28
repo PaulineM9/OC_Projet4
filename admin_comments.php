@@ -1,8 +1,5 @@
 <!-- <-PROJET 4 OC: BLOG DE JEAN FORTEROCHE-> -->
 <?php
-// setcookie('identifiant', $_POST['identifiant'], time() + 900, null, null, false, true);
-// setcookie('password', $_POST['password'], time() + 900, null, null, false, true);
-
 session_start();
 if (!isset($_SESSION['user']))
 {
@@ -34,7 +31,7 @@ $req_2->execute();
     <body>
         <header class="index_header">
             <a href="index.php"><h1>Accueil</h1></a>
-            <a href="login.php"><h3>Déconnexion<h3></a> 
+            <a href="logout.php"><h3>Déconnexion<h3></a> 
         </header>
         <section class="header_admin">
             <h1>Gérer les commentaires</h1>
@@ -44,7 +41,8 @@ $req_2->execute();
         <section class="admin_comments">
              <div class="show_all_comments">
                 <?php while ($comments = $req_2->fetch()){ ?>
-                    <p>[ <?= htmlspecialchars($comments['date_comment']) ?> ] Par <?= htmlspecialchars($comments['pseudo']) ?>: <button type="button" value="$_POST['valider']"><i class="fas fa-check-double"></i></button> <button type="button" value="$_POST['supprimer']"><i class="fas fa-times"></i></button></p><br/>
+                    <p>[ <?= htmlspecialchars($comments['date_comment']) ?> ] Par <?= htmlspecialchars($comments['pseudo']) ?>:
+                    <button type="button" value="$_POST['supprimer']"><i class="fas fa-times"></i></button></p><br/>
                     <p class="show_comment"><?= htmlspecialchars($comments['comment']) ?><br/>
                     <hr class="inser_comment">
                 <?php } ?>

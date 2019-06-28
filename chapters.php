@@ -56,10 +56,10 @@ $req->execute(array(
                     <h3><?= $chapter['title'] ?></h3><br/>
                     <p><?= $chapter['content'] ?></p><br/>
                     <hr>
-                    <p class="comments_publication">Commentaires: (cliquez sur le drapeau pour signaler un commentaire)</p>
+                    <p class="comments_publication">Commentaires: </p>
                     
                     <?php while ($comments = $req->fetch()){ ?> <!-- tant que la variable qui contient les données les récupère on affiche... -->
-                        <p>[ <?= htmlspecialchars($comments['date_comment']) ?> <button type="button" value="$_POST['signaler']"><i class="fab fa-font-awesome-flag"></i></button> ] Par <?= htmlspecialchars($comments['pseudo']) ?>: </p><br/>
+                        <p>[ <?= htmlspecialchars($comments['date_comment']) ?> ] Par <?= htmlspecialchars($comments['pseudo']) ?>: (<a href="chapters.php?signalement=ok&id=<?= $id ?>" class="signal">Signaler</a>)</p><br/> 
                         <p class="comment_published"><?= htmlspecialchars($comments['comment']) ?>
                     <?php } ?>  
                 </div>

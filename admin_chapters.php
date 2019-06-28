@@ -1,9 +1,5 @@
 <!-- <-PROJET 4 OC: BLOG DE JEAN FORTEROCHE-> -->
 <?php
-// setcookie('identifiant', $_POST['identifiant'], time() + 900, null, null, false, true);
-// setcookie('password', $_POST['password'], time() + 900, null, null, false, true);
-
-session_start();
 if (!isset($_SESSION['user']))
 {
     header('Location: login.php');
