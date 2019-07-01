@@ -418,8 +418,10 @@ em {
 	background-color: #ffc226;
 	border: none; /*on supprime le style par défaut*/
 }
-.fa-check-double {
-	color: green;
+.admin_comments h1, 
+.comments_signal h1 {
+	font-family: 'poiret one', ' cursive';
+	font-size: 1.5em;
 }
 .fa-times {
 	color: red;

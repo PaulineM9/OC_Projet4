@@ -35,6 +35,8 @@ $req = $db->prepare('SELECT pseudo, comment, date_comment, DATE_FORMAT (date_com
 $req->execute(array(
     $id
 ));
+
+
 ?>
 
 <!DOCTYPE html>
