@@ -25,6 +25,7 @@ if (isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['title']
         exit(); 
     }
 
+// get informations about chapters and modifie chapter
 $req = $db->prepare('SELECT * FROM chapters ORDER BY id DESC');
 $req->execute();
 ?>

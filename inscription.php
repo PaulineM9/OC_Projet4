@@ -49,7 +49,7 @@ if (isset($_POST['submit']))
         $errorPwCheck = "Les mots de passe ne correspondent pas.";
     }
 
-    if ($regex_letters = false OR $regex_specials = false) // ne fonctionne pas ?
+    if (!$regex_specials OR !$regex_letters) 
     {
         $validation = false;
         $errorRegex = "Votre mot de passe doit contenir au moins 6 caractères, 1 majuscule et 1 caractère spécial.";
