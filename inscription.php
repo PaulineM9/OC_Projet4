@@ -42,7 +42,7 @@ if (isset($_POST['submit']))
         $validation = false;
         $errorPassword = "Mot de passe < 6 caractères";
     }
-
+    
     if ($passwordAdmin != $checkPassword)
     {
         $validation = false;

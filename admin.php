@@ -1,6 +1,5 @@
 <!-- <-PROJET 4 OC: BLOG DE JEAN FORTEROCHE-> -->
 <?php
-// var_dump($_COOKIE['identifiant']);
 session_start();
 if (!isset($_SESSION['user']))
 {
@@ -43,7 +42,7 @@ catch(Exception $e)
             <div class="navigation_title">
                 <a class="chapters_link_title" href="admin_chapters.php">Ecrire un nouveau chapitre</a><br/>
                 <a class="comments_link_title" href="admin_comments.php">Gérer les commentaires</a>
-                <a class="profil_link_title" href="admin_profil.php">Gérer mon profil</a>
+                <a class="profil_link_title" href="admin_profil.php?id=<?= $_SESSION['user'] ?>">Gérer mon profil</a>
             </div>      
         </section> 
     </body>

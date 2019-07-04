@@ -22,23 +22,21 @@ if (!empty($_POST))
     ));
     $data = $req->fetch();
     $passwordCorrect = password_verify($_POST['password'], $data['password']);
-
     if ($data === false) 
     {
         $validation = false;
     } 
-
     if ($passwordCorrect) 
     {
         $validation = false;  
     } 
-
     if ($validation === true)
     {
-        setcookie('identifiant', $_POST['identifiant'], time() + 365 * 24 * 3600, null, null, false, true);
+        // setcookie('identifiant', $_POST['identifiant'], time() + 365 * 24 * 3600, null, null, false, true);
         // var_dump($_COOKIE['identifiant']);
-
         $_SESSION['user'] = $data['id'];
+        $_SESSION['identifiant'] = $data['identifiant'];
+        
         header('Location: admin.php');
         exit();
     } else {
@@ -65,7 +63,7 @@ if (!empty($_POST))
         <section class="connexion_container">
             <p class="error_message"><?php if (isset($messageErreur)){ echo $messageErreur; } ?></p>
             <form class="connexion_form" action="login.php" method="post"> 
-                <input class="identifiant" type="text" name="identifiant" placeholder="Identifiant" id="identifiant" value="<?= $_COOKIE['identifiant'] ?>"><br/>
+                <input class="identifiant" type="text" name="identifiant" placeholder="Identifiant" id="identifiant"><br/>
                 <input class="password" type="password" name="password" placeholder="motdepasse" id="password"><br/>
                 <input class="connexion" type="submit" name="connexion" placeholder="Connexion" id="connexion"><br/>
             </form>

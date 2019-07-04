@@ -16,10 +16,6 @@ catch(Exception $e)
     die('erreur : '.$e->getMessage());
 } 
 
-// get all informations about admin
-$req = $db->prepare('SELECT * FROM user');
-$req->execute();
-
 ?>
 
 <!DOCTYPE html>
@@ -35,13 +31,12 @@ $req->execute();
         </header>
         <section class="profil">
             <h1 class="infos_profil">Mes informations personnelles</h1>
-            <?php while ($data = $req->fetch()){ ?>
-                <p>Identifiant: <?= htmlspecialchars($data['identifiant']) ?></p>
-                <p>Email: <?= htmlspecialchars($data['email']) ?></p>
-            <?php } ?>
+            <?php echo $_SESSION['identifiant'] ?>
+            
+            
         </section>
         <div class="modif">
-            <a href="update_profil.php">Modifier mon profil ou mon mot de passe</a>
+            <a href="">Modifier mon profil ou mon mot de passe</a>
         </div>
     </body>
 </html>

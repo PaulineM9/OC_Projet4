@@ -16,6 +16,10 @@ catch(Exception $e)
     die('erreur : '.$e->getMessage());
 } 
 
+// get informations about chapters and modifie chapter
+$req = $db->prepare('SELECT * FROM chapters ORDER BY id DESC');
+$req->execute();
+
 // get all informations about new chapters 
 if (isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['title']) && !empty($_POST['content'])) // condition pour s'assurer que $_POST n'est pas vide
     {   
@@ -24,10 +28,6 @@ if (isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['title']
         header('Location: admin_chapters.php'); 
         exit(); 
     }
-
-// get informations about chapters and modifie chapter
-$req = $db->prepare('SELECT * FROM chapters ORDER BY id DESC');
-$req->execute();
 ?>
 
 <!DOCTYPE html>
