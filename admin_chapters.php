@@ -28,6 +28,7 @@ if (isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['title']
         header('Location: admin_chapters.php'); 
         exit(); 
     }
+
 ?>
 
 <!DOCTYPE html>

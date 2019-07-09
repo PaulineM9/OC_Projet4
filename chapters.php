@@ -9,19 +9,18 @@ catch(Exception $e)
 {
     die('erreur : '.$e->getMessage());
 } 
+
 // get all informations about chapters 
 $id = (int) $_GET['id']; // permet de changer la chaine en entier (integer) et de la stocker dans une variable
 $req = $db->prepare('SELECT * FROM chapters WHERE id = ?');
 $req->execute(array($id));
 $chapter = $req->fetch(); // récupère les données et les stocke dans la variable $article
-// var_dump($article);
 
 // create a comment
-// var_dump($_POST);
 if (isset($_POST['pseudo']) && isset($_POST['comment']) && !empty($_POST['pseudo']) && !empty($_POST['comment'])) // condition pour s'assurer que $_POST n'est pas vide
     {   
-        $req = $db->prepare('INSERT INTO comments ( id_chapter, pseudo, comment, date_comment) VALUES (?, ?, ?, NOW())');
-        $req->execute(array(
+        $req1 = $db->prepare('INSERT INTO comments (id_chapter, pseudo, comment, date_comment) VALUES (?, ?, ?, NOW())');
+        $req1->execute(array(
             $_GET['id'], 
             $_POST['pseudo'], 
             $_POST['comment']
@@ -31,11 +30,22 @@ if (isset($_POST['pseudo']) && isset($_POST['comment']) && !empty($_POST['pseudo
     }
 
 // get all comments about a chapter clicked 
-$req = $db->prepare('SELECT pseudo, comment, date_comment, DATE_FORMAT (date_comment, "%d/%m/%Y à %Hh%imin%ss") AS date_creation_comment FROM comments WHERE id_chapter= ? ORDER BY date_comment DESC LIMIT 0, 5');
-$req->execute(array(
+$req2 = $db->prepare('SELECT pseudo, comment, date_comment, DATE_FORMAT (date_comment, "%d/%m/%Y à %Hh%imin%ss") AS date_creation_comment FROM comments WHERE id_chapter= ? ORDER BY date_comment DESC LIMIT 0, 5');
+$req2->execute(array(
     $id
 ));
 
+
+// comments signaled to the administration
+// if (isset($_GET['signaled']))
+// {
+//     $req2 = $db->prepare('UPDATE comments SET signaled = 1 WHERE id = :id');
+//     $req2->execute([
+//         'signaled' => $_GET['signaled'],
+//         'id' => $_GET['id']
+//    ]);
+//     $message = "Ce commentaire a été signalé à l'administrateur";
+// }
 
 ?>
 
@@ -60,10 +70,11 @@ $req->execute(array(
                     <hr>
                     <p class="comments_publication">Commentaires: </p>
                     
-                    <?php while ($comments = $req->fetch()){ ?> <!-- tant que la variable qui contient les données les récupère on affiche... -->
-                        <p>[ <?= htmlspecialchars($comments['date_comment']) ?> ] Par <?= htmlspecialchars($comments['pseudo']) ?>: (<a href="admin_comments.php?signalement=ok&id=<?= $id ?>" class="signal">Signaler</a>)</p><br/> 
+                    <?php while ($comments = $req2->fetch()){ ?> <!-- tant que la variable qui contient les données les récupère on affiche... -->
+                        <p>[ <?= htmlspecialchars($comments['date_comment']) ?> ] Par <?= htmlspecialchars($comments['pseudo']) ?> (<a href="chapters.php" class="signal">Signaler</a>): </p><br/> 
                         <p class="comment_published"><?= htmlspecialchars($comments['comment']) ?>
-                    <?php } ?>  
+                    <?php } ?><br/>
+                    <!-- <?= $message ?> -->
                 </div>
             <div class="comments">
                 <h4>Laissez-moi vos commentaires</h4>

@@ -36,7 +36,7 @@ catch(Exception $e)
             
         </section>
         <div class="modif">
-            <a href="">Modifier mon profil ou mon mot de passe</a>
+            <a href="admin_profil.php">Modifier mon profil ou mon mot de passe</a>
         </div>
     </body>
 </html>

@@ -404,13 +404,6 @@ em {
 }
 
 /*----- ADMIN_COMMENTS PAGE -----*/
-.show_all_comments {
-	display: flex; 
-	flex-direction: column;
-	font-family: 'poiret one', cursive;
-	padding-left: 72px;
-	padding-top: 20px;
-}
 .show_comment {
 	padding-bottom: 10px;
 }
@@ -420,6 +413,19 @@ em {
 	height: 2px;
 	background-color: #ffc226;
 	border: none; /*on supprime le style par défaut*/
+}
+.admin_comments {
+	display: flex;
+	flex-direction: row;
+}
+.show_all_comments,
+.comments_signal {
+	display: flex; 
+	flex-direction: column;
+	font-family: 'poiret one', cursive;
+	padding-left: 72px;
+	padding-top: 20px;
+	width: 50%;
 }
 .admin_comments h1, 
 .comments_signal h1 {
@@ -434,6 +440,11 @@ em {
 }
 .nav_chapters {
 	margin-left: 10px;
+}
+.title_ref {
+	padding-bottom: 10px;
+	font-size: 1.3em;
+	color: grey;
 }
 
 /*----- LOGIN PAGE -----*/

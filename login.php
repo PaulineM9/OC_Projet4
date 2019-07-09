@@ -22,21 +22,23 @@ if (!empty($_POST))
     ));
     $data = $req->fetch();
     $passwordCorrect = password_verify($_POST['password'], $data['password']);
+
     if ($data === false) 
     {
         $validation = false;
     } 
-    if ($passwordCorrect) 
+
+    if (!$passwordCorrect) 
     {
         $validation = false;  
     } 
+
     if ($validation === true)
     {
         // setcookie('identifiant', $_POST['identifiant'], time() + 365 * 24 * 3600, null, null, false, true);
         // var_dump($_COOKIE['identifiant']);
         $_SESSION['user'] = $data['id'];
         $_SESSION['identifiant'] = $data['identifiant'];
-        
         header('Location: admin.php');
         exit();
     } else {
