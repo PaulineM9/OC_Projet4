@@ -67,6 +67,9 @@ if (isset($_POST['submit']))
         // header('Location: admin_profil.php?id='.$_GET['id']);  
         // exit(); 
         $acountOk = "Vos informations personnelles ont bien été modifiées.";  
+        $newConnexion = 'Merci de vous reconnecter <a href="login.php">Nouvelle connexion</a>';
+        unset($_SESSION['user']);
+        session_destroy();
     }
 }
 
@@ -110,7 +113,7 @@ if (isset($_POST['submit']))
             <p id="message_error"><?php if (isset($errorPassword))  { echo $errorPassword; } ?></p>
             <p id="message_error"><?php if (isset($errorPwCheck))  { echo $errorPwCheck; } ?></p>
             <p id="message_error"><?php if (isset($errorRegex))  { echo $errorRegex; } ?></p>
-            <p id="message_ok_new"><?php if (isset($acountOk)){ echo $acountOk; } ?></p>
+            <p id="message_ok_new"><?php if (isset($acountOk)){ echo $acountOk; echo $newConnexion; } ?></p>
             <?php } ?>
         </div>
     </body>
