@@ -2,10 +2,10 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: May 24, 2019 at 12:12 PM
--- Server version: 5.7.23
--- PHP Version: 7.2.10
+-- Hôte : localhost:8889
+-- Généré le :  jeu. 11 juil. 2019 à 18:58
+-- Version du serveur :  5.7.23
+-- Version de PHP :  7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `projet_4`
+-- Base de données :  `projet_4`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `chapters`
+-- Structure de la table `chapters`
 --
 
 CREATE TABLE `chapters` (
@@ -33,95 +33,97 @@ CREATE TABLE `chapters` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `chapters`
+-- Déchargement des données de la table `chapters`
 --
 
 INSERT INTO `chapters` (`id`, `title`, `content`) VALUES
-(10, 'Chapitre2: hello!', 'tout va bien'),
-(14, 'CHapitre 5: bla', 'blabla');
+(41, 'Chapitre 1: Oh l\'Alaska ', 'C\'est beau la neige.'),
+(42, 'Chapitre 2: On part en luge', 'J\'ai pas de luge'),
+(43, 'Chapitre 3: Oh des flocons!', 'En Alaska c\'est toujours l\'hiver. Et il fait froid.'),
+(44, 'Chapitre 4: Voilà le grand froid.', '<p><em>J\'aime vraiment quand il fait <strong>froid</strong> et grand beau temps.</em></p>'),
+(45, 'Chapitre 5: Des traces dans la neige ', '<h1>Je vois des traces de rennes dans la neige.</h1>'),
+(46, 'Chapitre 6: Des pulls et des chaussons', '<p>Il fait vraiment tr&eacute;s <strong>froid</strong>. Je reste pr&eacute;s du <strong>feu. </strong></p>'),
+(47, 'Chapitre 7: Des ours dans la forêt.', '<p><em>Je vois des ours dans la <strong>for&ecirc;t.</strong></em></p>'),
+(48, 'Chapitre 8: Et des oiseaux sur mon balcon.', '<p><span style=\"text-decoration: line-through; color: #2fcc71;\"><span style=\"text-decoration: underline;\"><em><span style=\"font-family: terminal, monaco, monospace;\">Il y aussi des <strong>oiseaux</strong> sur mon <strong>balcon</strong>.</span></em></span></span></p>\r\n<p><span style=\"text-decoration: line-through; color: #2fcc71;\"><span style=\"text-decoration: underline;\"><em><span style=\"font-family: terminal, monaco, monospace;\">C\'est ok </span></em></span></span></p>');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comments`
+-- Structure de la table `comments`
 --
 
 CREATE TABLE `comments` (
   `id` int(11) NOT NULL,
-  `id_chapter` int(80) NOT NULL,
+  `id_chapter` int(11) NOT NULL,
   `pseudo` varchar(255) NOT NULL,
   `comment` text NOT NULL,
-  `date_comment` datetime NOT NULL
+  `date_comment` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `signaled` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `comments`
---
-
-INSERT INTO `comments` (`id`, `id_chapter`, `pseudo`, `comment`, `date_comment`) VALUES
-(10, 10, 'popo', 'C\'est vraiment super!', '2019-05-23 15:50:23'),
-(11, 10, 'Simon', 'Ah oui ça marche!', '2019-05-23 15:53:41'),
-(12, 10, 'claudine', 'Salut à tous!', '2019-05-24 09:13:43'),
-(13, 14, 'popo', 'Bravo c\'est génial', '2019-05-24 11:15:43'),
-(17, 14, 'jeanne', 'super sympa ce blog', '2019-05-24 13:21:07'),
-(18, 14, 'simon', 'j\'adore!', '2019-05-24 13:31:46'),
-(19, 14, 'pablo', 'youpi!', '2019-05-24 13:47:53');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `connexion`
+-- Structure de la table `user`
 --
 
-CREATE TABLE `connexion` (
+CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `identifiant` varchar(255) NOT NULL,
-  `password` varchar(25) NOT NULL
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Indexes for dumped tables
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id`, `identifiant`, `email`, `password`) VALUES
+(76, 'Jean_Forteroche', 'jean@gmail.com', '$2y$10$GAnUWygpKsycvfwEHob.LOn4MDpmfHLuIKHC9X6ym2R3rimcMlrHm');
+
+--
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `chapters`
+-- Index pour la table `chapters`
 --
 ALTER TABLE `chapters`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `comments`
+-- Index pour la table `comments`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `connexion`
+-- Index pour la table `user`
 --
-ALTER TABLE `connexion`
+ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `chapters`
+-- AUTO_INCREMENT pour la table `chapters`
 --
 ALTER TABLE `chapters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
--- AUTO_INCREMENT for table `comments`
+-- AUTO_INCREMENT pour la table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
--- AUTO_INCREMENT for table `connexion`
+-- AUTO_INCREMENT pour la table `user`
 --
-ALTER TABLE `connexion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
