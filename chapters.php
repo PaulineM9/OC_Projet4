@@ -19,33 +19,32 @@ $chapter = $req->fetch(); // récupère les données et les stocke dans la varia
 // create a comment
 if (isset($_POST['pseudo']) && isset($_POST['comment']) && !empty($_POST['pseudo']) && !empty($_POST['comment'])) // condition pour s'assurer que $_POST n'est pas vide
     {   
-        $req1 = $db->prepare('INSERT INTO comments (id_chapter, pseudo, comment, date_comment) VALUES (?, ?, ?, NOW())');
+        $req1 = $db->prepare('INSERT INTO comments (id_chapter, pseudo, comment, date_comment, signaled) VALUES (?, ?, ?, NOW(), 0)');
         $req1->execute(array(
             $_GET['id'], 
             $_POST['pseudo'], 
-            $_POST['comment']
+            $_POST['comment'],
         )); 
         header('Location: chapters.php?id='.$_GET['id']);  
         exit(); 
     }
 
 // get all comments about a chapter clicked 
-$req2 = $db->prepare('SELECT pseudo, comment, date_comment, DATE_FORMAT (date_comment, "%d/%m/%Y à %Hh%imin%ss") AS date_creation_comment FROM comments WHERE id_chapter= ? ORDER BY date_comment DESC LIMIT 0, 5');
+$req2 = $db->prepare('SELECT id, pseudo, comment, date_comment, signaled, DATE_FORMAT (date_comment, "%d/%m/%Y à %Hh%imin%ss") AS date_creation_comment FROM comments WHERE id_chapter= ? ORDER BY date_comment DESC LIMIT 0, 5');
 $req2->execute(array(
     $id
 ));
 
 
 // comments signaled to the administration
-// if (isset($_GET['signaled']))
-// {
-//     $req2 = $db->prepare('UPDATE comments SET signaled = 1 WHERE id = :id');
-//     $req2->execute([
-//         'signaled' => $_GET['signaled'],
-//         'id' => $_GET['id']
-//    ]);
-//     $message = "Ce commentaire a été signalé à l'administrateur";
-// }
+if (isset($_GET['signaled']))
+{
+    $req_signal = $db->prepare('UPDATE comments SET signaled = 1 WHERE id = :idComment');
+    $req_signal->execute([
+        'idComment' => $_GET['idComment']
+   ]);
+    $message = "Ce commentaire a été signalé à l'administrateur";
+}
 
 ?>
 
@@ -71,10 +70,10 @@ $req2->execute(array(
                     <p class="comments_publication">Commentaires: </p>
                     
                     <?php while ($comments = $req2->fetch()){ ?> <!-- tant que la variable qui contient les données les récupère on affiche... -->
-                        <p>[ <?= htmlspecialchars($comments['date_comment']) ?> ] Par <?= htmlspecialchars($comments['pseudo']) ?> (<a href="chapters.php" class="signal">Signaler</a>): </p><br/> 
-                        <p class="comment_published"><?= htmlspecialchars($comments['comment']) ?>
-                    <?php } ?><br/>
-                    <!-- <?= $message ?> -->
+                        <p>[ <?= htmlspecialchars($comments['date_comment']) ?> ] Par <?= htmlspecialchars($comments['pseudo']) ?> (<a href="chapters.php?id=<?= $chapter['id'] ?>&idComment=<?= $comments['id'] ?>&signaled" class="signal">Signaler</a>): </p><br/> 
+                        <p class="comment_published"><?= htmlspecialchars($comments['comment']) ?><br />
+                        <?php if(isset($_GET['signaled'])) { echo $message; } ?>
+                    <?php } ?>
                 </div>
             <div class="comments">
                 <h4>Laissez-moi vos commentaires</h4>

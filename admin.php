@@ -30,7 +30,7 @@ catch(Exception $e)
             <a href="logout.php"><h3>Déconnexion<h3></a> 
         </header>
         <section class="header_admin">
-            <h1>Bonjour Jean, bienvenue dans votre espace personnel</h1>
+            <h1>Bonjour <?= $_SESSION['identifiant'] ?>, bienvenue dans votre espace personnel</h1>
         </section>
         <section class="navigation">
             <div class="navigation_icones">
@@ -42,7 +42,7 @@ catch(Exception $e)
             <div class="navigation_title">
                 <a class="chapters_link_title" href="admin_chapters.php">Ecrire un nouveau chapitre</a><br/>
                 <a class="comments_link_title" href="admin_comments.php">Gérer les commentaires</a>
-                <a class="profil_link_title" href="admin_profil.php?id=<?= $_SESSION['user'] ?>">Gérer mon profil</a>
+                <a class="profil_link_title" href="admin_profil.php?id=<?= $_SESSION['user'] ?>">Modifier mes informations personnelles</a>
             </div>      
         </section> 
     </body>

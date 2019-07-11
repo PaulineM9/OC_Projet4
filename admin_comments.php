@@ -17,15 +17,23 @@ catch(Exception $e)
 } 
 
 // join tables for getting all comments and chapter title 
-$req_join = $db->prepare('SELECT * FROM chapters, comments WHERE chapters.id=comments.id_chapter');
+$req_join = $db->prepare('SELECT * FROM chapters, comments WHERE chapters.id=comments.id_chapter ORDER BY date_comment DESC');
 $req_join->execute();
 
 // get all comments with signal alert
-// $req_3 = $db->prepare('SELECT id_chapter, pseudo, comment, date_comment, DATE_FORMAT (date_comment, "%d/%m/%Y à %Hh%imin%ss") AS date_creation_comment FROM comments ORDER BY date_comment DESC');
-// $req_3->execute();
+$req_join2 = $db->prepare('SELECT id, id_chapter, pseudo, comment, date_comment, signaled, DATE_FORMAT (date_comment, "%d/%m/%Y à %Hh%imin%ss") AS date_creation_comment FROM comments WHERE signaled = 1 ORDER BY date_comment DESC');
+$req_join2->execute();
 
-// delete comments with signal alert
-// $req_4 = $db->prepare('DELETE ')
+// delete comments 
+if (isset($_GET['delete']))
+{
+    $req_delete = $db->prepare('DELETE FROM comments WHERE id = :id');
+    $req_delete->execute([
+        'id' => $_GET['id']
+    ]);
+    header('Location: admin_comments.php');
+    exit();
+}
 
 ?>
 
@@ -47,25 +55,25 @@ $req_join->execute();
         </section>
         <section class="admin_comments">
              <div class="show_all_comments">
-                <h1>Tous les commentaires</h1>
+                <h2>Tous les commentaires</h2>
                 <?php while ($comments = $req_join->fetch()){ ?>
                     <p class="title_ref"><?= $comments['title'] ?></p>
                     <p>[ <?= htmlspecialchars($comments['date_comment']) ?> ] Par <?= htmlspecialchars($comments['pseudo']) ?>:
-                    <button type="button" value="$_POST['supprimer']"><i class="fas fa-times"></i></button></p><br/>
+                    <a href="admin_comments.php?id=<?= $comments['id'] ?>&delete"><i class="fas fa-times"></i></a></p><br/>
                     <p class="show_comment"><?= htmlspecialchars($comments['comment']) ?><br/>
                     <hr class="inser_comment">
                 <?php } ?>
             </div>
             
             <div class="comments_signal">
-                <h1>Commentaires signalés</h1>
-                <!-- <?php while ($comments = $req_3->fetch()){ ?>
+                <h2>Commentaires signalés</h2>
+                <?php while ($comments = $req_join2->fetch()) { ?>
                     <p class="title_ref"><?= $comments['title'] ?></p>
                     <p>[ <?= htmlspecialchars($comments['date_comment']) ?> ] Par <?= htmlspecialchars($comments['pseudo']) ?>:
-                    <button type="button" value="$_POST['supprimer']"><i class="fas fa-times"></i></button></p><br/>
+                    <a href="admin_comments.php?id=<?= $comments['id'] ?>&delete"><i class="fas fa-times"></i></a></p><br/>
                     <p class="show_comment"><?= htmlspecialchars($comments['comment']) ?><br/>
                     <hr class="inser_comment">
-                <?php } ?> -->
+                <?php } ?>
             </div>
         </section>
     </body>

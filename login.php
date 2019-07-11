@@ -39,6 +39,8 @@ if (!empty($_POST))
         // var_dump($_COOKIE['identifiant']);
         $_SESSION['user'] = $data['id'];
         $_SESSION['identifiant'] = $data['identifiant'];
+        $_SESSION['email'] = $data['email'];
+        $_SESSION['password'] = $data['password'];
         header('Location: admin.php');
         exit();
     } else {
@@ -66,7 +68,7 @@ if (!empty($_POST))
             <p class="error_message"><?php if (isset($messageErreur)){ echo $messageErreur; } ?></p>
             <form class="connexion_form" action="login.php" method="post"> 
                 <input class="identifiant" type="text" name="identifiant" placeholder="Identifiant" id="identifiant"><br/>
-                <input class="password" type="password" name="password" placeholder="motdepasse" id="password"><br/>
+                <input class="password" type="password" name="password" placeholder="Mot de passe" id="password"><br/>
                 <input class="connexion" type="submit" name="connexion" placeholder="Connexion" id="connexion"><br/>
             </form>
         </section>

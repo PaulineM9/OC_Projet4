@@ -84,7 +84,7 @@ if (isset($_POST['submit']))
             <form class="sign_in" action="inscription.php" method="post">
                 <input class="identifiant_admin" type="text" name="identifiant" size=60 placeholder="Identifiant" id="identifiant"><br/>
                 <input class="email_admin" type="email" name="email" placeholder="Votre email" id="email"><br/>
-                <input class="password_admin" type="password" name="password" placeholder="password" id="password"><br/>
+                <input class="password_admin" type="password" name="password" placeholder="Mot de passe" id="password"><br/>
                 <input class="check_password" type="password" name="check_password" placeholder="Confirmation du mot de passe" id="check_password"><br/>
                 <input class="submit_admin" type="submit" name="submit" value="Inscription" id="submit"><br/>
             </form>
@@ -94,6 +94,7 @@ if (isset($_POST['submit']))
             <p id="message_erreur"><?php if (isset($errorPwCheck))  { echo $errorPwCheck; } ?></p>
             <p id="message_erreur"><?php if (isset($errorRegex))  { echo $errorRegex; } ?></p>
             <p id="message_ok"><?php if (isset($acountOk)){ echo $acountOk; } ?></p>
+        </div>
     </body>
 </html>
 
