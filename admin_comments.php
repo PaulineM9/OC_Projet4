@@ -67,8 +67,14 @@ if (isset($_GET['delete']))
             
             <div class="comments_signal">
                 <h2>Commentaires signalés</h2>
-                <?php while ($comments = $req_join2->fetch()) { ?>
-                    <p class="title_ref"><?= $comments['title'] ?></p>
+                <?php while ($comments = $req_join2->fetch()) { 
+                    $req = $db->prepare('SELECT title FROM chapters WHERE id = :id'); 
+                    $req->execute([
+                        'id' => $comments['id_chapter']
+                    ]);
+                    $chapter = $req->fetch();
+                    ?>
+                    <p class="title_ref"><?= $chapter['title'] ?></p>
                     <p>[ <?= htmlspecialchars($comments['date_comment']) ?> ] Par <?= htmlspecialchars($comments['pseudo']) ?>:
                     <a href="admin_comments.php?id=<?= $comments['id'] ?>&delete"><i class="fas fa-times"></i></a></p><br/>
                     <p class="show_comment"><?= htmlspecialchars($comments['comment']) ?><br/>

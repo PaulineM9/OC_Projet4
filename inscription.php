@@ -22,8 +22,6 @@ if (isset($_POST['submit']))
     $regex_letters = preg_match("#[A-Z]{1,}#", $passwordAdmin);
     $regex_specials = preg_match("#[\#\.\!\$\(\)\[\]\{\}\?\+\=\*\|]{1}#", $passwordAdmin);
 
-    $pass_hache = password_hash($passwordAdmin, PASSWORD_DEFAULT);
-    $pass_hacheCheck = password_hash($checkPassword, PASSWORD_DEFAULT);
 
     $req = $db->prepare('SELECT * FROM user');
     $req->execute();
@@ -57,6 +55,8 @@ if (isset($_POST['submit']))
 
     if ($validation)
     {
+        $pass_hache = password_hash($passwordAdmin, PASSWORD_DEFAULT);
+
         $req = $db->prepare('INSERT INTO user (identifiant, email, password) VALUES (?,?,?)');
         $req->execute(array(
             $identifiantAdmin, 

@@ -28,9 +28,6 @@ if (isset($_POST['submit']))
     $regex_letters = preg_match("#[A-Z]{1,}#", $passwordAdmin);
     $regex_specials = preg_match("#[\#\.\!\$\(\)\[\]\{\}\?\+\=\*\|]{1}#", $passwordAdmin);
 
-    $pass_hache = password_hash($passwordAdmin, PASSWORD_DEFAULT);
-    $pass_hacheCheck = password_hash($checkPassword, PASSWORD_DEFAULT);
-
     $req = $db->prepare('SELECT * FROM user');
     $req->execute();
     $data = $req->fetch();
@@ -57,12 +54,14 @@ if (isset($_POST['submit']))
 
     if ($validation)
     {
-        $req = $db->prepare('UPDATE user SET identifiant= :identifiant, email= :email, password= :password WHERE id = :id');
+        $pass_hache = password_hash($passwordAdmin, PASSWORD_DEFAULT);
+
+        $req = $db->prepare('UPDATE user SET identifiant = :identifiant, email = :email, password = :password WHERE id = :id');
         $req->execute(array(
             'id' => $_GET['id'],
             'identifiant'  => $_POST['identifiant'],
             'email' => $_POST['email'],
-            'password' => $_POST['password'],
+            'password' => $pass_hache
         ));
         // header('Location: admin_profil.php?id='.$_GET['id']);  
         // exit(); 
