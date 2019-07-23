@@ -1,9 +1,9 @@
 <!-- <-PROJET 4 OC: BLOG DE JEAN FORTEROCHE-> -->
 <?php
-// setcookie('identifiant', $_POST['identifiant'], time() + 365 * 24 * 3600, null, null, false, true);
-// setcookie('password', $_POST['password'], time() + 365 * 24 * 3600, null, null, false, true);
-
 session_start();
+require "models/entities/Chapters.php";
+require "models/managers/ChaptersManager.php";
+
 if (!isset($_SESSION['user']))
 {
     header('Location: login.php');
@@ -29,12 +29,16 @@ $chapter = $req->fetch();
 // add changes on a chapter
 if (isset($_POST['title']) OR isset($_POST['content'])) 
 {
-    $req_modif = $db->prepare('UPDATE chapters SET title = :title, content = :content  WHERE id = :id');
-    $req_modif->execute(array(
+    // $req_modif = $db->prepare('UPDATE chapters SET title = :title, content = :content  WHERE id = :id');
+    // $req_modif->execute(array(
+    $chapter = new Chapters([
         'id' => $_GET['id'],
         'title'  => $_POST['title'],
         'content' => $_POST['content']
-    ));
+    ]);
+    $chapterManager = new ChaptersManager();
+    $chapterManager->update($chapter);
+    
     header('Location: admin_chapters.php?id='.$_GET['id']);  
     exit(); 
 }

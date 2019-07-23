@@ -1,6 +1,8 @@
 <!-- <-PROJET 4 OC: BLOG DE JEAN FORTEROCHE-> -->
 <?php
 session_start();
+require "models/entities/Chapters.php";
+require "models/managers/ChaptersManager.php";
 if (!isset($_SESSION['user']))
 {
     header('Location: login.php');
@@ -16,15 +18,23 @@ catch(Exception $e)
     die('erreur : '.$e->getMessage());
 } 
 
-// get informations about chapters and modifie chapter
-$req = $db->prepare('SELECT * FROM chapters ORDER BY id DESC');
-$req->execute();
+// get a chapter and modifie it
+$chapterManager = new ChaptersManager($db); // on créé un nouvel objet et on lui passe la fonction get
+$chapter = $chapterManager->getList(); // $chapter devient alors un objet
+
+// $req = $db->prepare('SELECT * FROM chapters ORDER BY id DESC');
+// $req->execute();
 
 // get all informations about new chapters 
 if (isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['title']) && !empty($_POST['content'])) // condition pour s'assurer que $_POST n'est pas vide
-    {   
-        $req = $db->prepare('INSERT INTO chapters (title, content) VALUES ( ?, ?)');
-        $req->execute(array($_POST['title'], $_POST['content']));
+    {   // d'abord on créé un objet chapter et on renvoie des données
+        $chapters = new Chapters([
+            'title' => $_POST['title'],
+            'content' => $_POST['content']
+        ]);
+        $chaptersManager = new ChaptersManager(); //$chaptersManager est notre objet
+        $chaptersManager->addChapter($chapters); // on appelle la focntion addChapter avec pour argument l'objet $chapter
+
         header('Location: admin_chapters.php'); 
         exit(); 
     }
@@ -55,14 +65,12 @@ if (isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['title']
                 <input class="submit" type="submit" name="published" placeholder="Publier" id="published"><br/> 
             </form>    
         </section>
-        <section class="edit_chapters">             
-            <?php while ($chapters = $req->fetch()){ ?>
-                <div class="chapters_published">
-                    <h3><?= $chapters['title'] ?></h3><br/>
-                    <p><?= $chapters['content'] ?></p>
-                    <a href="update.php?id=<?= $chapters['id'] ?>">Modifier le texte</a>
-                </div>
-            <?php } ?>
+        <section class="edit_chapters">                       
+            <div class="chapters_published">
+                <h3><?= $chapter->title() ?></h3><br/>
+                <p><?= $chapter->content() ?></p>
+                <a href="update.php?id=<?= $chapters['id'] ?>">Modifier le texte</a>
+            </div>           
         </section>
     </body>
 </html>

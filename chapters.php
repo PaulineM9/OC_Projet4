@@ -1,5 +1,7 @@
 <!-- <-PROJET 4 OC: BLOG DE JEAN FORTEROCHE-> -->
 <?php
+require "models/entities/Chapters.php";
+require "models/managers/ChaptersManager.php";
 try
 {
     $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8', 'root', 'root',
@@ -11,10 +13,10 @@ catch(Exception $e)
 } 
 
 // get all informations about chapters 
-$id = (int) $_GET['id']; // permet de changer la chaine en entier (integer) et de la stocker dans une variable
-$req = $db->prepare('SELECT * FROM chapters WHERE id = ?');
-$req->execute(array($id));
-$chapter = $req->fetch(); // récupère les données et les stocke dans la variable $article
+$chapterManager = new ChaptersManager(); // on créé un nouvel objet et on lui passe la fonction get
+$chapter = $chapterManager->get($_GET['id']); // $chapter devient alors un objet
+// var_dump($chapter);
+// die();
 
 // create a comment
 if (isset($_POST['pseudo']) && isset($_POST['comment']) && !empty($_POST['pseudo']) && !empty($_POST['comment'])) // condition pour s'assurer que $_POST n'est pas vide
@@ -32,7 +34,7 @@ if (isset($_POST['pseudo']) && isset($_POST['comment']) && !empty($_POST['pseudo
 // get all comments about a chapter clicked 
 $req2 = $db->prepare('SELECT id, pseudo, comment, date_comment, signaled, DATE_FORMAT (date_comment, "%d/%m/%Y à %Hh%imin%ss") AS date_creation_comment FROM comments WHERE id_chapter= ? ORDER BY date_comment DESC LIMIT 0, 5');
 $req2->execute(array(
-    $id
+    $_GET['id']
 ));
 
 
@@ -64,8 +66,8 @@ if (isset($_GET['signaled']))
         </section>
         <section class="edit_chapters">      
                 <div class="chapters_published">                   
-                    <h3><?= $chapter['title'] ?></h3><br/>
-                    <p><?= $chapter['content'] ?></p><br/>
+                    <h3><?= $chapter->title() ?></h3><br/>
+                    <p><?= $chapter->content() ?></p><br/>
                     <hr>
                     <p class="comments_publication">Commentaires: </p>
                     
@@ -77,7 +79,7 @@ if (isset($_GET['signaled']))
                 </div>
             <div class="comments">
                 <h4>Laissez-moi vos commentaires</h4>
-                <form class="comments_form" action="chapters.php?id=<?= $id ?>" method="post">
+                <form class="comments_form" action="chapters.php?id=<?= $_GET['id'] ?>" method="post">
                     <input class="pseudo" type="text" name="pseudo" placeholder="Pseudo" id="pseudo"><br/>
                     <textarea class="comment" name="comment" placeholder="Votre commentaire" id="comment" cols="30" rows="10"></textarea><br/>
                     <input class="submit" type="submit" name="submit" placeholder="Envoyer" id="submit"><br/>

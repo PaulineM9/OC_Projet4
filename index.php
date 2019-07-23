@@ -1,5 +1,7 @@
 <!-- <-PROJET 4 OC: BLOG DE JEAN FORTEROCHE-> -->
 <?php
+require "models/entities/Chapters.php";
+require "models/managers/ChaptersManager.php";
 try
 {
     $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8', 'root', 'root',
@@ -9,8 +11,14 @@ catch(Exception $e)
 {
     die('erreur : '.$e->getMessage());
 } 
-$req = $db->prepare('SELECT * FROM chapters ORDER BY id DESC');
-$req->execute();
+
+// get all the chapters
+$chapterManager = new ChaptersManager($db); // on créé un nouvel objet et on lui passe la fonction get
+$chapter = $chapterManager->getList(); // $chapter devient alors un objet
+
+// $req = $db->prepare('SELECT * FROM chapters ORDER BY id');
+// $req->execute();
+
 ?>
 
 <!DOCTYPE html>
@@ -30,12 +38,10 @@ $req->execute();
 			<img class="scroll_black" src="images/icons8-scroll-down-blk.png" alt="icone_scroll" />
 		</section>
 		<section class="index_chapters">
-			<?php while ($chapters = $req->fetch()){ ?>
-                <div class="chapters_published">
-					<h3><?= htmlspecialchars($chapters['title']) ?></h3><br/>
-					<a href="chapters.php?id=<?= $chapters['id'] ?>">Lire</a>
-                </div>
-            <?php } ?>
+			<div class="chapters_published">
+				<h3><?= $chapter->title() ?></h3><br/>
+				<a href="chapters.php?id=<?= $chapters['id'] ?>">Lire</a>
+			</div>
 		</section>
 	</body>
 
