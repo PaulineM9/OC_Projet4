@@ -22,22 +22,19 @@ catch(Exception $e)
 $chapterManager = new ChaptersManager($db); // on créé un nouvel objet et on lui passe la fonction get
 $chapter = $chapterManager->getList(); // $chapter devient alors un objet
 
-// $req = $db->prepare('SELECT * FROM chapters ORDER BY id DESC');
-// $req->execute();
-
 // get all informations about new chapters 
 if (isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['title']) && !empty($_POST['content'])) // condition pour s'assurer que $_POST n'est pas vide
-    {   // d'abord on créé un objet chapter et on renvoie des données
-        $chapters = new Chapters([
-            'title' => $_POST['title'],
-            'content' => $_POST['content']
-        ]);
-        $chaptersManager = new ChaptersManager(); //$chaptersManager est notre objet
-        $chaptersManager->addChapter($chapters); // on appelle la focntion addChapter avec pour argument l'objet $chapter
+{   // d'abord on créé un objet chapter et on renvoie des données
+    $chapters = new Chapters([
+        'title' => $_POST['title'],
+        'content' => $_POST['content']
+    ]);
+    $chaptersManager = new ChaptersManager(); //$chaptersManager est notre objet
+    $chaptersManager->addChapter($chapters); // on appelle la focntion addChapter avec pour argument l'objet $chapter
 
-        header('Location: admin_chapters.php'); 
-        exit(); 
-    }
+    header('Location: admin_chapters.php'); 
+    exit(); 
+}
 
 ?>
 
@@ -67,9 +64,7 @@ if (isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['title']
         </section>
         <section class="edit_chapters">                       
             <?php if (!empty($chapter))
-            {
-                foreach ($chapter as $cle => $elements)
-                { ?>
+            { foreach ($chapter as $cle => $elements) { ?>
                 <div class="chapters_published">
                 <h3><?= $elements->getTitle() ?></h3><br/>
                 <p><?= $elements->getContent() ?></p>

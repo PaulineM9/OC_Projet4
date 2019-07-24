@@ -19,18 +19,12 @@ catch(Exception $e)
     die('erreur : '.$e->getMessage());
 } 
 // get chapter title and content 
-$req = $db->prepare('SELECT * FROM chapters WHERE id= :id');
-$req->execute([
-    "id" => $_GET['id']
-]);
-$chapter = $req->fetch();
-// var_dump($chapter);
+$chapterManager = new ChaptersManager(); // on créé un nouvel objet et on lui passe la fonction get
+$chapter = $chapterManager->get($_GET['id']); // $chapter devient alors un objet
 
 // add changes on a chapter
 if (isset($_POST['title']) OR isset($_POST['content'])) 
 {
-    // $req_modif = $db->prepare('UPDATE chapters SET title = :title, content = :content  WHERE id = :id');
-    // $req_modif->execute(array(
     $chapter = new Chapters([
         'id' => $_GET['id'],
         'title'  => $_POST['title'],
@@ -56,8 +50,8 @@ if (isset($_POST['title']) OR isset($_POST['content']))
     </section>
     <section class="change_chapter">
         <form class="chapter_form_update" action="update.php?id=<?= $_GET['id'] ?>" method="post">
-            <input class="title" type="text" name="title" placeholder="Titre du chapitre" id="title" value="<?= $chapter['title'] ?>"><br/>
-            <textarea class="chapter" id="mytextarea" name="content" id="content" cols="30" rows="10" ><?= $chapter['content'] ?></textarea><br/>
+            <input class="title" type="text" name="title" placeholder="Titre du chapitre" id="title" value="<?= $chapter->getTitle() ?>"><br/>
+            <textarea class="chapter" id="mytextarea" name="content" id="content" cols="30" rows="10" ><?= $chapter->getContent() ?></textarea><br/>
             <input class="submit" type="submit" name="published" placeholder="Publier" id="published"><br/> 
         </form>  
     </section>

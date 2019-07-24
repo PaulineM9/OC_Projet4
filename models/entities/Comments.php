@@ -94,23 +94,20 @@ class Comments
 
     public function setPseudo($pseudo)
     {
-        $this->_pseudo = $pseudo;
+        $this->_pseudo = htmlspecialchars($pseudo);
     }
 
     public function setComment($comment)
     {
         if (is_string($comment))
         {
-            $this->_comment = $comment;
+            $this->_comment = htmlspecialchars($comment);
         }
     }
 
     public function setDateComment($date_comment)
     {
-        if (is_date($date_comment))
-        {
             $this->_date_comment = $date_comment;
-        }
     }
 
     public function setSignaled($signaled)

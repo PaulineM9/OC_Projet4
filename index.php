@@ -39,15 +39,14 @@ $chapter = $chapterManager->getList(); // $chapter devient alors un objet
 		</section>
 		<section class="index_chapters">
 			<?php if (!empty($chapter))
-            	{
-                	foreach ($chapter as $cle => $elements)
-                { ?>
-					<div class="chapters_published">
-						<h3><?= $elements->getTitle() ?></h3><br/>
-						<a href="chapters.php?id=<?= $elements->getId() ?>">Lire</a>
-					</div>
-				<?php } 
-            } ?>   
+            	{ foreach ($chapter as $cle => $elements)
+                	{ ?>
+						<div class="chapters_published">
+							<h3><?= $elements->getTitle() ?></h3><br/>
+							<a href="chapters.php?id=<?= $elements->getId() ?>">Lire</a>
+						</div>
+					<?php } 
+            	} ?>   
 		</section>
 	</body>
 
