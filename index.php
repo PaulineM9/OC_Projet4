@@ -38,10 +38,16 @@ $chapter = $chapterManager->getList(); // $chapter devient alors un objet
 			<img class="scroll_black" src="images/icons8-scroll-down-blk.png" alt="icone_scroll" />
 		</section>
 		<section class="index_chapters">
-			<div class="chapters_published">
-				<h3><?= $chapter->getTitle() ?></h3><br/>
-				<a href="chapters.php?id=<?= $chapter->getId() ?>">Lire</a>
-			</div>
+			<?php if (!empty($chapter))
+            	{
+                	foreach ($chapter as $cle => $elements)
+                { ?>
+					<div class="chapters_published">
+						<h3><?= $elements->getTitle() ?></h3><br/>
+						<a href="chapters.php?id=<?= $elements->getId() ?>">Lire</a>
+					</div>
+				<?php } 
+            } ?>   
 		</section>
 	</body>
 

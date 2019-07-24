@@ -28,17 +28,17 @@ class Chapters
 
 // GETTERS: Permet seulement de retourner la variable privée
 
-    public function getId() // getId
+    public function getId() 
     {
         return $this->_id;
     }
 
-    public function getTitle() // getTitle
+    public function getTitle() 
     {
         return $this->_title;
     }
 
-    public function getContent() // getContent
+    public function getContent() 
     {
         return $this->_content;
     }
@@ -57,7 +57,8 @@ class Chapters
     {
         if (is_string($title))
         {
-            $this->_title = htmlspecialchars($title); 
+            // $this->_title = htmlspecialchars($title); => laisse apparaitre des balises de script html => voir plugin?
+            $this->_title = $title;
         }
     }
 
@@ -65,7 +66,8 @@ class Chapters
     {
         if (is_string($content))
         {
-            $this->_content = htmlspecialchars($content); 
+            // $this->_content = htmlspecialchars($content); => laisse apparaitre des balises de script html => voir plugin?
+            $this->_content = $content;
         }
     }
 }

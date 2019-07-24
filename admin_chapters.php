@@ -66,11 +66,17 @@ if (isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['title']
             </form>    
         </section>
         <section class="edit_chapters">                       
-            <div class="chapters_published">
-                <h3><?= $chapter->getTitle() ?></h3><br/>
-                <p><?= $chapter->getContent() ?></p>
-                <a href="update.php?id=<?= $chapter->getId() ?>">Modifier le texte</a>
-            </div>           
+            <?php if (!empty($chapter))
+            {
+                foreach ($chapter as $cle => $elements)
+                { ?>
+                <div class="chapters_published">
+                <h3><?= $elements->getTitle() ?></h3><br/>
+                <p><?= $elements->getContent() ?></p>
+                <a href="update.php?id=<?= $elements->getId() ?>">Modifier le texte</a>
+                </div>   
+                <?php } 
+            } ?>               
         </section>
     </body>
 </html>
