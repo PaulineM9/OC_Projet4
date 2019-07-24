@@ -28,17 +28,17 @@ class Chapters
 
 // GETTERS: Permet seulement de retourner la variable privée
 
-    public function id() // getId
+    public function getId() // getId
     {
         return $this->_id;
     }
 
-    public function title() // getTitle
+    public function getTitle() // getTitle
     {
         return $this->_title;
     }
 
-    public function content() // getContent
+    public function getContent() // getContent
     {
         return $this->_content;
     }

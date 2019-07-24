@@ -66,15 +66,17 @@ if (isset($_GET['signaled']))
         </section>
         <section class="edit_chapters">      
                 <div class="chapters_published">                   
-                    <h3><?= $chapter->title() ?></h3><br/>
-                    <p><?= $chapter->content() ?></p><br/>
+                    <h3><?= $chapter->getTitle() ?></h3><br/>
+                    <p><?= $chapter->getContent() ?></p><br/>
                     <hr>
                     <p class="comments_publication">Commentaires: </p>
                     
                     <?php while ($comments = $req2->fetch()){ ?> <!-- tant que la variable qui contient les données les récupère on affiche... -->
-                        <p>[ <?= htmlspecialchars($comments['date_comment']) ?> ] Par <?= htmlspecialchars($comments['pseudo']) ?> (<a href="chapters.php?id=<?= $chapter['id'] ?>&idComment=<?= $comments['id'] ?>&signaled" class="signal">Signaler</a>): </p><br/> 
+                        <p>[ <?= htmlspecialchars($comments['date_comment']) ?> ] Par <?= htmlspecialchars($comments['pseudo']) ?> (<a href="chapters.php?id=<?= $chapter->getId() ?>&idComment=<?= $comments['id'] ?>&signaled" class="signal">Signaler</a>): </p><br/> 
                         <p class="comment_published"><?= htmlspecialchars($comments['comment']) ?><br />
-                        <?php if(isset($_GET['signaled'])) { echo $message; } ?>
+                        <div class="signal_message">
+                            <?php if(isset($_GET['signaled'])) { echo $message; } ?>
+                        </div>  
                     <?php } ?>
                 </div>
             <div class="comments">
@@ -83,8 +85,7 @@ if (isset($_GET['signaled']))
                     <input class="pseudo" type="text" name="pseudo" placeholder="Pseudo" id="pseudo"><br/>
                     <textarea class="comment" name="comment" placeholder="Votre commentaire" id="comment" cols="30" rows="10"></textarea><br/>
                     <input class="submit" type="submit" name="submit" placeholder="Envoyer" id="submit"><br/>
-                </form>
-                
+                </form>                
             </div>
         </section>
     </body> 

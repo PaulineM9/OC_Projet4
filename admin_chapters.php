@@ -67,9 +67,9 @@ if (isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['title']
         </section>
         <section class="edit_chapters">                       
             <div class="chapters_published">
-                <h3><?= $chapter->title() ?></h3><br/>
-                <p><?= $chapter->content() ?></p>
-                <a href="update.php?id=<?= $chapters['id'] ?>">Modifier le texte</a>
+                <h3><?= $chapter->getTitle() ?></h3><br/>
+                <p><?= $chapter->getContent() ?></p>
+                <a href="update.php?id=<?= $chapter->getId() ?>">Modifier le texte</a>
             </div>           
         </section>
     </body>

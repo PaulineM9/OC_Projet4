@@ -190,7 +190,7 @@ em {
 	margin-top: 400px;
 }
 
-/*----- CHAPITRES.PHP PAGE -----*/
+/*----- CHAPTERS.PHP PAGE -----*/
 .chapters_header {
 	background-image: url("images/alaska-2964658_1920.jpg");
 	background-size: cover;
@@ -274,8 +274,13 @@ em {
 .signal:hover {
 	color: red;
 }
+.signal_message {
+	padding-bottom: 10px;
+	padding-left: 72px;
+	color: coral;
+}
 
-/*----- ELEMENTS FOR PAGES CHAPITRES.PHP + ADMIN.PHP -----*/
+/*----- ELEMENTS FOR PAGES CHAPTERS.PHP + ADMIN.PHP -----*/
 .chapters_published {
 	padding: 20px 10px;
 	margin: 10px auto; 

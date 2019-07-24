@@ -39,8 +39,8 @@ $chapter = $chapterManager->getList(); // $chapter devient alors un objet
 		</section>
 		<section class="index_chapters">
 			<div class="chapters_published">
-				<h3><?= $chapter->title() ?></h3><br/>
-				<a href="chapters.php?id=<?= $chapters['id'] ?>">Lire</a>
+				<h3><?= $chapter->getTitle() ?></h3><br/>
+				<a href="chapters.php?id=<?= $chapter->getId() ?>">Lire</a>
 			</div>
 		</section>
 	</body>

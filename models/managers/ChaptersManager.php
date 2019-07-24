@@ -36,15 +36,10 @@ class ChaptersManager
         $data = $req->execute();
         
         while ($data = $req->fetch(PDO::FETCH_ASSOC))
-        // var_dump($data);  => contient bien tous les chapitres
-        // die();
         {
-            $list = new Chapters($data);
-            // var_dump($data);  => ne contient plus que le premier chapitre
-            // die();
+            $list [] = new Chapters($data);
         }
-        // var_dump($list);  => ne contient plus que le dernier chapitre
-        // die();
+        // var_dump($list);  
         return $list;
     }
 
@@ -52,8 +47,8 @@ class ChaptersManager
     {
         $req = $this->_db->prepare('INSERT INTO chapters (title, content) VALUES ( ?, ?)');
         $req->execute([
-            $chapter->title(), // récupère le getter 'title'
-            $chapter->content(), // récupère le getter 'content'
+            $chapter->getTitle(), // récupère le getter 'title'
+            $chapter->getContent(), // récupère le getter 'content'
         ]);
     }
 
@@ -61,9 +56,9 @@ class ChaptersManager
     {
         $req_modif = $this->_db->prepare('UPDATE chapters SET title = :title, content = :content  WHERE id = :id');
         $req_modif->execute([
-            'id' => $chapter->id(),
-            'title'  => $chapter->title(),
-            'content' => $chapter->content()
+            'id' => $chapter->getId(),
+            'title'  => $chapter->getTitle(),
+            'content' => $chapter->getContent()
         ]);
     }
 
