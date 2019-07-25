@@ -1,28 +1,36 @@
-<?php
-class Chapters
+<?php 
+class User
 {
     private $_id,
-            $_title,
-            $_content;
+            $_identifiant,
+            $_email,
+            $_password;
 
     public function __construct(array $data) // il reçoit un tableau en argument
     {
         $this->hydrate($data); // on envoie un tableau à la méthode hydrate()
     }
-    
+
     public function hydrate(array $data) // méthode qui envoie nos données stockées ds le tableau aux setters
     {
         if (isset($data['id'])) // vérifie que la donnée existe
         {
             $this->setId($data['id']); // si elle existe on envoie la données vers le setter qui prend en paramètre l'élément de la bd
         }
-        if (isset($data['title']))
+
+        if (isset($data['identifiant']))
         {
-            $this->setTitle($data['title']);
+            $this->setIdentifiant($data['identifiant']);
         }
-        if (isset($data['content']))
+
+        if (isset($data['email']))
         {
-            $this->setContent($data['content']);
+            $this->setEmail($data['email']);
+        }
+
+        if (isset($data['password']))
+        {
+            $this->setPassword($data['password']);
         }
     }
 
@@ -32,14 +40,19 @@ class Chapters
         return $this->_id;
     }
 
-    public function getTitle() 
+    public function getIdentifiant()
     {
-        return $this->_title;
+        return $this->_identifiant;
     }
 
-    public function getContent() 
+    public function getEmail()
     {
-        return $this->_content;
+        return $this->_email;
+    }
+
+    public function getPassword()
+    {
+        return $this->_password;
     }
 
 // SETTERS
@@ -52,21 +65,18 @@ class Chapters
         }
     }
 
-    public function setTitle($title)
+    public function setIdentifiant($identifiant)
     {
-        if (is_string($title))
-        {
-            // $this->_title = htmlspecialchars($title); => laisse apparaitre des balises de script html => voir plugin?
-            $this->_title = $title;
-        }
+        $this->_identifiant = htmlspecialchars($identifiant);
     }
 
-    public function setContent($content)
+    public function setEmail($email)
     {
-        if (is_string($content))
-        {
-            // $this->_content = htmlspecialchars($content); => laisse apparaitre des balises de script html => voir plugin?
-            $this->_content = $content;
-        }
+        $this->_email = $email;
+    }
+
+    public function setPassword($password)
+    {
+        $this->_password = $password;
     }
 }

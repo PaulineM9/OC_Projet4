@@ -80,14 +80,13 @@ class CommentsManager
         }
         
         return $list;
-
     }
 
     public function getSignal()
     {
-        $req_signal = $this->_db->prepare('UPDATE comments SET signaled = 1 WHERE id = :idComment');
+        $req_signal = $this->_db->prepare('UPDATE comments SET signaled = 1 WHERE id_chapter = :idChapter');
         $req_signal->execute([
-            'idComment' => $_GET['idComment']
+            'idChapter' => $_GET['id']
         ]);
     } 
 }

@@ -1,5 +1,7 @@
 <!-- <-PROJET 4 OC: BLOG DE JEAN FORTEROCHE-> -->
 <?php
+require "models/entities/User.php";
+require "models/managers/UserManager.php";
 session_start();
 try
 {
@@ -16,14 +18,15 @@ if (!empty($_POST))
 {
     $validation = true;
     
-    $req = $db->prepare('SELECT * FROM user WHERE identifiant= :identifiant');
-    $req->execute(array(
+    $profil = new User([
         'identifiant' => $_POST['identifiant']
-    ));
-    $data = $req->fetch();
-    $passwordCorrect = password_verify($_POST['password'], $data['password']);
+    ]);
+    $profilAcount = new UserManager();
+    $profilManager = $profilAcount->getConnect($profil);
+    
+    $passwordCorrect = password_verify($_POST['password'], $profilManager->getPassword());
 
-    if ($data === false) 
+    if ($profilManager === false) 
     {
         $validation = false;
     } 
@@ -35,12 +38,15 @@ if (!empty($_POST))
 
     if ($validation === true)
     {
-        // setcookie('identifiant', $_POST['identifiant'], time() + 365 * 24 * 3600, null, null, false, true);
-        // var_dump($_COOKIE['identifiant']);
-        $_SESSION['user'] = $data['id'];
-        $_SESSION['identifiant'] = $data['identifiant'];
-        $_SESSION['email'] = $data['email'];
-        $_SESSION['password'] = $data['password'];
+        $_SESSION['user'] = $profilManager->getId();
+        $_SESSION['identifiant'] = $profilManager->getIdentifiant();
+        $_SESSION['email'] = $profilManager->getEmail();
+        $_SESSION['password'] = $profilManager->getPassword();
+        // $_SESSION['user'] = $data['id'];
+        // $_SESSION['identifiant'] = $data['identifiant'];
+        // $_SESSION['email'] = $data['email'];
+        // $_SESSION['password'] = $data['password'];
+
         header('Location: admin.php');
         exit();
     } else {

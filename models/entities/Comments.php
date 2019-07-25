@@ -41,8 +41,7 @@ class Comments
         }
     }
 
-    // GETTERS: Permet seulement de retourner la variable privée
-
+// GETTERS: Permet seulement de retourner la variable privée
     public function getId() 
     {
         return $this->_id;
@@ -73,7 +72,7 @@ class Comments
         return $this->_signaled;
     }
 
-    // SETTERS
+// SETTERS
     public function setId($id) // le setter reçoit les infos de la function hydrate et envoie l'id à la variable privée $_id
     {
         $id = (int)$id;

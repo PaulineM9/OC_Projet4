@@ -1,5 +1,7 @@
 <!-- <-PROJET 4 OC: BLOG DE JEAN FORTEROCHE-> -->
 <?php
+require "models/entities/User.php";
+require "models/managers/UserManager.php";
 session_start();
 if (!isset($_SESSION['user'])) 
 {
@@ -28,11 +30,11 @@ if (isset($_POST['submit']))
     $regex_letters = preg_match("#[A-Z]{1,}#", $passwordAdmin);
     $regex_specials = preg_match("#[\#\.\!\$\(\)\[\]\{\}\?\+\=\*\|]{1}#", $passwordAdmin);
 
-    $req = $db->prepare('SELECT * FROM user');
-    $req->execute();
-    $data = $req->fetch();
-    // var_dump($data);
-    // die();
+    $acount = new UserManager();
+    $newAcount = $acount->get();
+    // $req = $db->prepare('SELECT * FROM user');
+    // $req->execute();
+    // $data = $req->fetch();
 
     if (strlen($passwordAdmin) < 6)
     {
@@ -56,17 +58,17 @@ if (isset($_POST['submit']))
     {
         $pass_hache = password_hash($passwordAdmin, PASSWORD_DEFAULT);
 
-        $req = $db->prepare('UPDATE user SET identifiant = :identifiant, email = :email, password = :password WHERE id = :id');
-        $req->execute(array(
+        $profil = new User([
             'id' => $_GET['id'],
             'identifiant'  => $_POST['identifiant'],
             'email' => $_POST['email'],
             'password' => $pass_hache
-        ));
-        // header('Location: admin_profil.php?id='.$_GET['id']);  
-        // exit(); 
+        ]);
+        $profilAcount = new UserManager();
+        $profilAcount->getChanges($profil); 
+
         $acountOk = "Vos informations personnelles ont bien été modifiées.";  
-        $newConnexion = 'Merci de vous reconnecter <a href="login.php">Nouvelle connexion</a>';
+        $newConnexion = ' Merci de vous reconnecter: <a href="login.php" style="text-decoration: underline;" >Nouvelle connexion</a>';
         unset($_SESSION['user']);
         session_destroy();
     }

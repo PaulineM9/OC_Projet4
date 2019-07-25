@@ -7,10 +7,3 @@ unset($_SESSION['user']);
 session_destroy();
 header ('location: login.php');
 exit();
-
-// delete cookies for the session
-// setcookie('identifiant','');
-// unset($_COOKIE['identifiant']);
-// setcookie('password', '');
-// unset($_COOKIE['password']);
-?>
