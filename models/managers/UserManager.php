@@ -20,18 +20,18 @@ class UserManager
     {
         $req = $this->_db->prepare('SELECT * FROM user');
         $req->execute();
-        $data = $req->fetch();
+        $data[] = $req->fetch();
 
-        return new User($data);
+        return new User($data);  
     }
 
     public function getInscription(User $profil)
     {
         $req = $this->_db->prepare('INSERT INTO user (identifiant, email, password) VALUES (?,?,?)');
         $req->execute([
-            'identifiant' => $profil->getIdentifiant(),
-            'email' => $profil->getEmail(),
-            'password' => $profil->getPassword()
+            $profil->getIdentifiant(),
+            $profil->getEmail(),
+            $profil->getPassword()
         ]);
     }
 

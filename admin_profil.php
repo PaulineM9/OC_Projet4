@@ -32,10 +32,7 @@ if (isset($_POST['submit']))
 
     $acount = new UserManager();
     $newAcount = $acount->get();
-    // $req = $db->prepare('SELECT * FROM user');
-    // $req->execute();
-    // $data = $req->fetch();
-
+    
     if (strlen($passwordAdmin) < 6)
     {
         $validation = false;

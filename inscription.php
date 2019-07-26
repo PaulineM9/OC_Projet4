@@ -26,16 +26,12 @@ if (isset($_POST['submit']))
 
     $acount = new UserManager();
     $newAcount = $acount->get();
-    
-    // $req = $db->prepare('SELECT * FROM user');
-    // $req->execute();
-    // $data = $req->fetch();
 
-    // if ($newAcount != false)
-    // {
-    //     $validation = false;
-    //     $errorData = "Un compte administrateur a déjà été créé. Merci de contacter l'auteur.";
-    // }
+    if ($newAcount != false)
+    {
+        $validation = false;
+        $errorData = "Un compte administrateur a déjà été créé. Merci de contacter l'auteur.";
+    }
 
     if (strlen($passwordAdmin) < 6)
     {
@@ -60,22 +56,15 @@ if (isset($_POST['submit']))
         $pass_hache = password_hash($passwordAdmin, PASSWORD_DEFAULT);
 
         $profil = new User([
-            $identifiantAdmin, 
-            $emailAdmin,
-            $pass_hache
+            'identifiant' => $identifiantAdmin, 
+            'email' => $emailAdmin,
+            'password' => $pass_hache
         ]);
         
         $profilManager = new UserManager();
         $profilManager->getInscription($profil);
             
         $acountOk = "Votre compte administrateur a bien été  créé."; 
-
-        // $req = $db->prepare('INSERT INTO user (identifiant, email, password) VALUES (?,?,?)');
-        // $req->execute([
-        //     $identifiantAdmin, 
-        //     $emailAdmin, 
-        //     $pass_hache
-        // ]); 
     }
 }
 
