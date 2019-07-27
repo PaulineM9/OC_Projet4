@@ -1,56 +1,23 @@
-<!-- <-PROJET 4 OC: BLOG DE JEAN FORTEROCHE-> -->
 <?php
-require "models/entities/Chapters.php";
-require "models/managers/ChaptersManager.php";
-try
+session_start();
+require("controlers/frontend.php");
+require("models/entities/Chapters.php");
+require("models/managers/ChaptersManager.php");
+require("models/entities/Comments.php");
+require("models/managers/CommentsManager.php");
+require("models/entities/User.php");
+require("models/managers/UserManager.php");
+
+if (isset($_GET['action']))
 {
-    $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8', 'root', 'root',
-    array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    if ($_GET['action'] == 'chapter')
+    {
+        chapter();
+    } elseif ($_GET['action'] == 'login')
+    {
+        login();
+    }
+
+} else {
+    home();
 }
-catch(Exception $e)
-{
-    die('erreur : '.$e->getMessage());
-} 
-
-// get all the chapters
-$chapterManager = new ChaptersManager($db); // on créé un nouvel objet et on lui passe la fonction get
-$chapter = $chapterManager->getList(); // $chapter devient alors un objet
-
-// $req = $db->prepare('SELECT * FROM chapters ORDER BY id');
-// $req->execute();
-
-?>
-
-<!DOCTYPE html>
-<html lang="fr">
-	<head>
-		<?php include("head.php"); ?>
-	</head>
-
-	<body>
-		<header class="index_header">
-			<?php include("header.php"); ?>
-		</header>
-		<section class="index_title">
-			<h1>Billet simple pour l'Alaska</h1>
-			<h2>Jean Forteroche</h2>
-			<h3>Acteur et Ecrivain</h3>
-			<img class="scroll_black" src="images/icons8-scroll-down-blk.png" alt="icone_scroll" />
-		</section>
-		<section class="index_chapters">
-			<?php if (!empty($chapter))
-            	{ foreach ($chapter as $cle => $elements)
-                	{ ?>
-						<div class="chapters_published">
-							<h3><?= $elements->getTitle() ?></h3><br/>
-							<a href="chapters.php?id=<?= $elements->getId() ?>">Lire</a>
-						</div>
-					<?php } 
-            	} ?>   
-		</section>
-	</body>
-
-	<footer class="footer">
-		<?php include("footer.php"); ?>
-	</footer>
-</html>

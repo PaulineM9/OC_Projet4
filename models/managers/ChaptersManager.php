@@ -17,6 +17,11 @@ class ChaptersManager
         } 
     }
 
+    // public function setDb(PDO $db)
+    // {
+    //     $this->_db = $db;
+    // }
+
     public function get($id) 
     {
         $req = $this->_db->prepare('SELECT * FROM chapters WHERE id = ?');
@@ -62,9 +67,27 @@ class ChaptersManager
         ]);
     }
 
-    // public function setDb(PDO $db)
-    // {
-    //     $this->_db = $db;
-    // }
+    public function getCount()
+    {
+        $req = $this->_db->prepare('SELECT COUNT(id) as nbArt FROM chapters');
+        $req->execute();
+        $data = $req->fetch();
 
+        return $data['nbArt'];
+    }
+
+    public function getChapterForPagination($perPage2, $perPage)
+    {
+        $list = [];
+
+        $req = $this->_db->prepare('SELECT * FROM chapters LIMIT '.$perPage2.', '.$perPage.'');
+        $req->execute();
+
+        while ($data = $req->fetch(PDO::FETCH_ASSOC))
+        {
+            $list [] = new Chapters($data);
+        }
+        
+        return $list;
+    }
 }

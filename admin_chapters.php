@@ -8,18 +8,9 @@ if (!isset($_SESSION['user']))
     header('Location: login.php');
     exit();
 }
-try
-{
-    $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8', 'root', 'root',
-    array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-}
-catch(Exception $e)
-{
-    die('erreur : '.$e->getMessage());
-} 
 
 // get a chapter and modifie it
-$chapterManager = new ChaptersManager($db); // on créé un nouvel objet et on lui passe la fonction get
+$chapterManager = new ChaptersManager(); // on créé un nouvel objet et on lui passe la fonction get: objet qui contient des méyhodes
 $chapter = $chapterManager->getList(); // $chapter devient alors un objet
 
 // get all informations about new chapters 
@@ -29,7 +20,6 @@ if (isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['title']
         'title' => $_POST['title'],
         'content' => $_POST['content']
     ]);
-    $chaptersManager = new ChaptersManager(); //$chaptersManager est notre objet
     $chaptersManager->addChapter($chapters); // on appelle la focntion addChapter avec pour argument l'objet $chapter
 
     header('Location: admin_chapters.php'); 
