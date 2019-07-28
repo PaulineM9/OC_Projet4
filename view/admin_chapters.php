@@ -1,33 +1,4 @@
 <!-- <-PROJET 4 OC: BLOG DE JEAN FORTEROCHE-> -->
-<?php
-session_start();
-require "models/entities/Chapters.php";
-require "models/managers/ChaptersManager.php";
-if (!isset($_SESSION['user']))
-{
-    header('Location: login.php');
-    exit();
-}
-
-// get a chapter and modifie it
-$chapterManager = new ChaptersManager(); // on créé un nouvel objet et on lui passe la fonction get: objet qui contient des méyhodes
-$chapter = $chapterManager->getList(); // $chapter devient alors un objet
-
-// get all informations about new chapters 
-if (isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['title']) && !empty($_POST['content'])) // condition pour s'assurer que $_POST n'est pas vide
-{   // d'abord on créé un objet chapter et on renvoie des données
-    $chapters = new Chapters([
-        'title' => $_POST['title'],
-        'content' => $_POST['content']
-    ]);
-    $chaptersManager->addChapter($chapters); // on appelle la focntion addChapter avec pour argument l'objet $chapter
-
-    header('Location: admin_chapters.php'); 
-    exit(); 
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
     <head>

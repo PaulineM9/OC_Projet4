@@ -1,23 +1,4 @@
 <!-- <-PROJET 4 OC: BLOG DE JEAN FORTEROCHE-> -->
-<?php
-session_start();
-if (!isset($_SESSION['user']))
-{
-    header('Location: login.php');
-    exit();
-}
-try
-{
-    $db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8', 'root', 'root',
-    array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-}
-catch(Exception $e)
-{
-    die('erreur : '.$e->getMessage());
-} 
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -34,7 +15,7 @@ catch(Exception $e)
         </section>
         <section class="navigation">
             <div class="navigation_icones">
-                <a class="chapters_link" href="admin_chapters.php"><img src="images/icons8-typewriter-with-paper-48.png" alt="icone_typewriter" /></a>
+                <a class="chapters_link" href="index.php?action=admin_chapter"><img src="images/icons8-typewriter-with-paper-48.png" alt="icone_typewriter" /></a>
                 <a class="comments_link" href="admin_comments.php"><img src="images/icons8-chat-bubble-64.png" alt="icone_chat_bubble" /></a>    
                 <a class="profil_link" href="admin_profil.php"><img src="images/icons8-account-64.png" alt="icone_profil" /></a>    
 

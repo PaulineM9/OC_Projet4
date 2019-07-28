@@ -5,7 +5,6 @@ class ChaptersManager
 
     public function __construct()
     {
-        // $this->setDb($db);
         try
         {
             $this->_db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8', 'root', 'root',
@@ -16,11 +15,6 @@ class ChaptersManager
             die('erreur : '.$e->getMessage());
         } 
     }
-
-    // public function setDb(PDO $db)
-    // {
-    //     $this->_db = $db;
-    // }
 
     public function get($id) 
     {

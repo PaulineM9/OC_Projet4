@@ -5,7 +5,6 @@ class CommentsManager
 
     public function __construct()
     {
-        // $this->setDb($db);
         try
         {
             $this->_db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8', 'root', 'root',
