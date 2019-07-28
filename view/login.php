@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <?php include("head.php"); ?>
+    <?php include("view/head.php"); ?>
     </head>
     <body>
         <header class="index_header">
-            <?php include("header.php"); ?>
+            <?php include("view/header.php"); ?>
 		</header>
         <section class="connexion_header">
             <h1>Billet simple pour l'Alaska</h1>
@@ -16,7 +16,7 @@
 
         <section class="connexion_container">
             <p class="error_message"><?php if (isset($messageErreur)){ echo $messageErreur; } ?></p>
-            <form class="connexion_form" action="login.php" method="post"> 
+            <form class="connexion_form" action="index.php?action=login" method="post"> 
                 <input class="identifiant" type="text" name="identifiant" placeholder="Identifiant" id="identifiant"><br/>
                 <input class="password" type="password" name="password" placeholder="Mot de passe" id="password"><br/>
                 <input class="connexion" type="submit" name="connexion" placeholder="Connexion" id="connexion"><br/>
@@ -25,6 +25,6 @@
     </body>
 
     <footer class="footer">
-		<?php include("footer.php"); ?>
+		<?php include("view/footer.php"); ?>
 	</footer>
 </html>

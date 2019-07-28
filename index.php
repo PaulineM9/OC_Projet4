@@ -8,12 +8,13 @@ require("models/entities/Comments.php");
 require("models/managers/CommentsManager.php");
 require("models/entities/User.php");
 require("models/managers/UserManager.php");
-require("models/entities/User.php");
-require("models/managers/UserManager.php");
 
 if (isset($_GET['action']))
 {
-    if ($_GET['action'] == 'chapter')
+    if ($_GET['action'] == 'home')
+    {
+        home();
+    } elseif ($_GET['action'] == 'chapter')
     {
         chapter();
     } elseif ($_GET['action'] == 'login')
@@ -22,9 +23,24 @@ if (isset($_GET['action']))
     } elseif ($_GET['action'] == 'admin')
     {
         admin();
-    } elseif ($_GET['action'] == 'admin_chapter')
+    } elseif ($_GET['action'] == 'admin_chapters')
     {
-        adminChapter();
+        admin_chapters();
+    } elseif ($_GET['action'] == 'admin_comments') 
+    {
+        admin_comments();
+    } elseif ($_GET['action'] == 'admin_profil') 
+    {
+        admin_profil();
+    } elseif ($_GET['action'] == 'inscription')
+    {
+        inscription();
+    } elseif ($_GET['action'] == 'logout')
+    {
+        logout();
+    } elseif ($_GET['action'] == 'update')
+    {
+        update();
     }
 
 } else {

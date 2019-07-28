@@ -1,9 +1,8 @@
 <meta charset="utf-8" />
-<link rel="stylesheet" href="stylesheet.css" />
+<link rel="stylesheet" href="public/stylesheet.css" />
 <!-- <link rel="icon" type="image/png" href=""/> -->
 <title>Le blog de Jean Forteroche</title>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link href="" rel="stylesheet" />
 <link rel="icon" type="image/png" href="images/icons8-train-ticket-96.png" /><!-- favicon -->
 
 <!-- Google Fonts -->
@@ -17,7 +16,7 @@
 <script>
   tinymce.init({
     selector: "#mytextarea",
-    language_url : "./langs/fr_FR.js",
+    language_url : "./public/langs/fr_FR.js",
     language: "fr_FR",
   });
 </script>

@@ -1,6 +1,8 @@
 <?php
 function home()
 {
+    $db = dbConnect();
+    
     $chapterManager = new ChaptersManager();
 
     // count chapters into the table
@@ -26,33 +28,23 @@ function home()
 
 function chapter()
 {
-    // try {
-    //     $db = new PDO(
-    //         'mysql:host=localhost;dbname=projet_4;charset=utf8',
-    //         'root',
-    //         'root',
-    //         array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
-    //     );
-    // } catch (Exception $e) {
-    //     die('erreur : ' . $e->getMessage());
-    // }
+    $db = dbConnect();
 
     // get all informations about chapters 
-    $chapterManager = new ChaptersManager(); 
-    $chapter = $chapterManager->get($_GET['id']); 
+    $chapterManager = new ChaptersManager(); // on créé un nouvel objet et on lui passe la fonction get
+    $chapter = $chapterManager->get($_GET['id']); // $chapter devient alors un objet
 
     // create a comment
-    if (isset($_POST['pseudo']) && isset($_POST['comment']) && !empty($_POST['pseudo']) && !empty($_POST['comment'])) 
+    if (isset($_POST['pseudo']) && isset($_POST['comment']) && !empty($_POST['pseudo']) && !empty($_POST['comment'])) // condition pour s'assurer que $_POST n'est pas vide
     {
         $comment = new Comments([
             $_GET['id'],
             $_POST['pseudo'],
             $_POST['comment'],
         ]);
-        $commentManager = new CommentsManager();
-        $commentManager->getAdd($comment);
+        $chapterManager->getAdd($comment);
 
-        header('Location: chapters.php?id=' . $_GET['id']);
+        header('Location: index.php?action=chapters&id=' . $_GET['id']);
         exit();
     }
 
@@ -65,27 +57,16 @@ function chapter()
         $comments = new Comments([
             'idComment' => $_GET['idComment']
         ]);
-        $commentSignal = new CommentsManager();
-        $commentSignal->getSignal($_GET['idComment']);
+        $commentChapter->getSignal($_GET['idComment']);
 
         $message = "Ce commentaire a été signalé à l'administrateur";
     }
-
     include('view/chapter.php');
 }
 
 function login()
 {
-    // try {
-    //     $db = new PDO(
-    //         'mysql:host=localhost;dbname=projet_4;charset=utf8',
-    //         'root',
-    //         'root',
-    //         array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
-    //     );
-    // } catch (Exception $e) {
-    //     die('erreur : ' . $e->getMessage());
-    // }
+    $db = dbConnect();
 
     // connexion to the administration space
     if (!empty($_POST)) {
@@ -112,14 +93,26 @@ function login()
             $_SESSION['identifiant'] = $profilManager->getIdentifiant();
             $_SESSION['email'] = $profilManager->getEmail();
             $_SESSION['password'] = $profilManager->getPassword();
-            
-            header('Location: admin.php');
+
+            header('Location: index.php?action=admin');
             exit();
         } else {
             $messageErreur = "L'identifiant ou le mot de passe est incorrect.";
         }
     }
-
     include('view/login.php');   
 }
 
+function dbConnect()
+{
+    try {
+        $db = new PDO(
+            'mysql:host=localhost;dbname=projet_4;charset=utf8',
+            'root',
+            'root',
+            array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
+        );
+    } catch (Exception $e) {
+        die('erreur : ' . $e->getMessage());
+    }
+}

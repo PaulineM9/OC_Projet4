@@ -149,11 +149,11 @@ em {
 	text-align: center;	
 }
 
-/*----- INDEX.PHP PAGE -----*/
+/*----- HOME.PHP PAGE -----*/
 .index_title  {
 	display: flex;
 	flex-direction: column;
-	background-image: url("images/train-668964_1920.jpg");
+	background-image: url("public/images/train-668964_1920.jpg");
 	background-size: cover;
 	text-align: center;
 	height: 780px;
@@ -189,10 +189,14 @@ em {
 	width: 4%;
 	margin-top: 400px;
 }
+.pagePagination {
+	padding-left: 72px;
+	margin-bottom: 20px;
+}
 
-/*----- CHAPTERS.PHP PAGE -----*/
+/*----- CHAPTER.PHP PAGE -----*/
 .chapters_header {
-	background-image: url("images/alaska-2964658_1920.jpg");
+	background-image: url("public/images/alaska-2964658_1920.jpg");
 	background-size: cover;
 	display: flex;
 	flex-direction: column;
@@ -606,7 +610,7 @@ em {
 
 /*----- LOGIN PAGE -----*/
 .connexion_header {
-	background-image: url('images/landscape-1622739_1920.jpg');
+	background-image: url('public/images/landscape-1622739_1920.jpg');
 	background-size: cover;
 	display: flex;
 	flex-direction: column;
