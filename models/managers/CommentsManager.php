@@ -32,7 +32,7 @@ class CommentsManager
         return $list;
     }
 
-    public function getAdd()
+    public function getAdd($comment)
     {
         $req = $this->_db->prepare('INSERT INTO comments (id_chapter, pseudo, comment, date_comment, signaled) VALUES (?, ?, ?, NOW(), 0)');
         $req->execute([
@@ -76,7 +76,7 @@ class CommentsManager
 
         while ($data = $req->fetch(PDO::FETCH_ASSOC))
         {
-            $list [] = new Comments($data);
+            $list [] = new Comments($data); 
         }
         
         return $list;

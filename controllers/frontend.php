@@ -42,9 +42,10 @@ function chapter()
             $_POST['pseudo'],
             $_POST['comment'],
         ]);
-        $chapterManager->getAdd($comment);
+        $commentChapter = new CommentsManager();
+        $commentChapter->getAdd($comment);
 
-        header('Location: index.php?action=chapters&id=' . $_GET['id']);
+        header('Location: index.php?action=chapter&id=' . $_GET['id']);
         exit();
     }
 
@@ -57,7 +58,7 @@ function chapter()
         $comments = new Comments([
             'idComment' => $_GET['idComment']
         ]);
-        $commentChapter->getSignal($_GET['idComment']);
+        $commentChapter->getSignal($comments);
 
         $message = "Ce commentaire a été signalé à l'administrateur";
     }

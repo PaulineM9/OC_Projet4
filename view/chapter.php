@@ -22,13 +22,14 @@
                     <?php if (!empty($commentedChapter))
                     { foreach ($commentedChapter as $cle => $elements) { ?>
                         <p>[ <?= $elements->getDateComment() ?> ] Par <?= $elements->getPseudo() ?> (<a href="index.php?action=chapter&id=<?= $chapter->getId() ?>&idComment=<?= $elements->getId() ?>&signaled" class="signal">Signaler</a>): </p><br/> 
-                        <p class="comment_published"><?= $elements->getComment() ?><br />
+                        <p class="comment_published"><?= $elements->getComment() ?><br />                       
                         <div class="signal_message">
-                            <?php if(isset($_GET['signaled'])) { echo $message; } ?>   
-                        </div>  
-                        <?php }
-                    } ?>   
-                </div>
+                            <?php if ($elements->getSignaled() == 1)  { echo $message; } ?>   
+                        </div> 
+                        <?php }                    
+                    } ?> 
+                    
+                 </div>
             <div class="comments">
                 <h4>Laissez-moi vos commentaires</h4>
                 <form class="comments_form" action="index.php?action=chapter&id=<?= $_GET['id'] ?>" method="post">
