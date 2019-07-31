@@ -670,6 +670,9 @@ em {
 		font-size: 1.4em;
 		padding-left: 35px;
 	}
+	.index_header h3 {
+		font-size: 1.4em;
+	}
 	.index_title {
 		color: white; 
 		height: 600px;
@@ -714,6 +717,9 @@ em {
 	.edit_chapters p {
 		margin-left: 0px!important;
 	}
+	.nav_home_chapters img {
+		padding-top: 8px!important;
+	}
 }
 
 /*------ LOGIN PAGE -----*/
@@ -736,6 +742,7 @@ em {
 	}
 	.header_admin h1 {
 		font-size: 0.7em;
+		margin-top: 10px;
 	}
 	.navigation {
 		margin-left: 10px;
@@ -761,8 +768,29 @@ em {
 	}
 }
 
+/*----- UPDATE PAGE -----*/
+@media all and (min-width: 320px) and (max-width: 375px) {
+	.header_update h1 {
+		font-size: 1.5em;
+		padding-left: 15px;
+	}
+	.nav_home_update {
+		margin-left: 10px;
+	}
+	.nav_home_update img,
+	.nav_chapters img {
+		height: 30px;
+	}
+	.chapter_form_update {
+		margin-top: 50px;
+		margin-left: 15px;
+	}
+
+}
+
 /*----- ADMIN_COMMENTS PAGE -----*/
 @media all and (min-width: 320px) and (max-width: 375px) {
+	
 	.nav_home_comments {
 		margin-left: 0px!important;
 	}
