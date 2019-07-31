@@ -17,7 +17,7 @@ class CommentsManager
         } 
     }
 
-    public function getList()
+    public function getList() 
     {
         $list = [];
 
@@ -37,16 +37,16 @@ class CommentsManager
         $req = $this->_db->prepare('INSERT INTO comments (id_chapter, pseudo, comment, date_comment, signaled) VALUES (?, ?, ?, NOW(), 0)');
         $req->execute([
             $_GET['id'], 
-            $_POST['pseudo'], 
-            $_POST['comment'],
+            $_POST['pseudo'],
+            $_POST['comment']
         ]); 
     }
 
-    public function getDelete()
+    public function getDelete($commentsDelete)
     {
         $req_delete = $this->_db->prepare('DELETE FROM comments WHERE id = :id');
         $req_delete->execute([
-            'id' => $_GET['id']
+            'id' => $commentsDelete->getId() 
         ]);
     }
 
@@ -82,11 +82,11 @@ class CommentsManager
         return $list;
     }
 
-    public function getSignal()
+    public function getSignal($comments)
     {
-        $req_signal = $this->_db->prepare('UPDATE comments SET signaled = 1 WHERE id_chapter = :idChapter');
+        $req_signal = $this->_db->prepare('UPDATE comments SET signaled = 1 WHERE id = :idChapter');
         $req_signal->execute([
-            'idChapter' => $_GET['id']
+            'idChapter' => $comments->getId()
         ]);
     } 
 }

@@ -44,7 +44,7 @@ function chapter()
         ]);
         $commentChapter = new CommentsManager();
         $commentChapter->getAdd($comment);
-
+        
         header('Location: index.php?action=chapter&id=' . $_GET['id']);
         exit();
     }
@@ -56,7 +56,7 @@ function chapter()
     // signal a comment to the administration
     if (isset($_GET['signaled'])) {
         $comments = new Comments([
-            'idComment' => $_GET['idComment']
+            'id' => $_GET['idComment']
         ]);
         $commentChapter->getSignal($comments);
 

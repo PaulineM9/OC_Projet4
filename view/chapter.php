@@ -11,7 +11,6 @@
         <section class="chapters_header">
             <h1>Billet simple pour l'Alaska</h1>
             <h2>Jean Forteroche</h2>
-            <img class="scroll_white_chapters" src="public/images/icons8-scroll-down-wht.png" alt="icone_scroll" />
         </section>
         <section class="edit_chapters">      
                 <div class="chapters_published">                   
@@ -24,7 +23,7 @@
                         <p>[ <?= $elements->getDateComment() ?> ] Par <?= $elements->getPseudo() ?> (<a href="index.php?action=chapter&id=<?= $chapter->getId() ?>&idComment=<?= $elements->getId() ?>&signaled" class="signal">Signaler</a>): </p><br/> 
                         <p class="comment_published"><?= $elements->getComment() ?><br />                       
                         <div class="signal_message">
-                            <?php if ($elements->getSignaled() == 1)  { echo $message; } ?>   
+                            <?php if (isset($_GET['signaled']) AND $elements->getSignaled() == 1)  { echo $message; } ?>   
                         </div> 
                         <?php }                    
                     } ?> 

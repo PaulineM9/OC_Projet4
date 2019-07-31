@@ -10,7 +10,7 @@
     <div class="social_media">
         <img class="icone_f" src="public/images/icons8-facebook-96.png" alt="icone_facebook" />
         <img class="icone_t" src="public/images/icons8-black-twitter-logo-96.png" alt="icone_twitter" />
-        <img class="icone_i" src="punlic/images/icons8-instagram-filled-100.png" alt="icone_instagram" />
+        <img class="icone_i" src="public/images/icons8-instagram-filled-100.png" alt="icone_instagram" />
     </div>
 </div>
 <div class="copyright">

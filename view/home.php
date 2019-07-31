@@ -14,7 +14,6 @@
 		<h1>Billet simple pour l'Alaska</h1>
 		<h2>Jean Forteroche</h2>
 		<h3>Acteur et Ecrivain</h3>
-		<img class="scroll_black" src="public/images/icons8-scroll-down-blk.png" alt="icone_scroll" />
 	</section>
 	<section class="index_chapters">
 		<div class="pagination">

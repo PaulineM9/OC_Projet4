@@ -1,6 +1,6 @@
 /* PROJET 4 OC: BLOG DE JEAN FORTEROCHE */
 /* Reset CSS */ 
-html, body, div, span, applet, object, iframe,
+/* html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -20,7 +20,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 	box-sizing: border-box;
-}
+} */
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -135,6 +135,8 @@ em {
 	padding-top: 3px;
 }
 .social_media {
+	display: flex;
+	flex-wrap: wrap;
 	padding-top: 40px;
 	padding-left: 750px;
 }
@@ -183,12 +185,6 @@ em {
 	font-family: 'poiret one', cursive;
 	font-weight: bold;
 }
-.scroll_black {
-	margin: 0 auto;
-	height: 7%;
-	width: 4%;
-	margin-top: 400px;
-}
 .pagePagination {
 	padding-left: 72px;
 	margin-bottom: 20px;
@@ -218,12 +214,6 @@ em {
 	font-size: 2em;
 	margin: 0 auto;
 	padding-top: 20px;
-}
-.scroll_white_chapters {
-	margin: 0 auto;
-	height: 7%;
-	width: 4%;
-	margin-top: 485px;
 }
 .edit_chapters {
 	display: flex;
@@ -284,7 +274,7 @@ em {
 	color: coral;
 }
 
-/*----- ELEMENTS FOR PAGES CHAPTERS.PHP + ADMIN.PHP -----*/
+/*----- ELEMENTS FOR PAGES CHAPTER.PHP + ADMIN.PHP -----*/
 .chapters_published {
 	padding: 20px 10px;
 	margin: 10px auto; 
@@ -668,6 +658,118 @@ em {
 	width: 4%;
 	margin-top: 150px;
 }
+
+/*----- MEDIA QUERIES -----*/
+
+/*----- HOME PAGE -----*/
+@media all and (min-width: 320px) and (max-width: 375px) {
+	.index_header {
+		padding-left: 0px!important;
+	}
+	.index_header h1 {
+		font-size: 1.4em;
+		padding-left: 35px;
+	}
+	.index_title {
+		color: white; 
+		height: 600px;
+	}
+	.index_title h1 {
+		font-size: 3em;
+	}
+	.index_title h2 {
+		padding-left: 0px!important;
+		font-size: 2em;
+	}
+	.index_title h3 {
+		padding-left: 0px!important;
+		padding-top: 0px!important;
+		font-size: 1.5em;
+	}	
+	.pagePagination {
+		padding-left: 102px;
+	}
+	.social_media {
+		padding-left: 0px!important;
+		margin-left: 90px;
+	}
+	.footer_infos {
+		flex-direction: column;
+	}
+	.footer_icone img {
+		padding-left: 10px;
+		height: 35px;
+		width: 40px;
+	}
+}
+
+/*------ CHAPTER PAGE ------*/
+@media all and (min-width: 320px) and (max-width: 375px) {
+	.chapters_header {
+		height: 600px;
+	}
+	.chapters_header h1 {
+		padding-left: 20px;
+	}
+	.edit_chapters p {
+		margin-left: 0px!important;
+	}
+}
+
+/*------ LOGIN PAGE -----*/
+@media all and (min-width: 320px) and (max-width: 375px) {
+	.connexion_header h1 {
+		padding-left: 20px;
+	}
+	.connexion_header h3 {
+		padding-left: 40px;
+	}
+	.connexion_form input {
+		margin-left: 8px;
+	}
+}
+
+/*----- ADMIN PAGE -----*/
+@media all and (min-width: 320px) and (max-width: 375px) {
+	.header_admin {
+		padding-left: 10px;
+	}
+	.header_admin h1 {
+		font-size: 0.7em;
+	}
+	.navigation {
+		margin-left: 10px;
+		margin-top: 170px;
+	}
+}
+
+/*----- ADMIN_CHAPTER PAGE -----*/
+@media all and (min-width: 320px) and (max-width: 375px) {
+	.nav_home_chapters {
+		margin-left: 100px;
+	}
+	.nav_home_chapters img,
+	.nav_comments img {
+		padding-top: 15px;
+	}
+	.admin_chapters h1 {
+		padding-left: 10px;
+		font-size: 1.6em;
+	}
+	.admin_chapters form {
+		margin-left: 15px;
+	}
+}
+
+/*----- ADMIN_COMMENTS PAGE -----*/
+@media all and (min-width: 320px) and (max-width: 375px) {
+	.nav_home_comments {
+		margin-left: 0px!important;
+	}
+}
+
+
+
 
 
 
