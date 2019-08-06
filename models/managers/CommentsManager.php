@@ -42,6 +42,14 @@ class CommentsManager
         ]); 
     }
 
+    public function getSignal($comments)
+    {
+        $req_signal = $this->_db->prepare('UPDATE comments SET signaled = 1 WHERE id = :idChapter');
+        $req_signal->execute([
+            'idChapter' => $comments->getId()
+        ]);
+    } 
+
     public function getDelete($commentsDelete)
     {
         $req_delete = $this->_db->prepare('DELETE FROM comments WHERE id = :id');
@@ -81,12 +89,4 @@ class CommentsManager
         
         return $list;
     }
-
-    public function getSignal($comments)
-    {
-        $req_signal = $this->_db->prepare('UPDATE comments SET signaled = 1 WHERE id = :idChapter');
-        $req_signal->execute([
-            'idChapter' => $comments->getId()
-        ]);
-    } 
 }
