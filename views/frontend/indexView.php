@@ -1,10 +1,5 @@
-<?php
-$title = 'le blog de Jean Forteroche'; ?>
+<?php $title = 'le blog de Jean Forteroche'; ?>
 
-<?php ob_start(); ?>
-<header class="index_header">
-    <?php include("view/header.php"); ?>
-</header>
 <section class="index_title">
     <h1>Billet simple pour l'Alaska</h1>
     <h2>Jean Forteroche</h2>
@@ -31,6 +26,3 @@ $title = 'le blog de Jean Forteroche'; ?>
     </div>
 </section>
 
-<?php $content = ob_get_clean(); ?>
-
-<?php require("view/home.php"); ?>

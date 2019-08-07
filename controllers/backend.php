@@ -4,7 +4,10 @@ function admin()
     $sessionConnect = sessionConnect();
     $db = dbConnectBack();
 
-    include("view/admin.php");
+    ob_start();
+    include("views/backend/adminView.php");
+    $content = ob_get_clean();
+    require("views/backend/template.php");
 }
 
 function admin_chapters()
@@ -28,8 +31,11 @@ function admin_chapters()
         header('Location: index.php?action=admin_chapters');
         exit();
     }
-
-    include("view/admin_chapters.php");
+    
+    ob_start();
+    include("views/backend/admin_chaptersView.php");
+    $content = ob_get_clean();
+    require("views/backend/template.php");
 }
 
 function admin_comments()
@@ -57,7 +63,10 @@ function admin_comments()
         exit();
     }
 
-    include("view/admin_comments.php");
+    ob_start();
+    include("views/backend/admin_commentsView.php");
+    $content = ob_get_clean();
+    require("views/backend/template.php");
 }
 
 function admin_profil()
@@ -113,7 +122,10 @@ function admin_profil()
         }
     }
 
-    include("view/admin_profil.php");
+    ob_start();
+    include("views/backend/admin_profilView.php");
+    $content = ob_get_clean();
+    require("views/backend/template.php");
 }
 
 function inscription()
@@ -170,7 +182,7 @@ function inscription()
         }
     }
 
-    include("view/inscription.php");
+    include("inscription.php");
 }
 
 function logout()
@@ -204,7 +216,10 @@ function update()
         exit();
     }
 
-    include("view/update.php");
+    ob_start();
+    include("views/backend/updateView.php");
+    $content = ob_get_clean();
+    require("views/backend/template.php");
 }
 
 function dbConnectBack()

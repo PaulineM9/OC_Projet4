@@ -1,7 +1,6 @@
 <!-- <-PROJET 4 OC: BLOG DE JEAN FORTEROCHE-> -->
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" href="public/stylesheet.css" />
@@ -49,6 +48,11 @@
 </head>
 
 <body>
+	<header>
+		<a href="index.php?action=home"><h1>Accueil</h1></a>
+		<a href="index.php?action=login"><h3>Connexion<h3></a> 
+	</header>
+	
 	<?= $content ?>
 </body>
 

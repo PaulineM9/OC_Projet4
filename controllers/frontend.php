@@ -23,7 +23,10 @@ function home()
     // chapter for pagination
     $chapters = $chapterManager->getChapterForPagination($perPage2, $perPage);
 
-    include('view/home.php');
+    ob_start();
+    include('views/frontend/indexView.php');
+    $content = ob_get_clean();
+    require("views/frontend/template.php");
 }
 
 function chapter()
@@ -62,7 +65,10 @@ function chapter()
 
         $message = "Ce commentaire a été signalé à l'administrateur";
     }
-    include('view/chapter.php');
+    ob_start();
+    include('views/frontend/chapterView.php');
+    $content = ob_get_clean();
+    require("views/frontend/template.php");
 }
 
 function login()
@@ -101,7 +107,10 @@ function login()
             $messageErreur = "L'identifiant ou le mot de passe est incorrect.";
         }
     }
-    include('view/login.php');   
+    ob_start();
+    include('views/frontend/loginView.php');  
+    $content = ob_get_clean();
+    require("views/frontend/template.php");
 }
 
 function dbConnect()

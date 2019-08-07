@@ -59,10 +59,10 @@ em {
 	font-style: italic;
 }
 
-/*----- ELEMENTS FOR ALL PAGES -----*/
+/*----- ELEMENTS FOR ALL PAGES IN FRONTEND -----*/
 
 /*----- HEADER ------*/
-.index_header {
+header {
 	position: fixed;
 	z-index: 90;
 	display: flex;
@@ -73,33 +73,33 @@ em {
 	padding-top: 17px;
 	color: white;
 }
-.index_header h1 {
+header h1 {
 	font-family: 'poiret one', cursive;
 	font-weight: bold;
 	color: white;
 }
-.index_header h2 {
+header h2 {
 	padding-left: 20px;
 	font-family: 'poiret one', cursive;
 	font-weight: bold;
 	color: white;
 }
-.index_header h3 {
+header h3 {
 	padding-left: 18px;
 }
-.index_header a {
+header a {
 	padding-left: 20px;
 	font-family: 'poiret one', cursive;
 	font-weight: bold;
 }
-.index_header a:hover,
-.index_header h1:hover,
-.index_header h2:hover {
+header a:hover,
+header h1:hover,
+header h2:hover {
 	color: lightblue;
 }
 
 /*----- FOOTER -----*/
-.footer {
+footer {
 	display: flex;
 	flex-direction: column;
 	background-color: lightslategrey;
@@ -378,7 +378,7 @@ em {
 	color: #545454; 
 }
 .header_update {
-	padding-top: 20px;
+	padding-top: 75px;
 	border-bottom: 2px solid #ffc226;
 	display: flex;
 }
