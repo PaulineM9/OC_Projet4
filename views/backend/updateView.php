@@ -1,3 +1,4 @@
+<?php $title = 'le blog de Jean Forteroche'; ?>
 
 <section class="header_update">
     <h1>Modifier un chapitre</h1>
