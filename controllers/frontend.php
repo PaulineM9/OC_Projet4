@@ -1,8 +1,6 @@
 <?php
 function home()
-{
-    $db = dbConnect();
-    
+{   
     $chapterManager = new ChaptersManager();
 
     // count chapters into the table
@@ -31,7 +29,6 @@ function home()
 
 function chapter()
 {
-    $db = dbConnect();
 
     // get all informations about chapters 
     $chapterManager = new ChaptersManager(); // on créé un nouvel objet et on lui passe la fonction get
@@ -73,8 +70,6 @@ function chapter()
 
 function login()
 {
-    $db = dbConnect();
-
     // connexion to the administration space
     if (!empty($_POST)) {
         $validation = true;
@@ -113,16 +108,3 @@ function login()
     require("views/frontend/template.php");
 }
 
-function dbConnect()
-{
-    try {
-        $db = new PDO(
-            'mysql:host=localhost;dbname=projet_4;charset=utf8',
-            'root',
-            'root',
-            array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
-        );
-    } catch (Exception $e) {
-        die('erreur : ' . $e->getMessage());
-    }
-}

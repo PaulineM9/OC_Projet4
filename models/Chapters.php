@@ -1,5 +1,6 @@
 <?php
-class Chapters
+
+class Chapters 
 {
     private $_id,
             $_title,

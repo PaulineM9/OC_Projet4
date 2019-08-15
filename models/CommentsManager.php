@@ -1,5 +1,7 @@
 <?php 
-class CommentsManager 
+require_once("models/Manager.php");
+
+class CommentsManager extends Manager
 {
     private $_db;
 

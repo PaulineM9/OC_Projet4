@@ -1,5 +1,7 @@
 <?php
-class UserManager
+require_once("models/Manager.php");
+
+class UserManager extends Manager
 {
     private $_db;
 

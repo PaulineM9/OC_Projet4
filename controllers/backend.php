@@ -1,8 +1,14 @@
 <?php
+function AutoLoad($class)
+{
+  require 'models/' . $class . '.php'; 
+}
+spl_autoload_register('AutoLoad');
+
+
 function admin()
 {
     $sessionConnect = sessionConnect();
-    $db = dbConnectBack();
 
     ob_start();
     include("views/backend/adminView.php");
@@ -13,7 +19,6 @@ function admin()
 function admin_chapters()
 {
     $sessionConnect = sessionConnect();
-    $db = dbConnectBack();
 
     // get a chapter and modifie it
     $chapterManager = new ChaptersManager(); // on créé un nouvel objet et on lui passe la fonction get: objet qui contient des méyhodes
@@ -41,7 +46,6 @@ function admin_chapters()
 function admin_comments()
 {
     $sessionConnect = sessionConnect();
-    $db = dbConnectBack();
 
     // join tables for getting all comments and chapter title 
     $commentManager = new CommentsManager();
@@ -72,7 +76,6 @@ function admin_comments()
 function admin_profil()
 {
     $sessionConnect = sessionConnect();
-    $db = dbConnectBack();
 
     // get new inscription for administration
     if (isset($_POST['submit'])) {
@@ -130,7 +133,6 @@ function admin_profil()
 
 function inscription()
 {
-    $db = dbConnectBack();
 
     // get inscription for administration
     if (isset($_POST['submit'])) {
@@ -196,8 +198,6 @@ function logout()
 function update()
 {
     $sessionConnect = sessionConnect();
-    $db = dbConnectBack();
-
     // get chapter title and content 
     $chapterManager = new ChaptersManager(); // on créé un nouvel objet et on lui passe la fonction get
     $chapter = $chapterManager->get($_GET['id']); // $chapter devient alors un objet
@@ -220,20 +220,6 @@ function update()
     include("views/backend/updateView.php");
     $content = ob_get_clean();
     require("views/backend/template.php");
-}
-
-function dbConnectBack()
-{
-    try {
-        $db = new PDO(
-            'mysql:host=localhost;dbname=projet_4;charset=utf8',
-            'root',
-            'root',
-            array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
-        );
-    } catch (Exception $e) {
-        die('erreur : ' . $e->getMessage());
-    }
 }
 
 function sessionConnect()

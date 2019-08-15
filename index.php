@@ -2,12 +2,9 @@
 session_start();
 require("controllers/frontend.php");
 require("controllers/backend.php");
-require("models/entities/Chapters.php");
-require("models/managers/ChaptersManager.php");
-require("models/entities/Comments.php");
-require("models/managers/CommentsManager.php");
-require("models/entities/User.php");
-require("models/managers/UserManager.php");
+
+
+// TODO: GESTION DES ERREURS
 
 if (isset($_GET['action']))
 {
