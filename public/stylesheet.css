@@ -553,7 +553,7 @@ footer {
 	font-weight: bold;
 	color: white;
 	padding-top: 34px;
-	margin: 0 510px;
+	margin: 0 35%;
 }
 .inscription_form {
 	flex-direction: column;
@@ -659,10 +659,15 @@ footer {
 	margin-top: 150px;
 }
 
+/*-------------------------*/
 /*----- MEDIA QUERIES -----*/
+/*-------------------------*/
 
 /*----- HOME PAGE -----*/
-@media all and (min-width: 320px) and (max-width: 375px) {
+@media all and (min-width: 320px) and (max-width: 374px) {
+	header {
+		padding-left: 65px!important;
+	}
 	.index_header {
 		padding-left: 0px!important;
 	}
@@ -706,8 +711,236 @@ footer {
 	}
 }
 
+@media all and (min-width: 375px) and (max-width: 424px) {
+	header {
+		padding-left: 100px!important;
+	}
+	.index_header {
+		padding-left: 0px!important;
+	}
+	.index_header h1 {
+		font-size: 1.4em;
+		padding-left: 35px;
+	}
+	.index_header h3 {
+		font-size: 1.4em;
+	}
+	.index_title {
+		color: white; 
+		height: 600px;
+	}
+	.index_title h1 {
+		font-size: 3em;
+	}
+	.index_title h2 {
+		padding-left: 0px!important;
+		font-size: 2em;
+	}
+	.index_title h3 {
+		padding-left: 0px!important;
+		padding-top: 0px!important;
+		font-size: 1.5em;
+	}	
+	.pagePagination {
+		padding-left: 20px;
+	}
+	.social_media {
+		padding-left: 40px!important;
+		margin-left: 90px;
+	}
+	.contact {
+		padding-left: 38px;
+	}
+	.footer_infos {
+		flex-direction: column;
+	}
+	.footer_icone img {
+		padding-left: 10px;
+		height: 35px;
+		width: 40px;
+	}
+}
+
+@media all and (min-width: 425px) and (max-width: 767px) {
+	header {
+		padding-left: 100px!important;
+	}
+	.index_header {
+		padding-left: 0px!important;
+	}
+	.index_header h1 {
+		font-size: 1.4em;
+		padding-left: 35px;
+	}
+	.index_header h3 {
+		font-size: 1.4em;
+	}
+	.index_title {
+		color: white; 
+		height: 600px;
+	}
+	.index_title h1 {
+		font-size: 3em;
+	}
+	.index_title h2 {
+		padding-left: 0px!important;
+		font-size: 2em;
+	}
+	.index_title h3 {
+		padding-left: 0px!important;
+		padding-top: 0px!important;
+		font-size: 1.5em;
+	}	
+	.pagePagination {
+		padding-left: 20px;
+	}
+	.social_media {
+		display: flex;
+		flex-direction: row;
+		padding-left: 0px!important;
+		margin-left: 90px;
+	}
+	.contact {
+		padding-left: 38px;
+	}
+	.footer_infos {
+		flex-direction: column;
+	}
+	.footer_icone img {
+		padding-left: 10px;
+		height: 35px;
+		width: 40px;
+	}
+}	
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+	header {
+		padding-left: 530px!important;
+	}
+	.index_header {
+		padding-left: 0px!important;
+	}
+	.index_header h1 {
+		font-size: 1.4em;
+		padding-left: 35px;
+	}
+	.index_header h3 {
+		font-size: 1.4em;
+	}
+	.index_title {
+		height: 600px;
+	}
+	.index_title h1 {
+		font-size: 3em;
+	}
+	.index_title h2 {
+		padding-left: 400px!important;
+		font-size: 2em;
+	}
+	.index_title h3 {
+		padding-left: 400px!important;
+		padding-top: 0px!important;
+		font-size: 1.5em;
+	}	
+	.pagePagination {
+		padding-left: 40px;
+	}
+	.social_media {
+		display: flex;
+		padding-left: 70px!important;
+		margin-left: 90px;
+	}
+	.contact {
+		padding-left: 100px;
+		padding-top: 20px;
+	}
+	.footer_icone img {
+		padding-left: 20px;
+		height: 35px;
+		width: 50px;
+	}
+}
+
+@media all and (min-width: 1025px) and (max-width: 1439px) {
+	header {
+		padding-left: 530px!important;
+	}
+	.index_header {
+		padding-left: 0px!important;
+	}
+	.index_header h1 {
+		font-size: 1.4em;
+		padding-left: 35px;
+	}
+	.index_header h3 {
+		font-size: 1.4em;
+	}
+	.index_title {
+		height: 600px;
+	}
+	.index_title h1 {
+		font-size: 3em;
+	}
+	.index_title h2 {
+		padding-left: 400px!important;
+		font-size: 2em;
+	}
+	.index_title h3 {
+		padding-left: 400px!important;
+		padding-top: 0px!important;
+		font-size: 1.5em;
+	}	
+	.pagePagination {
+		padding-left: 40px;
+	}
+	.social_media {
+		display: flex;
+		padding-left: 70px!important;
+		margin-left: 90px;
+	}
+	.contact {
+		padding-left: 100px;
+		padding-top: 20px;
+	}
+	.footer_icone img {
+		padding-left: 20px;
+		height: 35px;
+		width: 50px;
+	}
+}
+
 /*------ CHAPTER PAGE ------*/
-@media all and (min-width: 320px) and (max-width: 375px) {
+@media all and (min-width: 320px) and (max-width: 374px) {
+	.chapters_header {
+		height: 600px;
+	}
+	.chapters_header h1 {
+		padding-left: 20px;
+	}
+	.edit_chapters p {
+		margin-left: 0px!important;
+	}
+	.nav_home_chapters img {
+		padding-top: 8px!important;
+	}
+}
+
+@media all and (min-width: 375px) and (max-width: 424px) {
+	.chapters_header {
+		height: 600px;
+	}
+	.chapters_header h1 {
+		padding-left: 20px;
+	}
+	.edit_chapters p {
+		margin-left: 0px!important;
+	}
+	.nav_home_chapters img {
+		padding-top: 8px!important;
+	}
+}
+
+@media all and (min-width: 425px) and (max-width: 767px) {
 	.chapters_header {
 		height: 600px;
 	}
@@ -735,36 +968,203 @@ footer {
 	}
 }
 
+@media all and (min-width: 376px) and (max-width: 424px) {
+	.connexion_header h1 {
+		padding-left: 20px;
+	}
+	.connexion_header h3 {
+		padding-left: 40px;
+	}
+	.connexion_form input {
+		margin-left: 8px;
+	}
+}
+
+@media all and (min-width: 425px) and (max-width: 767px) {
+	.connexion_header h1 {
+		padding-left: 20px;
+	}
+	.connexion_header h3 {
+		padding-left: 40px;
+	}
+	.connexion_form input {
+		margin-left: 8px;
+	}
+}
+
 /*----- ADMIN PAGE -----*/
-@media all and (min-width: 320px) and (max-width: 375px) {
+@media all and (min-width: 320px) and (max-width: 374px) {
+	.index_header h1 {
+		padding-left: 53px!important;
+	}
+	header h1,
+	header h3 {
+		font-size: 1em!important; 
+	}
 	.header_admin {
 		padding-left: 10px;
 	}
 	.header_admin h1 {
-		font-size: 0.7em;
+		font-size: 0.5em;
 		margin-top: 10px;
 	}
 	.navigation {
 		margin-left: 10px;
-		margin-top: 170px;
+		margin-top: 80px;
+	}
+	.navigation_title a {
+		font-size: 0.8em;
+	}
+	.comments_link_title {
+		padding-top: 0px!important; 
+	}
+}
+
+@media all and (min-width: 375px) and (max-width: 425px) {
+	.index_header h1 {
+		padding-left: 53px!important;
+	}
+	header h1,
+	header h3 {
+		font-size: 1em!important; 
+	}
+	.header_admin {
+		padding-left: 10px;
+	}
+	.header_admin h1 {
+		font-size: 0.5em;
+		margin-top: 10px;
+	}
+	.navigation {
+		margin-left: 10px;
+		margin-top: 80px;
+	}
+	.navigation_title a {
+		font-size: 0.8em;
+	}
+	.comments_link_title {
+		padding-top: 0px!important; 
+	}
+}
+
+@media all and (min-width: 426px) and (max-width: 768px) {
+	.index_header h1 {
+		padding-left: 53px!important;
+	}
+	header h1,
+	header h3 {
+		font-size: 1em!important; 
+	}
+	.header_admin {
+		padding-left: 10px;
+	}
+	.header_admin h1 {
+		font-size: 0.5em;
+		margin-top: 10px;
+	}
+	.navigation {
+		margin-left: 10px;
+		margin-top: 80px;
+	}
+	.navigation_title a {
+		font-size: 0.8em;
+	}
+	.comments_link_title {
+		padding-top: 0px!important; 
+	}
+}
+
+@media all and (min-width: 769px) and (max-width: 1024px) {
+	.index_header h1 {
+		padding-left: 53px!important;
+	}
+	header h1,
+	header h3 {
+		font-size: 1em!important; 
+	}
+	.header_admin {
+		padding-left: 10px;
+	}
+	.header_admin h1 {
+		font-size: 0.5em;
+		margin-top: 10px;
+	}
+	.navigation {
+		margin-left: 10px;
+		margin-top: 80px;
+	}
+	.navigation_title a {
+		font-size: 0.8em;
+	}
+	.comments_link_title {
+		padding-top: 0px!important; 
 	}
 }
 
 /*----- ADMIN_CHAPTER PAGE -----*/
 @media all and (min-width: 320px) and (max-width: 375px) {
 	.nav_home_chapters {
-		margin-left: 100px;
+		margin-left: 150px;
 	}
 	.nav_home_chapters img,
 	.nav_comments img {
 		padding-top: 15px;
 	}
+	.nav_home_chapters {
+		padding-left: 60px;
+	}
 	.admin_chapters h1 {
 		padding-left: 10px;
+		padding-top: 20px!important;
 		font-size: 1.6em;
 	}
 	.admin_chapters form {
 		margin-left: 15px;
+		padding-top: 20px!important;
+	}
+}
+
+@media all and (min-width: 376px) and (max-width: 425px) {
+	.nav_home_chapters {
+		margin-left: 150px;
+	}
+	.nav_home_chapters img,
+	.nav_comments img {
+		padding-top: 15px;
+	}
+	.nav_home_chapters {
+		padding-left: 90px;
+	}
+	.admin_chapters h1 {
+		padding-left: 10px;
+		padding-top: 20px!important;
+		font-size: 1.6em;
+	}
+	.admin_chapters form {
+		margin-left: 15px;
+		padding-top: 20px!important;
+	}
+}
+
+@media all and (min-width: 769px) and (max-width: 1024px) {
+	.nav_home_chapters {
+		margin-left: 150px;
+	}
+	.nav_home_chapters img,
+	.nav_comments img {
+		padding-top: 15px;
+	}
+	.nav_home_chapters {
+		padding-left: 700px;
+	}
+	.admin_chapters h1 {
+		padding-left: 10px;
+		padding-top: 20px!important;
+		font-size: 1.6em;
+	}
+	.admin_chapters form {
+		margin-left: 15px;
+		padding-top: 20px!important;
 	}
 }
 
@@ -788,15 +1188,302 @@ footer {
 
 }
 
-/*----- ADMIN_COMMENTS PAGE -----*/
-@media all and (min-width: 320px) and (max-width: 375px) {
-	
-	.nav_home_comments {
-		margin-left: 0px!important;
+@media all and (min-width: 376px) and (max-width: 425px) {
+	.header_update h1 {
+		font-size: 1.5em;
+		padding-left: 15px;
+	}
+	.nav_home_update {
+		margin-left: 10px;
+	}
+	.nav_home_update img,
+	.nav_chapters img {
+		height: 30px;
+	}
+	.nav_home_update img {
+		padding-left: 90px; 
+	}
+	.chapter_form_update {
+		margin-top: 50px;
+		margin-left: 15px;
 	}
 }
 
+@media all and (min-width: 426px) and (max-width: 768px) {
+	.header_update h1 {
+		font-size: 1.5em;
+		padding-left: 15px;
+	}
+	.nav_home_update {
+		margin-left: 10px;
+	}
+	.nav_home_update img,
+	.nav_chapters img {
+		height: 30px;
+	}
+	.nav_home_update img {
+		padding-left: 450px; 
+	}
+	.chapter_form_update {
+		margin-top: 50px;
+		margin-left: 15px;
+	}
+}
 
+@media all and (min-width: 769px) and (max-width: 1024px) {
+	.header_update h1 {
+		font-size: 1.5em;
+		padding-left: 15px;
+	}
+	.nav_home_update {
+		margin-left: 10px;
+	}
+	.nav_home_update img,
+	.nav_chapters img {
+		height: 30px;
+	}
+	.nav_home_update img {
+		padding-left: 700px; 
+	}
+	.chapter_form_update {
+		margin-top: 50px;
+		margin-left: 15px;
+	}
+}
+
+/*----- ADMIN_COMMENTS PAGE -----*/
+@media all and (min-width: 320px) and (max-width: 375px) {	
+	.nav_home_comments {
+		margin-left: 0px!important;
+	}
+	.header_admin img {
+		height: 32px;
+	}
+	.nav_home_comments img {
+		padding-left: 90px;
+	}
+	.admin_comments {
+		display: block;
+	}
+	.show_all_comments,
+	.comments_signal {
+		padding-top: 10px;
+		padding-left: 10px;
+	}
+}
+
+@media all and (min-width: 376px) and (max-width: 425px) {	
+	.nav_home_comments {
+		margin-left: 0px!important;
+	}
+	.header_admin img {
+		height: 32px;
+	}
+	.nav_home_comments img {
+		padding-left: 160px;
+	}
+	.admin_comments {
+		display: block;
+	}
+	.show_all_comments,
+	.comments_signal {
+		padding-top: 10px;
+		padding-left: 10px;
+	}
+}
+
+@media all and (min-width: 426px) and (max-width: 768px) {	
+	.nav_home_comments {
+		margin-left: 0px!important;
+	}
+	.header_admin img {
+		height: 32px;
+	}
+	.nav_home_comments img {
+		padding-left: 480px;
+	}
+	.admin_comments {
+		display: block;
+	}
+	.show_all_comments,
+	.comments_signal {
+		padding-top: 10px;
+		padding-left: 10px;
+	}
+}
+
+@media all and (min-width: 769px) and (max-width: 1024px) {	
+	.nav_home_comments {
+		margin-left: 0px!important;
+	}
+	.header_admin img {
+		height: 32px;
+	}
+	.nav_home_comments img {
+		padding-left: 750px;
+	}
+	.admin_comments {
+		display: flex;
+	}
+	.show_all_comments,
+	.comments_signal {
+		padding-top: 10px;
+		padding-left: 10px;
+	}
+}
+
+/*----- ADMIN_PROFIL PAGE -----*/
+@media all and (min-width: 320px) and (max-width: 375px) {	
+	.header_admin_profil h1 {
+		font-size: 1.2em;
+		padding-left: 10px;
+		
+	}
+	.nav_home_chapters_profil {
+		margin-left: 0px!important;
+	}
+	.header_admin_profil img {
+		height: 26px;
+	}
+	.profil {
+		padding-left: 20px;
+	}
+	.modif {
+		padding-left: 40px;
+	}
+	.sign_in_modif {
+		width: 300px;
+		margin-top: 40px;
+	}
+	#pw_message,
+	#message_error,
+	#message_ok_new {
+		margin-left: 5px; 
+		padding-left: 5px;
+	}
+}
+
+@media all and (min-width: 376px) and (max-width: 425px) {	
+	.header_admin_profil h1 {
+		font-size: 1.2em;
+		padding-left: 10px;
+		
+	}
+	.nav_home_chapters_profil {
+		margin-left: 0px!important;
+	}
+	.nav_home_chapters_profil img {
+		padding-left: 15px;
+	}
+	.header_admin_profil img {
+		height: 26px;
+	}
+	.profil {
+		padding-left: 20px;
+	}
+	.modif {
+		padding-left: 40px;
+	}
+	.sign_in_modif {
+		width: 300px;
+		margin-top: 40px;
+	}
+	#pw_message,
+	#message_error,
+	#message_ok_new {
+		margin-left: 5px; 
+		padding-left: 5px;
+	}
+}
+
+@media all and (min-width: 426px) and (max-width: 768px) {	
+	.header_admin_profil h1 {
+		font-size: 1.2em;
+		padding-left: 10px;
+		
+	}
+	.nav_home_chapters_profil {
+		margin-left: 0px!important;
+	}
+	.nav_home_chapters_profil img {
+		padding-left: 340px;
+	}
+	.header_admin_profil img {
+		height: 26px;
+	}
+	.profil {
+		padding-left: 20px;
+	}
+	.modif {
+		padding-left: 40px;
+	}
+	.sign_in_modif {
+		width: 300px;
+		margin-top: 40px;
+	}
+	#pw_message,
+	#message_error,
+	#message_ok_new {
+		margin-left: 5px; 
+		padding-left: 5px;
+	}
+}
+
+@media all and (min-width: 769px) and (max-width: 1024px) {	
+	.header_admin_profil h1 {
+		font-size: 1.2em;
+		padding-left: 10px;
+		
+	}
+	.nav_home_chapters_profil {
+		margin-left: 0px!important;
+	}
+	.nav_home_chapters_profil img {
+		padding-left: 600px;
+	}
+	.header_admin_profil img {
+		height: 26px;
+	}
+	.profil {
+		padding-left: 20px;
+	}
+	.modif {
+		padding-left: 40px;
+	}
+	.sign_in_modif {
+		width: 300px;
+		margin-top: 40px;
+	}
+	#pw_message,
+	#message_error,
+	#message_ok_new {
+		margin-left: 5px; 
+		padding-left: 5px;
+	}
+}
+
+/*----- INSCRIPTION PAGE -----*/
+@media all and (min-width: 320px) and (max-width: 374px) {
+	.inscription_title img {
+		margin-left: 37px;
+	}
+	.inscription_title h1 {
+		margin: 0 10px; 
+	}	
+	.sign_in {
+		margin-top: 10px;
+		padding: 40px 3px;
+	}
+}
+
+@media all and (min-width: 375px) and (max-width: 424px) {
+	body {
+		width: 100%;
+	}
+	.inscription_title h1 {
+		margin: 0 20%;
+	}
+}
 
 
 

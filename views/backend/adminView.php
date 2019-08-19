@@ -1,7 +1,7 @@
 <?php $title = 'le blog de Jean Forteroche'; ?>
 
 <section class="header_admin">
-        <h1>Bonjour <?= $_SESSION['identifiant'] ?>, bienvenue dans votre espace personnel</h1>
+        <h1>Bonjour <?= $_SESSION['identifiant'] ?>,<br/> bienvenue dans votre espace personnel</h1>
     </section>
     <section class="navigation">
         <div class="navigation_icones">
