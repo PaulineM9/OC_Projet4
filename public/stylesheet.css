@@ -659,6 +659,16 @@ footer {
 	margin-top: 150px;
 }
 
+/*----- ERROR PAGE -----*/
+.error {
+	padding-top: 340px;
+	padding-bottom: 300px;
+	font-family: 'poiret one', 'cursive';
+	color: darkslategrey;
+	display: flex;
+	padding-left: 40%;
+}
+
 /*-------------------------*/
 /*----- MEDIA QUERIES -----*/
 /*-------------------------*/
