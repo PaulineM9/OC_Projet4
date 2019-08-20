@@ -23,14 +23,19 @@ class CommentsManager extends Manager
     {
         $list = [];
 
+        $req = $this->_db->prepare('SELECT id_chapter, pseudo, comment, date_comment, DATE_FORMAT (date_comment, "%d/%m/%Y à %Hh%imin%ss") AS date_creation_comment FROM comments ORDER BY date_comment DESC');
+        $req->execute();
+
         $req_join = $this->_db->prepare('SELECT * FROM chapters, comments WHERE chapters.id=comments.id_chapter ORDER BY date_comment DESC');
         $req_join->execute();
 
-        while ($data = $req_join->fetch(PDO::FETCH_ASSOC))
+        while ($data = $req->fetch(PDO::FETCH_ASSOC))        
         {
-            $list [] = new Comments($data);
+            while ($data = $req_join->fetch(PDO::FETCH_ASSOC))           
+            {
+                $list [] = $data;  
+            }
         }
-    
         return $list;
     }
 
@@ -64,14 +69,19 @@ class CommentsManager extends Manager
     {
         $list = [];
 
-        $req= $this->_db->prepare('SELECT id, id_chapter, pseudo, comment, date_comment, signaled, DATE_FORMAT (date_comment, "%d/%m/%Y à %Hh%imin%ss") AS date_creation_comment FROM comments WHERE signaled = 1 ORDER BY date_comment DESC');
+        $req = $this->_db->prepare('SELECT id_chapter, pseudo, comment, date_comment, DATE_FORMAT (date_comment, "%d/%m/%Y à %Hh%imin%ss") AS date_creation_comment FROM comments WHERE signaled = 1 ORDER BY date_comment DESC');
         $req->execute();
 
-        while ($data = $req->fetch(PDO::FETCH_ASSOC))
+        $req_join = $this->_db->prepare('SELECT * FROM chapters, comments WHERE chapters.id=comments.id_chapter AND signaled = 1 ORDER BY date_comment DESC');
+        $req_join->execute();
+
+        while ($data = $req->fetch(PDO::FETCH_ASSOC))        
         {
-            $list [] = new Comments($data);
+            while ($data = $req_join->fetch(PDO::FETCH_ASSOC))           
+            {
+                $list [] = $data;  
+            }
         }
-        
         return $list;
     }
 
