@@ -54,7 +54,8 @@
 	</header>
 	
 	<section class="error">
-        <p>Oups! Une erreur s'est produite.</p>
+        <p>Oups! Une erreur s'est produite.</p><br/>
+        <p><?= $message_error ?></p>
 	</section>
 </body>
 

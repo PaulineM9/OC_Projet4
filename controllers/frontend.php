@@ -60,7 +60,7 @@ function chapter()
         ]);
         $commentChapter->getSignal($comments);
 
-        $message = "Ce commentaire a été signalé à l'administrateur";
+        // $message = "Ce commentaire a été signalé à l'administrateur";
     }
     ob_start();
     include('views/frontend/chapterView.php');
