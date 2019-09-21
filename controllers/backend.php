@@ -133,7 +133,6 @@ function admin_profil()
 
 function inscription()
 {
-
     // get inscription for administration
     if (isset($_POST['submit'])) {
         $validation = true;
