@@ -29,7 +29,6 @@ function home()
 
 function chapter()
 {
-
     // get all informations about chapters 
     $chapterManager = new ChaptersManager(); // on créé un nouvel objet et on lui passe la fonction get
     $chapter = $chapterManager->get($_GET['id']); // $chapter devient alors un objet

@@ -59,7 +59,7 @@ class ChaptersManager extends Manager
         $req_modif->execute([
             'id' => $chapter->getId(),
             'title'  => $chapter->getTitle(),
-            'content' => $chapter->getContent()
+            'content' => $chapter->getContent()     
         ]);
     }
 

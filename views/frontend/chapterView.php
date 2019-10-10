@@ -19,8 +19,7 @@
                 </div> 
                 <?php }                    
             } ?> 
-            
-            </div>
+        </div>
     <div class="comments">
         <h4>Laissez-moi vos commentaires</h4>
         <form class="comments_form" action="index.php?action=chapter&id=<?= $_GET['id'] ?>" method="post">
