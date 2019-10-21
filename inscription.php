@@ -61,22 +61,10 @@
             <input class="check_password" type="password" name="check_password" placeholder="Confirmation du mot de passe" id="check_password"><br />
             <input class="submit_admin" type="submit" name="submit" value="Inscription" id="submit"><br />
         </form>
-        <p>Le mot de passe doit contenir plus de 6 caractères <br /> dont au moins une majuscule et un caractère spécial.</p>
-        <p id="message_erreur"><?php if (isset($errorData)) {
-                                    echo $errorData;
-                                } ?></p>
-        <p id="message_erreur"><?php if (isset($errorPassword)) {
-                                    echo $errorPassword;
-                                } ?></p>
-        <p id="message_erreur"><?php if (isset($errorPwCheck)) {
-                                    echo $errorPwCheck;
-                                } ?></p>
-        <p id="message_erreur"><?php if (isset($errorRegex)) {
-                                    echo $errorRegex;
-                                } ?></p>
-        <p id="message_ok"><?php if (isset($acountOk)) {
-                                echo $acountOk;
-                            } ?></p>
+        
+        <?php if(isset($_SESSION)) { 
+            include('views/flashMessages.php');
+        } ?>
     </div>
 </body>
 

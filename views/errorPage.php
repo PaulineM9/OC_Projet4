@@ -52,11 +52,6 @@
 		<a href="index.php?action=home"><h1>Accueil</h1></a>
 		<a href="index.php?action=login"><h3>Connexion<h3></a> 
 	</header>
-	
-	<section class="error">
-        <p>Oups! Une erreur s'est produite.</p><br/>
-        <p><?= $message_error ?></p>
-	</section>
 </body>
 
 <footer>

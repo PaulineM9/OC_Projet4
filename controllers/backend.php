@@ -145,26 +145,27 @@ function inscription()
         $regex_specials = preg_match("#[\#\.\!\$\(\)\[\]\{\}\?\+\=\*\|]{1}#", $passwordAdmin);
 
         $acount = new UserManager();
-        $newAcount = $acount->get();
+        $newAcount = $acount->verifyUser();
+        $_SESSION['flash']['danger'] = '';
 
         if ($newAcount != false) {
             $validation = false;
-            $errorData = "Un compte administrateur a déjà été créé. Merci de contacter l'auteur.";
+            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Un compte administrateur a déjà été créé. Merci de contacter l'auteur.";
         }
 
         if (strlen($passwordAdmin) < 6) {
             $validation = false;
-            $errorPassword = "Mot de passe < 6 caractères";
+            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Mot de passe < 6 caractères";
         }
 
         if ($passwordAdmin != $checkPassword) {
             $validation = false;
-            $errorPwCheck = "Les mots de passe ne correspondent pas.";
+            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Les mots de passe ne correspondent pas.";
         }
 
         if (!$regex_specials or !$regex_letters) {
             $validation = false;
-            $errorRegex = "Votre mot de passe doit contenir au moins 6 caractères, 1 majuscule et 1 caractère spécial.";
+            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Votre mot de passe doit contenir au moins 6 caractères, 1 majuscule et 1 caractère spécial.";
         }
 
         if ($validation) {
@@ -178,8 +179,10 @@ function inscription()
 
             $profilManager = new UserManager();
             $profilManager->getInscription($profil);
+            $_SESSION['flash']['succes'] = $_SESSION['flash']['danger'] . "Votre compte administrateur a bien été  créé.";
 
-            $acountOk = "Votre compte administrateur a bien été  créé.";
+            header('Location: index.php?action=login');
+            exit();
         }
     }
 

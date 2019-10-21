@@ -18,13 +18,13 @@ class UserManager extends Manager
         } 
     }
 
-    public function get()
+    public function verifyUser()
     {
         $req = $this->_db->prepare('SELECT * FROM user');
         $req->execute();
-        $data[] = $req->fetch();
-
-        return new User($data);  
+        $data = $req->fetch();
+    
+        return $data;
     }
 
     public function getInscription(User $profil)
