@@ -51,7 +51,7 @@
         <a href="index.php?action=home">
             <h1>Accueil</h1>
         </a>
-        <a href="logout.php?action=logout">
+        <a href="index.php?action=logout">
             <h3>Déconnexion<h3>
         </a>
     </header>

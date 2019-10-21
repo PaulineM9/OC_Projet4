@@ -90,20 +90,21 @@ function admin_profil()
 
         $acount = new UserManager();
         $newAcount = $acount->verifyUser();
+        $_SESSION['flash']['danger'] = '';
 
         if (strlen($passwordAdmin) < 6) {
             $validation = false;
-            $errorPassword = "Mot de passe < 6 caractères";
+            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Mot de passe < 6 caractères";
         }
 
         if ($passwordAdmin != $checkPassword) {
             $validation = false;
-            $errorPwCheck = "Les mots de passe ne correspondent pas.";
+            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Les mots de passe ne correspondent pas.";
         }
 
         if (!$regex_specials or !$regex_letters) {
             $validation = false;
-            $errorRegex = "Votre mot de passe doit contenir au moins 6 caractères, 1 majuscule et 1 caractère spécial.";
+            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Votre mot de passe doit contenir au moins 6 caractères, 1 majuscule et 1 caractère spécial.";
         }
 
         if ($validation) {
@@ -118,8 +119,8 @@ function admin_profil()
             $profilAcount = new UserManager();
             $profilAcount->getChanges($profil);
 
-            $acountOk = "Vos informations personnelles ont bien été modifiées.";
-            $newConnexion = ' Merci de vous reconnecter: <a href="login.php" style="text-decoration: underline;" >Nouvelle connexion</a>';
+            $_SESSION['flash']['succes'] = $_SESSION['flash']['danger'] . "Vos informations personnelles ont bien été modifiées.";
+            $_SESSION['flash']['succes'] = $_SESSION['flash']['danger'] . 'Merci de vous reconnecter: <a href="login.php" style="text-decoration: underline;" >Nouvelle connexion</a>';
             unset($_SESSION['user']);
             session_destroy();
         }

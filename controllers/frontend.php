@@ -51,6 +51,7 @@ function chapter()
     // get all comments about a chapter clicked 
     $commentChapter = new CommentsManager();
     $commentedChapter = $commentChapter->getChapterComment($_GET['id']);
+    $_SESSION['flash']['danger'] = '';
 
     // signal a comment to the administration
     if (isset($_GET['signaled'])) {
@@ -58,8 +59,7 @@ function chapter()
             'id' => $_GET['idComment']
         ]);
         $commentChapter->getSignal($comments);
-
-        // $message = "Ce commentaire a été signalé à l'administrateur";
+        $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . 'Ce commentaire a été signalé à l\'administrateur';    
     }
     ob_start();
     include('views/frontend/chapterView.php');

@@ -28,10 +28,9 @@
         <input class="submit_admin" type="submit" name="submit" value="Inscription" id="submit"><br/>
     </form>
     <p id="pw_message">Le mot de passe doit contenir plus de 6 caractères <br/> dont au moins une majuscule et un caractère spécial.</p>
-    <p id="message_error"><?php if (isset($errorPassword))  { echo $errorPassword; } ?></p>
-    <p id="message_error"><?php if (isset($errorPwCheck))  { echo $errorPwCheck; } ?></p>
-    <p id="message_error"><?php if (isset($errorRegex))  { echo $errorRegex; } ?></p>
-    <p id="message_ok_new"><?php if (isset($acountOk)){ echo $acountOk; echo $newConnexion; } ?></p>
+    <?php if(isset($_SESSION)) { 
+        include('views/flashMessages.php');
+    } ?>
     <?php } ?>
 </div>
     
