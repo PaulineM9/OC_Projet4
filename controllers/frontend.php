@@ -81,6 +81,8 @@ function login()
 
         $passwordCorrect = password_verify($_POST['password'], $profilManager->getPassword());
 
+        $_SESSION['flash']['danger'] = '';
+
         if ($profilManager === false) {
             $validation = false;
         }
@@ -98,7 +100,7 @@ function login()
             header('Location: index.php?action=admin');
             exit();
         } else {
-            $messageErreur = "L'identifiant ou le mot de passe est incorrect.";
+            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "L'identifiant ou le mot de passe est incorrect.";
         }
     }
     ob_start();

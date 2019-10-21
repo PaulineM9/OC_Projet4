@@ -89,7 +89,7 @@ function admin_profil()
         $regex_specials = preg_match("#[\#\.\!\$\(\)\[\]\{\}\?\+\=\*\|]{1}#", $passwordAdmin);
 
         $acount = new UserManager();
-        $newAcount = $acount->get();
+        $newAcount = $acount->verifyUser();
 
         if (strlen($passwordAdmin) < 6) {
             $validation = false;
