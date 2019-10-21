@@ -94,7 +94,7 @@ function admin_profil()
 
         if (strlen($passwordAdmin) < 6) {
             $validation = false;
-            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Mot de passe < 6 caractères";
+            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Mot de passe < 6 caractères.";
         }
 
         if ($passwordAdmin != $checkPassword) {
@@ -156,7 +156,7 @@ function inscription()
 
         if (strlen($passwordAdmin) < 6) {
             $validation = false;
-            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Mot de passe < 6 caractères";
+            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Mot de passe < 6 caractères.";
         }
 
         if ($passwordAdmin != $checkPassword) {
