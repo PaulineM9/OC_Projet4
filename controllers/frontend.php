@@ -59,7 +59,7 @@ function chapter()
             'id' => $_GET['idComment']
         ]);
         $commentChapter->getSignal($comments);
-        $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . 'Ce commentaire a été signalé à l\'administrateur';    
+        $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . 'Ce commentaire a été signalé à l\'administrateur' . '<br/>';    
     }
     ob_start();
     include('views/frontend/chapterView.php');
@@ -100,7 +100,7 @@ function login()
             header('Location: index.php?action=admin');
             exit();
         } else {
-            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "L'identifiant ou le mot de passe est incorrect.";
+            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "L'identifiant ou le mot de passe est incorrect." . '<br/>';
         }
     }
     ob_start();

@@ -94,17 +94,17 @@ function admin_profil()
 
         if (strlen($passwordAdmin) < 6) {
             $validation = false;
-            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Mot de passe < 6 caractères.";
+            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Mot de passe < 6 caractères." . '<br/>';
         }
 
         if ($passwordAdmin != $checkPassword) {
             $validation = false;
-            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Les mots de passe ne correspondent pas.";
+            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Les mots de passe ne correspondent pas." . '<br/>';
         }
 
         if (!$regex_specials or !$regex_letters) {
             $validation = false;
-            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Votre mot de passe doit contenir au moins 6 caractères, 1 majuscule et 1 caractère spécial.";
+            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Votre mot de passe doit contenir au moins 6 caractères, 1 majuscule et 1 caractère spécial." . '<br/>';
         }
 
         if ($validation) {
@@ -119,8 +119,8 @@ function admin_profil()
             $profilAcount = new UserManager();
             $profilAcount->getChanges($profil);
 
-            $_SESSION['flash']['succes'] = $_SESSION['flash']['danger'] . "Vos informations personnelles ont bien été modifiées.";
-            $_SESSION['flash']['succes'] = $_SESSION['flash']['danger'] . 'Merci de vous reconnecter: <a href="login.php" style="text-decoration: underline;" >Nouvelle connexion</a>';
+            $_SESSION['flash']['succes'] = $_SESSION['flash']['danger'] . "Vos informations personnelles ont bien été modifiées." . '<br/>';
+            $_SESSION['flash']['succes'] = $_SESSION['flash']['danger'] . 'Merci de vous reconnecter: <a href="login.php" style="text-decoration: underline;" >Nouvelle connexion</a>' . '<br/>';
             unset($_SESSION['user']);
             session_destroy();
         }
@@ -151,22 +151,22 @@ function inscription()
 
         if ($newAcount != false) {
             $validation = false;
-            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Un compte administrateur a déjà été créé. Merci de contacter l'auteur.";
+            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Un compte administrateur a déjà été créé. Merci de contacter l'auteur." . '<br/>';
         }
 
         if (strlen($passwordAdmin) < 6) {
             $validation = false;
-            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Mot de passe < 6 caractères.";
+            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Mot de passe < 6 caractères." . '<br/>';
         }
 
         if ($passwordAdmin != $checkPassword) {
             $validation = false;
-            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Les mots de passe ne correspondent pas.";
+            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Les mots de passe ne correspondent pas." . '<br/>';
         }
 
         if (!$regex_specials or !$regex_letters) {
             $validation = false;
-            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Votre mot de passe doit contenir au moins 6 caractères, 1 majuscule et 1 caractère spécial.";
+            $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "Votre mot de passe doit contenir au moins 6 caractères, 1 majuscule et 1 caractère spécial." . '<br/>';
         }
 
         if ($validation) {
@@ -180,7 +180,7 @@ function inscription()
 
             $profilManager = new UserManager();
             $profilManager->getInscription($profil);
-            $_SESSION['flash']['succes'] = $_SESSION['flash']['danger'] . "Votre compte administrateur a bien été  créé.";
+            $_SESSION['flash']['succes'] = $_SESSION['flash']['danger'] . "Votre compte administrateur a bien été  créé." . '<br/>';
 
             header('Location: index.php?action=login');
             exit();

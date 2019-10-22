@@ -13,10 +13,8 @@
             <?php if (!empty($commentedChapter))
             { foreach ($commentedChapter as $cle => $elements) { ?>
                 <p>[ <?= $elements->getDateComment() ?> ] Par <?= $elements->getPseudo() ?> (<a href="index.php?action=chapter&id=<?= $chapter->getId() ?>&idComment=<?= $elements->getId() ?>&signaled" class="signal">Signaler</a>): </p><br/> 
-                <p class="comment_published"><?= $elements->getComment() ?><br />                       
-                <div class="signal_message">
-                    <?php if (isset($_SESSION) AND isset($_GET['signaled']) AND $elements->getSignaled() == 1)  { include('views/flashMessages.php'); } ?>   
-                </div> 
+                <p class="comment_published"><?= $elements->getComment() ?><br />                                       
+                <?php if (isset($_SESSION) AND isset($_GET['signaled']) AND $elements->getSignaled() == 1)  { include('views/flashMessages.php'); } ?>   
                 <?php }                    
             } ?> 
         </div>

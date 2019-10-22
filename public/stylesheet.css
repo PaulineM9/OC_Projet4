@@ -517,20 +517,6 @@ footer {
 	margin-top: 10px;
 	margin-left: 545px;
 }
-#message_error {
-	font-family: 'poiret one', 'cursive';
-	color: rgb(207, 55, 55);
-	font-size: 1.8em;
-	padding-top: 20px;
-	padding-left: 420px;
-}
-#message_ok_new {
-	font-family: 'poiret one', 'cursive';
-	color: rgb(48, 202, 130);
-	font-size: 1.4em;
-	padding-top: 20px;
-	padding-left: 300px;
-}
 
 /*----- INSCRIPTION PAGE -----*/
 .inscription_title,
@@ -586,16 +572,6 @@ footer {
 }
 .submit_admin {
 	margin-top: 15px;
-}
-#message_erreur {
-	font-family: 'poiret one', 'cursive';
-	color: rgb(207, 55, 55);
-	font-size: 1.8em;
-}
-#message_ok {
-	font-family: 'poiret one', 'cursive';
-	color: rgb(48, 202, 130);
-	font-size: 1.8em;
 }
 
 /*----- LOGIN PAGE -----*/
@@ -668,6 +644,21 @@ footer {
 	display: flex;
 	padding-left: 40%;
 }
+
+/*----- FLASH MESSAGES -----*/
+.danger {
+	font-family: 'poiret one', 'cursive';
+	font-size: 1.4em;
+	color: coral;
+	text-align: center;
+	margin-top: 20px;
+}
+/* .succes {
+	font-family: 'poiret one', 'cursive';
+	font-size: 1.4em;
+	color: lightgreen;
+	text-align: center;
+} */
 
 /*-------------------------*/
 /*----- MEDIA QUERIES -----*/
