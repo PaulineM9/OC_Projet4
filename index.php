@@ -4,18 +4,11 @@ require("controllers/frontend.php");
 require("controllers/backend.php");
 
 
-// TODO: GESTION DES ERREURS
+// TODO: GESTION DES ERREURS EN MVC
 try {
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'home') {
             home();
-        } elseif ($_GET['action'] == 'chapter') {
-            if ($_GET['action'] == 'chapter') {
-                chapter();
-            } else {
-                throw new Exception("Ce commentaire a été signalé à l'administrateur");
-                require('../views/errorPage.php');
-            }
         } elseif ($_GET['action'] == 'login') {
             login();
         } elseif ($_GET['action'] == 'admin') {
