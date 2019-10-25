@@ -11,8 +11,8 @@
         include('views/flashMessages.php');
     } ?>
     <form class="connexion_form" action="index.php?action=login" method="post">
-        <input class="identifiant" type="text" name="identifiant" placeholder="Identifiant" id="identifiant"><br />
-        <input class="password" type="password" name="password" placeholder="Mot de passe" id="password"><br />
+        <input class="identifiant" type="text" name="identifiant" placeholder="Identifiant" id="identifiant" required><br />
+        <input class="password" type="password" name="password" placeholder="Mot de passe" id="password" required><br />
         <input class="connexion" type="submit" name="connexion" placeholder="Connexion" id="connexion"><br />
     </form>
 </section>

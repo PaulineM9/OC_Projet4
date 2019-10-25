@@ -39,13 +39,15 @@ class UserManager extends Manager
 
     public function getConnect(User $profil)
     {
-        $req = $this->_db->prepare('SELECT * FROM user WHERE identifiant= :identifiant');
+        $req = $this->_db->prepare('SELECT * FROM user WHERE identifiant= :identifiant AND password= :password');
         $req->execute([
-            'identifiant' => $profil->getIdentifiant()
+            'identifiant' => $profil->getIdentifiant(),
+            'password' => $profil->getPassword(),
         ]);
         $data = $req->fetch();
-
-        return new User($data);
+// si je supprime le tableau = must be an array...
+// si je garde le tableau = pas d'erreur mais ne reconnait pas les données du $_POST
+        return new User($data); // si je supprime l'objet = call to a member function getPassword() on array
     }
 
     public function getChanges(User $profil)

@@ -120,7 +120,7 @@ function admin_profil()
             $profilAcount->getChanges($profil);
 
             $_SESSION['flash']['succes'] = $_SESSION['flash']['danger'] . "Vos informations personnelles ont bien été modifiées." . '<br/>';
-            $_SESSION['flash']['succes'] = $_SESSION['flash']['danger'] . 'Merci de vous reconnecter: <a href="login.php" style="text-decoration: underline;" >Nouvelle connexion</a>' . '<br/>';
+            $_SESSION['flash']['succes'] = $_SESSION['flash']['danger'] . 'Merci de vous reconnecter:' . '<a href="login.php" style="text-decoration: underline;">Nouvelle connexion</a>' . '<br/>';
             unset($_SESSION['user']);
             session_destroy();
         }
@@ -194,7 +194,7 @@ function logout()
 {
     unset($_SESSION['user']);
     session_destroy();
-    header('location: index.php?action=login');
+    header('Location: index.php?action=login');
     exit();
 }
 

@@ -74,13 +74,18 @@ function login()
         $validation = true;
 
         $profil = new User([
-            'identifiant' => $_POST['identifiant']
+            'identifiant' => $_POST['identifiant'],
+            'password' => $_POST['password']
         ]);
+// var_dump($profil); = récupère bien les données du formulaire
+// die();
         $profilAcount = new UserManager();
         $profilManager = $profilAcount->getConnect($profil);
-
+// var_dump($profilManager);  = objet dont les éléments sont NULL
+// die();
         $passwordCorrect = password_verify($_POST['password'], $profilManager->getPassword());
-
+// var_dump($passwordCorrect); = renvoie un booléen (false) même si le mot de passe est bon
+// die();
         $_SESSION['flash']['danger'] = '';
 
         if ($profilManager === false) {
@@ -102,7 +107,8 @@ function login()
         } else {
             $_SESSION['flash']['danger'] = $_SESSION['flash']['danger'] . "L'identifiant ou le mot de passe est incorrect." . '<br/>';
         }
-    }
+    } 
+
     ob_start();
     include('views/frontend/loginView.php');  
     $content = ob_get_clean();
