@@ -74,21 +74,20 @@ function login()
         $validation = true;
 
         $profil = new User([
-            'identifiant' => $_POST['identifiant'],
-            'password' => $_POST['password']
+            'identifiant' => $_POST['identifiant']
         ]);
-// var_dump($profil); = récupère bien les données du formulaire
+// var_dump($profil); // = récupère bien les données du formulaire
 // die();
         $profilAcount = new UserManager();
         $profilManager = $profilAcount->getConnect($profil);
-// var_dump($profilManager);  = objet dont les éléments sont NULL
+// var_dump($profilManager);  // = objet dont les éléments sont NULL si pas [] ds la requete
 // die();
         $passwordCorrect = password_verify($_POST['password'], $profilManager->getPassword());
-// var_dump($passwordCorrect); = renvoie un booléen (false) même si le mot de passe est bon
+// var_dump($passwordCorrect); // = renvoie un booléen (false) même si le mot de passe est bon si pas [] ds la requete
 // die();
         $_SESSION['flash']['danger'] = '';
 
-        if ($profilManager === false) {
+        if (!$profilManager) {
             $validation = false;
         }
 

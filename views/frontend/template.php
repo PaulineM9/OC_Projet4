@@ -53,7 +53,7 @@
 		<a href="index.php?action=login"><h3>Connexion<h3></a> 
 	</header>
 	
-	<?= $content ?>
+	<?= $content ?> 
 </body>
 
 <footer>

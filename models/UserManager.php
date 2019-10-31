@@ -39,14 +39,13 @@ class UserManager extends Manager
 
     public function getConnect(User $profil)
     {
-        $req = $this->_db->prepare('SELECT * FROM user WHERE identifiant= :identifiant AND password= :password');
+        $req = $this->_db->prepare('SELECT * FROM user WHERE identifiant= :identifiant');
         $req->execute([
-            'identifiant' => $profil->getIdentifiant(),
-            'password' => $profil->getPassword(),
+            'identifiant' => $profil->getIdentifiant()
         ]);
         $data = $req->fetch();
-// si je supprime le tableau = must be an array...
-// si je garde le tableau = pas d'erreur mais ne reconnait pas les données du $_POST
+// si je supprime le tableau = connexion ok ms 'must be an array' qd je tape un mauvais identifiant (message error ok si mauvais mot de passe )
+// si je garde le tableau = ne reconnait pas les données du $_POST mm si les infos st bonnes
         return new User($data); // si je supprime l'objet = call to a member function getPassword() on array
     }
 
