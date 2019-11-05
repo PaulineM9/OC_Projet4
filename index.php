@@ -1,14 +1,20 @@
 <?php
 session_start();
+function AutoLoad($class)
+{
+  require 'models/' . $class . '.php'; 
+}
+spl_autoload_register('AutoLoad');
+
 require("controllers/frontend.php");
 require("controllers/backend.php");
 
-
-// TODO: GESTION DES ERREURS EN MVC
 try {
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'home') {
             home();
+        } elseif ($_GET['action'] == 'chapter') {
+            chapter();
         } elseif ($_GET['action'] == 'login') {
             login();
         } elseif ($_GET['action'] == 'admin') {

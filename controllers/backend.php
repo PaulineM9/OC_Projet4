@@ -1,11 +1,4 @@
 <?php
-function AutoLoad($class)
-{
-  require 'models/' . $class . '.php'; 
-}
-spl_autoload_register('AutoLoad');
-
-
 function admin()
 {
     $sessionConnect = sessionConnect();

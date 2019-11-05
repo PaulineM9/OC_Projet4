@@ -1,5 +1,4 @@
 <?php
-require_once("models/Manager.php");
 
 class UserManager extends Manager
 {
@@ -44,9 +43,12 @@ class UserManager extends Manager
             'identifiant' => $profil->getIdentifiant()
         ]);
         $data = $req->fetch();
-// si je supprime le tableau = connexion ok ms 'must be an array' qd je tape un mauvais identifiant (message error ok si mauvais mot de passe )
-// si je garde le tableau = ne reconnait pas les données du $_POST mm si les infos st bonnes
-        return new User($data); // si je supprime l'objet = call to a member function getPassword() on array
+
+        if ($data) {
+            return new User($data); 
+        } else {
+            return $data;
+        }
     }
 
     public function getChanges(User $profil)

@@ -1,5 +1,4 @@
 <?php 
-require_once("models/Manager.php");
 
 class CommentsManager extends Manager
 {

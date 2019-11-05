@@ -516,6 +516,7 @@ footer {
 	font-size: 1em;
 	margin-top: 10px;
 	margin-left: 545px;
+
 }
 
 /*----- INSCRIPTION PAGE -----*/
@@ -615,7 +616,7 @@ footer {
 }
 .connexion_form {
 	padding: 10px 0px;
-	margin: 0 auto;
+	margin: 5px auto;
 }
 .identifiant,
 .password {
