@@ -47,7 +47,7 @@ class UserManager extends Manager
         if ($data) {
             return new User($data); 
         } else {
-            return $data;
+            return false;
         }
     }
 

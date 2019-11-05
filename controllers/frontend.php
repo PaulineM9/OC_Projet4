@@ -82,6 +82,8 @@ function login()
         $profilManager = $profilAcount->getConnect($profil);
 // var_dump($profilManager);  
 // die();
+// var_dump($profilAcount->getConnect($profil));
+// die();
         $passwordCorrect = password_verify($_POST['password'], $profilManager->getPassword());
 // var_dump($passwordCorrect); 
 // die();
