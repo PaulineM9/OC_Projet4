@@ -52,6 +52,9 @@
 		<a href="index.php?action=home"><h1>Accueil</h1></a>
 		<a href="index.php?action=login"><h3>Connexion<h3></a> 
 	</header>
+	<section>
+		<p>Oups. Une erreur s'est glissé sur le site. Merci de retourner en page d'accueil</p>
+	</section>
 </body>
 
 <footer>
