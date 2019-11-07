@@ -76,24 +76,18 @@ function login()
         $profil = new User([
             'identifiant' => $_POST['identifiant']
         ]);
-// var_dump($profil); 
-// die();
+
         $profilAcount = new UserManager();
         $profilManager = $profilAcount->getConnect($profil);
-// var_dump($profilManager);  
-// die();
-// var_dump($profilAcount->getConnect($profil));
-// die();
-        $passwordCorrect = password_verify($_POST['password'], $profilManager->getPassword());
-// var_dump($passwordCorrect); 
-// die();
-        $_SESSION['flash']['danger'] = '';
 
-        if (!$profilManager) {
+        $_SESSION['flash']['danger'] = '';
+        if ($profilManager) {
+            $passwordCorrect = password_verify($_POST['password'], $profilManager->getPassword());
+        } else {
             $validation = false;
         }
 
-        if ($passwordCorrect === false) {
+        if (!$profilManager) {
             $validation = false;
         }
 

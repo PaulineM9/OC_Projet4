@@ -1,5 +1,4 @@
 <?php
-
 class UserManager extends Manager
 {
     private $_db;
@@ -43,9 +42,9 @@ class UserManager extends Manager
             'identifiant' => $profil->getIdentifiant()
         ]);
         $data = $req->fetch();
-
+        
         if ($data) {
-            return new User($data); 
+            return new User($data);    
         } else {
             return false;
         }
