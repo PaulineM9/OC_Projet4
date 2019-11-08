@@ -3,10 +3,14 @@ session_start();
 
 function AutoLoad($class)
 {
-  require 'models/' . $class . '.php'; 
+    $class = str_replace('\\', '/', $class);
+    $class = str_replace(__NAMESPACE__, strtolower(__NAMESPACE__), $class);
+    require $class . '.php'; 
 }
 spl_autoload_register('AutoLoad');
 
+// use \Oc\Projet_4\Controllers\frontend;
+// use \Oc\Projet_4\Controllers\backend;
 require("controllers/frontend.php");
 require("controllers/backend.php");
 
