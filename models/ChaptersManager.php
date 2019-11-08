@@ -2,22 +2,7 @@
 
 class ChaptersManager extends Manager
 {
-    private $_db;
-
-    public function __construct()
-    {
-        try
-        {
-            $this->_db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8', 'root', 'root',
-            array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-        }
-        catch(Exception $e)
-        {
-            die('erreur : '.$e->getMessage());
-        } 
-    }
-
-    public function get($id) 
+   public function get($id) 
     {
         $req = $this->_db->prepare('SELECT * FROM chapters WHERE id = ?');
         $req->execute([

@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 function AutoLoad($class)
 {
   require 'models/' . $class . '.php'; 
@@ -10,6 +11,7 @@ require("controllers/frontend.php");
 require("controllers/backend.php");
 
 
+
 if (isset($_GET['action'])) {
     if ($_GET['action'] == 'home') {
         home();
@@ -18,7 +20,7 @@ if (isset($_GET['action'])) {
     } elseif ($_GET['action'] == 'login') {
         login();
     } elseif ($_GET['action'] == 'admin') {
-        admin();
+        admin(); 
     } elseif ($_GET['action'] == 'admin_chapters') {
         admin_chapters();
     } elseif ($_GET['action'] == 'admin_comments') {

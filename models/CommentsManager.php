@@ -2,22 +2,6 @@
 
 class CommentsManager extends Manager
 {
-    private $_db;
-
-    public function __construct()
-    {
-        // $this->setDb($db);
-        try
-        {
-            $this->_db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8', 'root', 'root',
-            array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-        }
-        catch(Exception $e)
-        {
-            die('erreur : '.$e->getMessage());
-        } 
-    }
-
     public function getList() 
     {
         $list = [];

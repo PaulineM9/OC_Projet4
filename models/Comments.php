@@ -1,4 +1,5 @@
 <?php
+
 class Comments
 {
     private $_id,

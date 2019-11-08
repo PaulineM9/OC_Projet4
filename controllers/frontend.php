@@ -1,4 +1,5 @@
 <?php
+
 function home()
 {   
     $chapterManager = new ChaptersManager();
@@ -81,6 +82,7 @@ function login()
         $profilManager = $profilAcount->getConnect($profil);
 
         $_SESSION['flash']['danger'] = '';
+        
         if ($profilManager) {
             $passwordCorrect = password_verify($_POST['password'], $profilManager->getPassword());
         } else {
