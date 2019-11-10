@@ -11,7 +11,7 @@ class ChaptersManager extends Manager
         $req->execute([
             $id
         ]);
-        $chapter = $req->fetch(); // récupère les données et les stocke dans la variable $chapter sous forme de tableau clé / valeur qui récupère de la bdd
+        $chapter = $req->fetch(); 
         
         return new Chapters($chapter);  
     }
@@ -27,16 +27,15 @@ class ChaptersManager extends Manager
         {
             $list [] = new Chapters($data);
         }
-        // var_dump($list);  
         return $list;
     }
 
-    public function addChapter(Chapters $chapter) // la fonction addChapter() reçoit un objet 'Chapters' 
+    public function addChapter(Chapters $chapter) 
     {
         $req = $this->_db->prepare('INSERT INTO chapters (title, content) VALUES ( ?, ?)');
         $req->execute([
-            $chapter->getTitle(), // récupère le getter 'title'
-            $chapter->getContent(), // récupère le getter 'content'
+            $chapter->getTitle(), 
+            $chapter->getContent(), 
         ]);
     }
 

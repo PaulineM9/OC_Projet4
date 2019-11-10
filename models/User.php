@@ -8,16 +8,16 @@ class User
             $_email,
             $_password;
 
-    public function __construct(array $data) // il reçoit un tableau en argument
+    public function __construct(array $data) 
     {
-        $this->hydrate($data); // on envoie un tableau à la méthode hydrate()
+        $this->hydrate($data); 
     }
 
-    public function hydrate(array $data) // méthode qui envoie nos données stockées ds le tableau aux setters
+    public function hydrate(array $data) 
     {
-        if (isset($data['id'])) // vérifie que la donnée existe
+        if (isset($data['id'])) 
         {
-            $this->setId($data['id']); // si elle existe on envoie la données vers le setter qui prend en paramètre l'élément de la bd
+            $this->setId($data['id']); 
         }
 
         if (isset($data['identifiant']))
@@ -36,7 +36,7 @@ class User
         }
     }
 
-// GETTERS: Permet seulement de retourner la variable privée
+// GETTERS
     public function getId() 
     {
         return $this->_id;
@@ -58,12 +58,12 @@ class User
     }
 
 // SETTERS
-    public function setId($id) // le setter reçoit les infos de la function hydrate et envoie l'id à la variable privée $_id
+    public function setId($id) 
     {
         $id = (int)$id;
         if ($id > 0)
         {
-            $this->_id = $id; // la variable privée = l'élément selectionné
+            $this->_id = $id; 
         }
     }
 

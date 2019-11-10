@@ -4,7 +4,6 @@
 <head>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" href="../public/stylesheet.css" />
-	<!-- <link rel="icon" type="image/png" href=""/> -->
 	<title>Le blog de Jean Forteroche.</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
 	<link rel="icon" type="image/png" href="images/icons8-train-ticket-96.png" /><!-- favicon -->
@@ -53,7 +52,9 @@
 		<a href="index.php?action=login"><h3>Connexion<h3></a> 
 	</header>
 	<section>
-		<p>Oups. Une erreur s'est glissé sur le site. Merci de retourner en page d'accueil</p>
+		<?php if(isset($_SESSION)) { 
+			include('views/flashMessages.php');
+		} ?>
 	</section>
 </body>
 

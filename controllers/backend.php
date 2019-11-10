@@ -22,17 +22,17 @@ function admin_chapters()
     $sessionConnect = sessionConnect();
 
     // get a chapter and modifie it
-    $chapterManager = new ChaptersManager(); // on créé un nouvel objet et on lui passe la fonction get: objet qui contient des méyhodes
-    $chapter = $chapterManager->getList(); // $chapter devient alors un objet
+    $chapterManager = new ChaptersManager(); 
+    $chapter = $chapterManager->getList(); 
 
     // get all informations about new chapters 
-    if (isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['title']) && !empty($_POST['content'])) // condition pour s'assurer que $_POST n'est pas vide
-    {   // d'abord on créé un objet chapter et on renvoie des données
+    if (isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['title']) && !empty($_POST['content'])) 
+    {   
         $chapters = new Chapters([
             'title' => $_POST['title'],
             'content' => $_POST['content']
         ]);
-        $chapterManager->addChapter($chapters); // on appelle la focntion addChapter avec pour argument l'objet $chapter
+        $chapterManager->addChapter($chapters); 
 
         header('Location: index.php?action=admin_chapters');
         exit();
@@ -203,8 +203,8 @@ function update()
 {
     $sessionConnect = sessionConnect();
     // get chapter title and content 
-    $chapterManager = new ChaptersManager(); // on créé un nouvel objet et on lui passe la fonction get
-    $chapter = $chapterManager->get($_GET['id']); // $chapter devient alors un objet
+    $chapterManager = new ChaptersManager(); 
+    $chapter = $chapterManager->get($_GET['id']); 
 
     // add changes on a chapter
     if (isset($_POST['title']) or isset($_POST['content'])) {
