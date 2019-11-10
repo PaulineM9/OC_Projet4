@@ -1,6 +1,8 @@
 <?php
 namespace Models;
 
+use \PDO;
+
 class ChaptersManager extends Manager
 {
    public function get($id) 

@@ -1,6 +1,8 @@
 <?php 
 namespace Projet_4\Models;
 
+use \PDO;
+
 class CommentsManager extends Manager
 {
     public function getList() 
