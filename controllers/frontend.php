@@ -1,11 +1,10 @@
 <?php
-// namespace Oc\Projet_4\Controllers;
 
-use \Oc\Projet_4\Models\ChaptersManager;
-use \Oc\Projet_4\Models\Comments;
-use \Oc\Projet_4\Models\CommentsManager;
-use \Oc\Projet_4\Models\User;
-use \Oc\Projet_4\Models\UserManager;
+use \Models\ChaptersManager;
+use \Models\Comments;
+use \Models\CommentsManager;
+use \Models\User;
+use \Models\UserManager;
 
 function home()
 {   

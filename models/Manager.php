@@ -1,5 +1,7 @@
-<?php 
-namespace Oc\Projet_4\Models;
+<?php
+namespace Models;
+
+use \PDO;
 
 class Manager 
 {
@@ -7,7 +9,7 @@ class Manager
     {
         try
         {
-            $this->_db = new \PDO('mysql:host=localhost;dbname=projet_4;charset=utf8', 'root', 'root',
+            $this->_db = new PDO('mysql:host=localhost;dbname=projet_4;charset=utf8', 'root', 'root',
             array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
         }
         catch(Exception $e)

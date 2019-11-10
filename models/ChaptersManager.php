@@ -1,5 +1,5 @@
 <?php
-namespace Oc\Projet_4\Models;
+namespace Models;
 
 class ChaptersManager extends Manager
 {

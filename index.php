@@ -1,20 +1,19 @@
 <?php
+namespace Oc\projet_4;
+
 session_start();
 
 function AutoLoad($class)
 {
     $class = str_replace('\\', '/', $class);
     $class = str_replace(__NAMESPACE__, strtolower(__NAMESPACE__), $class);
+
     require $class . '.php'; 
 }
-spl_autoload_register('AutoLoad');
+spl_autoload_register('Oc\projet_4\Autoload');
 
-// use \Oc\Projet_4\Controllers\frontend;
-// use \Oc\Projet_4\Controllers\backend;
 require("controllers/frontend.php");
 require("controllers/backend.php");
-
-
 
 if (isset($_GET['action'])) {
     if ($_GET['action'] == 'home') {

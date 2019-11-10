@@ -1,5 +1,5 @@
 <?php 
-namespace Oc\Projet_4\Models;
+namespace Projet_4\Models;
 
 class User
 {
