@@ -3,7 +3,7 @@ namespace Oc\projet_4;
 
 session_start();
 
-function AutoLoad($class)
+function Autoload($class)
 {
     $class = str_replace('\\', '/', $class);
     $class = str_replace(__NAMESPACE__, strtolower(__NAMESPACE__), $class);
