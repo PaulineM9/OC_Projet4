@@ -8,7 +8,7 @@ function Autoload($class)
     $class = str_replace('\\', '/', $class);
     $class = str_replace(__NAMESPACE__, strtolower(__NAMESPACE__), $class);
 
-    require $class . '.php'; 
+    require 'projet_4/' . $class . '.php'; 
 }
 spl_autoload_register('Oc\projet_4\Autoload');
 
