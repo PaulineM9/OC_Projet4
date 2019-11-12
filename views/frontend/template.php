@@ -7,7 +7,7 @@
 	<!-- <link rel="icon" type="image/png" href=""/> -->
 	<title><?= $title ?></title>
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
-	<link rel="icon" type="image/png" href="./public/images/icons8-train-ticket-96.png" /><!-- favicon -->
+	<link rel="icon" type="image/png" href="./public/images/favicon.png" /><!-- favicon -->
 
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
@@ -59,7 +59,7 @@
 <footer>
 	<div class="footer_infos">
 		<div class="footer_icone">
-			<a href="index.php?action=home"><img src="./public/images/icons8-train-ticket-96.png" alt="icone_train" /></a>
+			<a href="index.php?action=home"><img src="./public/images/favicon.png" alt="icone_train" /></a>
 		</div>
 		<div class="contact">
 			<h1>Contact</h1>
