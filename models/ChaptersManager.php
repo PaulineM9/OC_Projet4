@@ -1,7 +1,4 @@
 <?php
-namespace Models;
-
-use \PDO;
 
 class ChaptersManager extends Manager
 {

@@ -1,12 +1,5 @@
 <?php
 
-use \Models\Chapters;
-use \Models\ChaptersManager;
-use \Models\Comments;
-use \Models\CommentsManager;
-use \Models\User;
-use \Models\UserManager;
-
 function admin()
 {
     $sessionConnect = sessionConnect();
@@ -27,7 +20,7 @@ function admin_chapters()
 
     // get all informations about new chapters 
     if (isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['title']) && !empty($_POST['content'])) 
-    {   
+    { 
         $chapters = new Chapters([
             'title' => $_POST['title'],
             'content' => $_POST['content']
@@ -186,8 +179,8 @@ function admin_profil()
             $profilAcount = new UserManager();
             $profilAcount->getChanges($profil);
 
-            $_SESSION['flash']['succes'] = $_SESSION['flash']['danger'] . "Vos informations personnelles ont bien été modifiées." . '<br/>';
-            $_SESSION['flash']['succes'] = $_SESSION['flash']['danger'] . 'Merci de vous reconnecter:' . '<a href="login.php" style="text-decoration: underline;">Nouvelle connexion</a>' . '<br/>';
+            $_SESSION['flash']['succes'] = $_SESSION['flash']['danger'] . "Vos informations personnelles ont bien été modifiées. " . '<br/>';
+            $_SESSION['flash']['succes'] = $_SESSION['flash']['danger'] . 'Merci de vous reconnecter:' . '<a href="index.php?action=login" style="text-decoration: underline;">Nouvelle connexion</a>' . '<br/>';
             unset($_SESSION['user']);
             session_destroy();
         }

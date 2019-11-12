@@ -4,9 +4,10 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="public/stylesheet.css" />
+    <!-- <link rel="icon" type="image/png" href=""/> -->
     <title>Le blog de Jean Forteroche</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="icon" type="image/png" href="images/icons8-train-ticket-96.png" /><!-- favicon -->
+    <link rel="icon" type="image/png" href="./public/images/icons8-train-ticket-96.png" /><!-- favicon -->
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
@@ -48,7 +49,7 @@
 
 <body>
     <div class="inscription_title">
-        <a class="accueil" href="index.php?action=home"><img src="public/images/icons8-train-ticket-96.png" alt="icone_train" /></a>
+        <a class="accueil" href="index.php?action=home"><img src="./public/images/icons8-train-ticket-96.png" alt="icone_train" /></a>
         <h1>INSCRIPTION ADMINISTRATEUR</h1>
     </div>
     <div class="inscription_form">

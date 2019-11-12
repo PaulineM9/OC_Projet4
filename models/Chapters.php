@@ -1,5 +1,4 @@
 <?php
-namespace Models;
 
 class Chapters 
 {
@@ -28,7 +27,7 @@ class Chapters
         }
     }
 
-// GETTERS
+// GETTERS: 
     public function getId() 
     {
         return $this->_id;

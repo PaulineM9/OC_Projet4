@@ -1,5 +1,4 @@
 <?php
-namespace Models;
 
 class Comments
 {
@@ -43,7 +42,7 @@ class Comments
         }
     }
 
-// GETTERS
+// GETTERS: 
     public function getId() 
     {
         return $this->_id;

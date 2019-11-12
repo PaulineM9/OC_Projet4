@@ -1,5 +1,4 @@
 <?php 
-namespace Models;
 
 class User
 {
@@ -36,7 +35,7 @@ class User
         }
     }
 
-// GETTERS
+// GETTERS: 
     public function getId() 
     {
         return $this->_id;

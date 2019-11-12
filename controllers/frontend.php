@@ -1,11 +1,5 @@
 <?php
 
-use \Models\ChaptersManager;
-use \Models\Comments;
-use \Models\CommentsManager;
-use \Models\User;
-use \Models\UserManager;
-
 function home()
 {   
     $chapterManager = new ChaptersManager();
@@ -37,11 +31,11 @@ function home()
 function chapter()
 {
     // get all informations about chapters 
-    $chapterManager = new ChaptersManager(); // on créé un nouvel objet et on lui passe la fonction get
-    $chapter = $chapterManager->get($_GET['id']); // $chapter devient alors un objet
+    $chapterManager = new ChaptersManager(); 
+    $chapter = $chapterManager->get($_GET['id']); 
 
     // create a comment
-    if (isset($_POST['pseudo']) && isset($_POST['comment']) && !empty($_POST['pseudo']) && !empty($_POST['comment'])) // condition pour s'assurer que $_POST n'est pas vide
+    if (isset($_POST['pseudo']) && isset($_POST['comment']) && !empty($_POST['pseudo']) && !empty($_POST['comment'])) 
     {
         $comment = new Comments([
             $_GET['id'],

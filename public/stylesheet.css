@@ -155,7 +155,7 @@ footer {
 .index_title  {
 	display: flex;
 	flex-direction: column;
-	background-image: url("/projet_4/public/images/train-668964_1920.jpg");
+	background-image: url("/public/images/train-668964_1920.jpg");
 	background-size: cover;
 	text-align: center;
 	height: 780px;
@@ -192,7 +192,7 @@ footer {
 
 /*----- CHAPTER.PHP PAGE -----*/
 .chapters_header {
-	background-image: url("/projet_4/public/images/alaska-2964658_1920.jpg");
+	background-image: url("/public/images/alaska-2964658_1920.jpg");
 	background-size: cover;
 	display: flex;
 	flex-direction: column;
@@ -577,7 +577,7 @@ footer {
 
 /*----- LOGIN PAGE -----*/
 .connexion_header {
-	background-image: url('/projet_4/public/images/landscape-1622739_1920.jpg');
+	background-image: url('/public/images/landscape-1622739_1920.jpg');
 	background-size: cover;
 	display: flex;
 	flex-direction: column;

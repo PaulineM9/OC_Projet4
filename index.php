@@ -1,16 +1,17 @@
 <?php
-namespace Oc\projet_4;
+// namespace Oc\projet_4;
 
 session_start();
 
 function Autoload($class)
 {
-    $class = str_replace('\\', '/', $class);
-    $class = str_replace(__NAMESPACE__, strtolower(__NAMESPACE__), $class);
+    // $class = str_replace('\\', '/', $class);
+    // $class = str_replace(__NAMESPACE__, strtolower(__NAMESPACE__), $class);
 
-    require 'projet_4/' . $class . '.php'; 
+    require 'models/' . $class . '.php'; 
 }
-spl_autoload_register('Oc\projet_4\Autoload');
+// spl_autoload_register('Oc\projet_4\Autoload');
+spl_autoload_register('Autoload');
 
 require("controllers/frontend.php");
 require("controllers/backend.php");

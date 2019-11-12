@@ -1,7 +1,4 @@
 <?php 
-namespace Models;
-
-use \PDO;
 
 class CommentsManager extends Manager
 {
@@ -9,7 +6,7 @@ class CommentsManager extends Manager
     {
         $list = [];
 
-        $req = $this->_db->prepare('SELECT id_chapter, pseudo, comment, date_comment, DATE_FORMAT (date_comment, "%d/%m/%Y à %Hh%imin%ss") AS date_creation_comment FROM comments ORDER BY date_comment DESC');
+        $req = $this->_db->prepare('SELECT id_chapter, pseudo, comment, date_comment FROM comments ORDER BY date_comment DESC');
         $req->execute();
 
         $req_join = $this->_db->prepare('SELECT * FROM chapters, comments WHERE chapters.id=comments.id_chapter ORDER BY date_comment DESC');
@@ -55,7 +52,7 @@ class CommentsManager extends Manager
     {
         $list = [];
 
-        $req = $this->_db->prepare('SELECT id_chapter, pseudo, comment, date_comment, DATE_FORMAT (date_comment, "%d/%m/%Y à %Hh%imin%ss") AS date_creation_comment FROM comments WHERE signaled = 1 ORDER BY date_comment DESC');
+        $req = $this->_db->prepare('SELECT id_chapter, pseudo, comment, date_comment FROM comments WHERE signaled = 1 ORDER BY date_comment DESC');
         $req->execute();
 
         $req_join = $this->_db->prepare('SELECT * FROM chapters, comments WHERE chapters.id=comments.id_chapter AND signaled = 1 ORDER BY date_comment DESC');
@@ -75,7 +72,7 @@ class CommentsManager extends Manager
     {
         $list = [];
 
-        $req = $this->_db->prepare('SELECT id, pseudo, comment, date_comment, signaled, DATE_FORMAT (date_comment, "%d/%m/%Y à %Hh%imin%ss") AS date_creation_comment FROM comments WHERE id_chapter= ? ORDER BY date_comment DESC LIMIT 0, 5');
+        $req = $this->_db->prepare('SELECT id, pseudo, comment, date_comment, signaled FROM comments WHERE id_chapter= ? ORDER BY date_comment DESC LIMIT 0, 5');
         $req->execute(array(
             $_GET['id']
         ));
